@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#70000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/topDisplayGroup" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+        <TextView android:textAppearance="?textAppearanceMedium" android:gravity="center" android:id="@id/headerText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/keyguard_password_enter_pin_code" android:singleLine="true" />
+        <TextView android:textAppearance="?textAppearanceMedium" android:ellipsize="marquee" android:gravity="center" android:id="@id/carrier" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:layout_marginRight="6.0dip">
+            <TextView android:textStyle="bold" android:id="@id/pukDisplay" android:layout_width="0.0dip" android:layout_height="wrap_content" android:hint="@string/keyguard_password_enter_puk_prompt" android:maxLines="1" android:layout_weight="1.0" android:inputType="textPassword" />
+            <ImageButton android:id="@id/pukDel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="-3.0dip" android:layout_marginBottom="-3.0dip" android:src="@drawable/ic_input_delete" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/edit_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:layout_marginRight="6.0dip">
+            <TextView android:textStyle="bold" android:id="@id/pinDisplay" android:layout_width="0.0dip" android:layout_height="wrap_content" android:hint="@string/keyguard_password_enter_pin_prompt" android:maxLines="1" android:layout_weight="1.0" android:inputType="textPassword" />
+            <ImageButton android:id="@id/pinDel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="-3.0dip" android:layout_marginBottom="-3.0dip" android:src="@drawable/ic_input_delete" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/okCancelButtons" android:layout_width="310.0dip" android:layout_height="wrap_content" android:layout_marginTop="55.0dip" android:layout_below="@id/topDisplayGroup" android:layout_centerHorizontal="true">
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <Button android:id="@id/ok" android:layout_width="148.0dip" android:layout_height="55.0dip" android:text="@string/ok" style="@style/SEMCWidget.Button" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <Button android:id="@id/emergencyCallButton" android:layout_width="wrap_content" android:layout_height="55.0dip" android:text="@string/lockscreen_strings_backup_question_emergency_button_txt" style="@style/SEMCWidget.Button" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
