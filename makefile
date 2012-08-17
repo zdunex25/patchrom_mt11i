@@ -74,7 +74,7 @@ local-zip-misc:
 	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
 	
 	@echo prepare fixes
-#	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
+	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
 	cp other/NetworkLocation.apk $(ZIP_DIR)/system/app/NetworkLocation.apk
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
 
