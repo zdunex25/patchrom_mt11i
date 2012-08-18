@@ -28,49 +28,49 @@
         launcher:className="com.android.browser.BrowserActivity"
         launcher:screen="1"
         launcher:x="0"
-        launcher:y="2" />
+        launcher:y="3" />
 <favorite
         launcher:packageName="com.android.fileexplorer"
         launcher:className="com.android.fileexplorer.FileExplorerTabActivity"
         launcher:screen="1"
         launcher:x="1"
-        launcher:y="2" />
+        launcher:y="3" />
 <favorite
         launcher:packageName="com.sonyericsson.fmradio"
         launcher:className="com.sonyericsson.fmradio.FMRadioActivity"
         launcher:screen="1"
         launcher:x="2"
-        launcher:y="2" />
+        launcher:y="3" />
 <favorite
         launcher:packageName="com.miui.gallery"
         launcher:className="com.miui.gallery.app.Gallery"
         launcher:screen="1"
         launcher:x="3"
-        launcher:y="2" />
+        launcher:y="3" />
 <favorite
         launcher:packageName="com.android.contacts"
         launcher:className="com.android.contacts.activities.PeopleActivity"
         launcher:screen="1"
         launcher:x="0"
-        launcher:y="3" />
+        launcher:y="4" />
 <favorite
         launcher:packageName="com.miui.backup"
         launcher:className="com.miui.backup.BackupActivity"
         launcher:screen="1"
         launcher:x="1"
-        launcher:y="3" />
+        launcher:y="4" />
 <favorite
         launcher:packageName="com.android.settings"
         launcher:className="com.android.settings.MiuiSettings"
         launcher:screen="1"
         launcher:x="2"
-        launcher:y="3" />
+        launcher:y="4" />
 <favorite
         launcher:packageName="com.android.thememanager"
         launcher:className="com.android.thememanager.ThemeResourceTabActivity"
         launcher:screen="1"
         launcher:x="3"
-        launcher:y="3" />
+        launcher:y="4" />
 <favorite
         launcher:packageName="com.android.updater"
         launcher:className="com.android.updater.MainActivity"
