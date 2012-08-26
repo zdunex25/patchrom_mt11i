@@ -168,6 +168,7 @@ name="VisualizationWallpapers.apk" certificate="build/target/product/security/sh
 name="VoiceDialer.apk" certificate="PRESIGNED" private_key=""
 name="VoiceSearch.apk" certificate="PRESIGNED" private_key=""
 name="VoipCallLogProvider.apk" certificate="PRESIGNED" private_key=""
+name="VpnDialogs.apk" certificate="PRESIGNED" private_key=""
 name="WallpaperPicker.apk" certificate="PRESIGNED" private_key=""
 name="WapiCustomization.apk" certificate="PRESIGNED" private_key=""
 name="WapPush.apk" certificate="PRESIGNED" private_key=""

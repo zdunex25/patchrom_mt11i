@@ -1,18 +1,18 @@
 ##### Merging of the /util/data/semc_kernel_time_stamp.prop file #####
-ro.build.date=Tue Apr 24 11:57:09 2012
-ro.build.date.utc=1335261429
+ro.build.date=Wed Jul 4 12:32:24 2012
+ro.build.date.utc=1341397944
 ro.build.user=BuildUser
 ro.build.host=BuildHost
 
 ##### Final patch of properties #####
 ro.build.product=MT11i
-ro.build.description=MT11i-user 4.0.4 4.1.B.0.431 UL5_3w test-keys
+ro.build.description=MT11i-user 4.0.4 4.1.B.0.587 UL5_3w test-keys
 
 ro.product.brand=SEMC
 ro.product.name=MT11i_1255-1494
 ro.product.device=MT11i
 ro.build.tags=release-keys
-ro.build.fingerprint=SEMC/MT11i_1255-1494/MT11i:4.0.4/4.1.B.0.431/UL5_3w:user/release-keys
+ro.build.fingerprint=SEMC/MT11i_1255-1494/MT11i:4.0.4/4.1.B.0.587/UL5_3w:user/release-keys
 
 
 ######################## Customized property values #########################
@@ -38,9 +38,9 @@ ro.config.sms_received_sound=FadeIn.ogg
 ro.config.sms_delivered_sound=MessageComplete.ogg
 
 ################# Updating of the SW Version #################
-ro.semc.version.fs_revision=4.1.B.0.431
-ro.build.id=4.1.B.0.431
-ro.build.display.id=4.1.B.0.431
+ro.semc.version.fs_revision=4.1.B.0.587
+ro.build.id=4.1.B.0.587
+ro.build.display.id=4.1.B.0.587
 
 ##### Values from product package metadata #####
 ro.semc.product.model=MT11i

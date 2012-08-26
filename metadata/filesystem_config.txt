@@ -168,6 +168,7 @@ system/app/VisualizationWallpapers.apk 0 0 644
 system/app/VoiceDialer.apk 0 0 644
 system/app/VoiceSearch.apk 0 0 644
 system/app/VoipCallLogProvider.apk 0 0 644
+system/app/VpnDialogs.apk 0 0 644
 system/app/WallpaperPicker.apk 0 0 644
 system/app/WapiCustomization.apk 0 0 644
 system/app/WapPush.apk 0 0 644
@@ -330,6 +331,7 @@ system/bin/wifi_load.sh 0 2000 755
 system/bin/wipe 0 2000 755
 system/bin/wlan_calibrator 0 2000 755
 system/bin/wpa_supplicant 0 2000 755
+system/bin/zram_start.sh 0 2000 755
 system/build.prop 0 0 644
 system/etc 0 0 755
 system/etc/apns-conf.xml 0 0 644
@@ -441,8 +443,10 @@ system/etc/firmware/ti-connectivity/wl1271-fw-multirole-roc.bin 0 0 644
 system/etc/firmware/ti-connectivity/wl1271-nvs.bin 0 0 600
 system/etc/firmware/TIInit_7.5.20.bts 0 0 644
 system/etc/firmware/TIInit_7.6.15.bts 0 0 644
-system/etc/firmware/touch_hallon_hitachi.hex 0 0 644
-system/etc/firmware/touch_hallon_sony.hex 0 0 644
+system/etc/firmware/touch_anzu_sharp_type1.hex 0 0 644
+system/etc/firmware/touch_anzu_sharp_type2.hex 0 0 644
+system/etc/firmware/touch_anzu_sony_type1.hex 0 0 644
+system/etc/firmware/touch_anzu_sony_type2.hex 0 0 644
 system/etc/firmware/vidc_720p_command_control.fw 0 0 644
 system/etc/firmware/vidc_720p_h263_dec_mc.fw 0 0 644
 system/etc/firmware/vidc_720p_h264_dec_mc.fw 0 0 644
@@ -1196,6 +1200,7 @@ system/usr/semc/camera/KMO05BN0.dat 0 0 644
 system/usr/semc/camera/KMO05BN0_BH6476.dat 0 0 644
 system/usr/semc/camera/KMO05BN0_IMX072.dat 0 0 644
 system/usr/semc/camera/LM3560_00_flash.dat 0 0 644
+system/usr/semc/camera/LM3560_04_flash.dat 0 0 644
 system/usr/semc/camera/STW05BN0.dat 0 0 644
 system/usr/semc/camera/STW05BN0_BH6476.dat 0 0 644
 system/usr/semc/camera/STW05BN0_IMX072.dat 0 0 644
