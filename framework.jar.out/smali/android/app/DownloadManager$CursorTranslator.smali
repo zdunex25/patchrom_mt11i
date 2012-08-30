@@ -164,7 +164,6 @@
 
     :sswitch_data_0
     .sparse-switch
-        0xc6 -> :sswitch_4
         0xc7 -> :sswitch_5
         0x1e8 -> :sswitch_7
         0x1e9 -> :sswitch_6
@@ -174,6 +173,7 @@
         0x1ef -> :sswitch_2
         0x1f1 -> :sswitch_3
         0x1f2 -> :sswitch_8
+        0x1f3 -> :sswitch_4
     .end sparse-switch
 .end method
 

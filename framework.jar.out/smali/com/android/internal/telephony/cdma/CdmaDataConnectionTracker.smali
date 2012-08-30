@@ -3353,16 +3353,13 @@
 
     if-eqz v3, :cond_1
 
-    .line 702
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->notifyFirewallDataSetupComplete()V
     
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->notifyDefaultData(Ljava/lang/String;)V
 
-    .line 724
     :goto_0
     return-void
 
-    .line 704
     :cond_1
     iget-object v3, p1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 

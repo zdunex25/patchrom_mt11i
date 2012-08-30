@@ -3,7 +3,7 @@
 #
 
 # The original zip file, MUST be specified by each product
-local-zip-file     := MT11i_4.1.B.0.587.zip
+local-zip-file     := stockrom.zip
 
 # The output zip file of MIUI rom, the default is porting_miui.zip if not specified
 #local-out-zip-file := MIUI_mt11i.zip
@@ -66,23 +66,16 @@ local-zip-misc:
 	@echo Replace build.prop
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
 	cp other/MT11iSettings.apk $(ZIP_DIR)/system/app/MT11iSettings.apk
-	rm $(ZIP_DIR)/system/bin/su
-	cp other/handle_device_name.sh $(ZIP_DIR)/system/bin/
+	rm -rf $(ZIP_DIR)/system/bin/su
 	
 	@echo update bootanimation
-	rm $(ZIP_DIR)/system/bin/bootanimation
+	rm -rf $(ZIP_DIR)/system/bin/bootanimation
 	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
 	
 	@echo prepare fixes
 	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
 	cp other/NetworkLocation.apk $(ZIP_DIR)/system/app/NetworkLocation.apk
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
-	cp other/587/CustomizedSettings.apk $(ZIP_DIR)/system/app/CustomizedSettings.apk
-	cp other/587/SemcCamera3D.apk $(ZIP_DIR)/system/app/SemcCamera3D.apk
-	cp other/587/android.policy.jar $(ZIP_DIR)/system/framework/android.policy.jar
-	cp other/587/framework.jar $(ZIP_DIR)/system/framework/framework.jar
-	cp other/587/framework-res.apk $(ZIP_DIR)/system/framework/framework-res.apk
-	cp other/587/services.jar $(ZIP_DIR)/system/framework/services.jar
 
 local-test:
 	echo "an example action"

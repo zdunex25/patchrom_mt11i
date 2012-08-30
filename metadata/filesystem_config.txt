@@ -1053,6 +1053,7 @@ system/lib/modules/drivers/net/wireless 0 0 755
 system/lib/modules/drivers/net/wireless/wl12xx 0 0 755
 system/lib/modules/drivers/net/wireless/wl12xx/wl12xx.ko 0 0 644
 system/lib/modules/drivers/net/wireless/wl12xx/wl12xx_sdio.ko 0 0 644
+system/lib/modules/modules.dep.bb 0 0 644
 system/lib/modules/net 0 0 755
 system/lib/modules/net/mac80211 0 0 755
 system/lib/modules/net/mac80211/mac80211.ko 0 0 644
