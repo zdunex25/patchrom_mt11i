@@ -15,7 +15,7 @@ local-modified-jars := #HTCExtension
 
 local-miui-modified-apps := MiuiHome Mms Settings Phone MiuiGallery Updater ThemeManager #TelephonyProvider MiuiSystemUI
 
-local-miui-removed-apps  := MediaProvider QuickSearchBox LatinIME LBESEC_MIUI NetworkLocation SuperMarket BugReport
+local-miui-removed-apps  := MediaProvider LatinIME LBESEC_MIUI NetworkLocation SuperMarket BugReport
 
 # All apps need to be removed from original ZIP file
 local-remove-apps   := AdobeFlashPlayer Conversations datatrafficswitch DigitalClockWidget \
@@ -74,6 +74,44 @@ local-zip-misc:
 	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
 	cp other/NetworkLocation.apk $(ZIP_DIR)/system/app/NetworkLocation.apk
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
-
+	
+	@echo remove gapps
+	rm -rf $(ZIP_DIR)/system/app/ChromeBookmarksSyncAdapter.apk
+	rm -rf $(ZIP_DIR)/system/app/GenieWidget.apk
+	rm -rf $(ZIP_DIR)/system/app/Gmail.apk
+	rm -rf $(ZIP_DIR)/system/app/GMS_Maps.apk
+	rm -rf $(ZIP_DIR)/system/app/GoogleBackupTransport.apk
+	rm -rf $(ZIP_DIR)/system/app/GoogleCalendarSyncAdapter.apk
+	rm -rf $(ZIP_DIR)/system/app/GoogleContactsSyncAdapter.apk
+	rm -rf $(ZIP_DIR)/system/app/GoogleFeedback.apk
+	rm -rf $(ZIP_DIR)/system/app/GoogleLoginService.apk
+	rm -rf $(ZIP_DIR)/system/app/GoogleLyricsPlugin.apk
+	rm -rf $(ZIP_DIR)/system/app/GooglePartnerSetup.apk
+	rm -rf $(ZIP_DIR)/system/app/GoogleQuickSearchBox.apk
+	rm -rf $(ZIP_DIR)/system/app/GoogleServicesFramework.apk
+	rm -rf $(ZIP_DIR)/system/app/MediaUploader.apk
+	rm -rf $(ZIP_DIR)/system/app/NetworkLocation.apk
+	rm -rf $(ZIP_DIR)/system/app/OneTimeInitializer.apk
+	rm -rf $(ZIP_DIR)/system/app/SetupWizard.apk
+	rm -rf $(ZIP_DIR)/system/app/Talk.apk
+	rm -rf $(ZIP_DIR)/system/app/VoiceSearch.apk
+	rm -rf $(ZIP_DIR)/system/app/YouTube.apk
+	rm -rf $(ZIP_DIR)/system/etc/permissions/com.google.android.maps.xml
+	rm -rf $(ZIP_DIR)/system/etc/permissions/com.google.android.media.effects.xml
+	rm -rf $(ZIP_DIR)/system/etc/permissions/com.google.widevine.software.drm.xml
+	rm -rf $(ZIP_DIR)/system/etc/framework/com.google.android.maps.jar
+	rm -rf $(ZIP_DIR)/system/etc/framework/com.google.android.media.effects.jar
+	rm -rf $(ZIP_DIR)/system/etc/framework/com.google.widevine.software.drm.jar
+	rm -rf $(ZIP_DIR)/system/lib/libfacelock_jni.so
+	rm -rf $(ZIP_DIR)/system/lib/libfilterpack_facedetect.so
+	rm -rf $(ZIP_DIR)/system/lib/libflint_engine_jni_api.so
+	rm -rf $(ZIP_DIR)/system/lib/libfrsdk.so
+	rm -rf $(ZIP_DIR)/system/lib/libgcomm_jni.so
+	rm -rf $(ZIP_DIR)/system/lib/libpicowrapper.so
+	rm -rf $(ZIP_DIR)/system/lib/libspeexwrapper.so
+	rm -rf $(ZIP_DIR)/system/lib/libvideochat_jni.so
+	rm -rf $(ZIP_DIR)/system/lib/libvideochat_stabilize.so
+	rm -rf $(ZIP_DIR)/system/lib/libvoicesearch.so
+	
 local-test:
 	echo "an example action"
