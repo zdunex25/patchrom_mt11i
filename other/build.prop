@@ -6,24 +6,22 @@ ro.build.host=BuildHost
 
 ##### Final patch of properties #####
 ro.build.product=MT11i
-ro.build.description=MT11i-user 4.0.4 4.1.B.0.587 UL5_3w test-keys
+ro.build.description=MT11i-user 4.0.4 4.1.B.0.587 tL1_3w test-keys
 
 ro.product.brand=SEMC
-ro.product.name=MT11i_1255-1494
+ro.product.name=MT11i_1255-1755
 ro.product.device=MT11i
 ro.build.tags=release-keys
-ro.build.fingerprint=SEMC/MT11i_1255-1494/MT11i:4.0.4/4.1.B.0.587/UL5_3w:user/release-keys
+ro.build.fingerprint=SEMC/MT11i_1255-1755/MT11i:4.0.4/4.1.B.0.587/tL1_3w:user/release-keys
 
 
 ######################## Customized property values #########################
       
-ro.semc.version.cust=1255-1494
+ro.semc.version.cust=1255-1755
 ro.semc.version.cust_revision=R1I
-ro.sqlite.max_digits_match=10
-ro.product.locale.excluded=mk_MK ar_EG ar_IL fa_IR iw_IL
-persist.ro.ril.sms_sync_sending=1
 
 #########################################################################
+
 
 #################### Set usb mode #########################################
 persist.sys.usb.config=mass_storage,adb     
@@ -33,9 +31,9 @@ persist.sys.usb.config=mass_storage,adb
 ro.config.ringtone=MI.ogg
 ro.config.notification_sound=FadeIn.ogg
 ro.config.alarm_alert=GoodMorning.ogg
-ro.semc.content.number=PA3
 ro.config.sms_received_sound=FadeIn.ogg
 ro.config.sms_delivered_sound=MessageComplete.ogg
+ro.semc.content.number=PA3
 
 ################# Updating of the SW Version #################
 ro.semc.version.fs_revision=4.1.B.0.587
@@ -63,7 +61,6 @@ ro.product.cpu.abi2=armeabi
 ro.product.manufacturer=Sony Ericsson
 ro.product.locale.language=en
 ro.product.locale.region=GB
-persist.sys.timezone=Europe/Berlin
 ro.wifi.channels=
 ro.board.platform=msm7x30
 # ro.build.product is obsolete; use ro.product.device
@@ -92,12 +89,13 @@ DEVICE_PROVISIONED=1
 
 wifi.interface = wlan0
 ro.semc.wifi.hostapd=1
-wifi.supplicant_scan_interval=60
 
-ro.semc.timescape_keys=Sony_Ericsson_Xperia
 
 ro.semc.sols.product-code=90
+ro.semc.timescape_keys=Sony_Ericsson_Xperia
+
 ro.semc.sols.company-code=5
+persist.ro.ril.sms_sync_sending=1
 ro.use_data_netmgrd=true
 
 # Disable strict mode checking
@@ -112,6 +110,7 @@ ro.service.swiqi.supported=true
 persist.service.swiqi.enable=1
 
 #Default values/Locales for the hiding languages feature
+ro.product.locale.excluded=ar_EG ar_IL fa_IR iw_IL
 
 
 #
@@ -119,7 +118,7 @@ persist.service.swiqi.enable=1
 #
 ro.product-res-path=framework/SemcGenericUxpRes.apk
 ro.setupwizard.mode=DISABLED
-ro.com.google.gmsversion=4.0_r1
+ro.com.google.gmsversion=4.0_r2
 ro.com.google.clientidbase=android-sonyericsson
 drm.service.enabled=true
 keyguard.no_require_sim=true
