@@ -21,7 +21,7 @@ local-miui-removed-apps  := MediaProvider QuickSearchBox LatinIME LBESEC_MIUI Ne
 local-remove-apps   := AdobeFlashPlayer Conversations datatrafficswitch DigitalClockWidget \
 	EventStream EventStreamPluginCallLog EventStreamPluginFacebook EventStreamPluginTelephony \
 	EventStreamPluginTwitter FBIAppShare FBMediaDiscovery FBSetupwizard FBCalendarSync \
-	FBMusicLike FBNotificationPublisher JapaneseIME livewaremanager \
+	FBMusicLike FBNotificationPublisher JapaneseIME livewaremanager FaceLock \
 	MagicSmokeWallpapers MediaWidget MusicWidget officesuite PhotoWidget playnowclientarvato \
 	POBoxSknPink POBoxSknWood PostViewer retaildemo SemcDeskClock SemcDlna SEMCFacebookProxy \
 	SemcVideoEdit StatusSwitch storefront SyncWizard TimescapeRssPlugin TimescapeSpline \
@@ -30,13 +30,10 @@ local-remove-apps   := AdobeFlashPlayer Conversations datatrafficswitch DigitalC
 	YouTubeKaraokePlugin YouTubePlugin facebook SemcTelephonyProvider SemcContactsProvider \
 	LocalContacts SimContacts Phonebook SemcMusic SemcCalendar SemcGallery3D UpdateCenter \
 	SEMCSetupWizard PhaseBeam OmaDatasyncService Home Galaxy4 NoiseField SystemUI InfiniteView \
-	Gallery2 SemcSettings OemCryptoReceiver Videos chinesetextinput Street \
-	antradioservice AppEnabler widgettimer  widgetanalogclock adobereader \
-	antstatenotifer PMSserviceTrigger neoreader \
-	widgetworldclock  widgetcalendar  \
-	SemcPhone enhancedusbux \
-	AddWidget CdfInfoAccessor DefaultThemes DrmDialogs FastDormancy \
-	HoloSpiralWallpaper LearningClient Protips \
+	Gallery2 SemcSettings OemCryptoReceiver Videos chinesetextinput Street antradioservice AppEnabler \
+	widgettimer widgetanalogclock adobereader antstatenotifer PMSserviceTrigger widgetworldclock \
+	widgetcalendar SemcPhone enhancedusbux AddWidget CdfInfoAccessor DefaultThemes DrmDialogs \
+	FastDormancy HoloSpiralWallpaper LearningClient Protips \
 	ReadyToRun SecureClockJava SemcCnapProvider SemcCrashMonitor SemcEmail \
 	SemcSnpPlatformUtil SemcSnpVideoPlayer ShutDownAnimation SmartSearch SoundPicker \
 	Sync talkback UnsupportedHeadsetNotifier VerifyCertificatesDummyAppApplication \

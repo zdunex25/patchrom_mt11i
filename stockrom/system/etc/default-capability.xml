@@ -4,11 +4,11 @@
   <Revision-version>4.0.2</Revision-version>
   <device>
   <identification>
-    <model>LT18i</model>
-    <marketingname>Xperia&#8482; arc S (LT18)</marketingname>
+    <model>MT11i</model>
+    <marketingname>Xperia&#8482; neo V (MT11)</marketingname>
     <vendor>Sony Ericsson</vendor>
     <brand>Xperia</brand>
-	<typeID>AAD-3880097-AV</typeID>
+	<typeID>AAD-3880100-AV</typeID>
   </identification>
   <storage>
     <type>CARD</type>
@@ -190,7 +190,7 @@
       <camera>\DCIM\</camera>
       <image>\picture\</image>
       <video>\video\</video>
-	<marlin-license-store>\MLN_ROOT\LICENSE</marlin-license-store>
+      <marlin-license-store>\MLN_ROOT\LICENSE</marlin-license-store>
         <videosources>
         </videosources>
       <sound>\music\</sound>
@@ -209,7 +209,7 @@
     <marlin msc-only="true">true</marlin>
   </drm>
   <sensme>
-    <available>false</available>
+    <available>true</available>
   </sensme>
   <albumart>
     <displaysize unit="pixels">
@@ -222,7 +222,7 @@
   <DLNA available="false"/>
   <MTP available="true" version="1.0"/>
   <associated-stores>
-  <psn>true</psn>
+    <psn>true</psn>
   </associated-stores>
   <software>
     <semcboot>

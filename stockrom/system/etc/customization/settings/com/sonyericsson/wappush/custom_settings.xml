@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<settings version="1001">
-   <setting key="accept-wap-push" runtime="true">true</setting>
-   <setting key="accept-wap-push-visibility" runtime="false">true</setting>
-</settings>

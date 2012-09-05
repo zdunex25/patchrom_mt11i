@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <settings version="1001">
    <groups type="bookmark">
+      <group id="1">
+         <setting key="title" runtime="true">Aftonbladet.se</setting>
+         <setting key="url" runtime="true">http://mobil.aftonbladet.se/partner/se</setting>
+      </group>
+      <group id="2">
+         <setting key="title" runtime="true">Startsiden.no</setting>
+         <setting key="url" runtime="true">http://mobil.startsiden.no/</setting>
+      </group>
+      <group id="3">
+         <setting key="title" runtime="true">SVT.se</setting>
+         <setting key="url" runtime="true">http://mobil.svt.se/</setting>
+      </group>
+      <group id="4">
+         <setting key="title" runtime="true">TV2.dk</setting>
+         <setting key="url" runtime="true">http://mobil.tv2.dk/</setting>
+      </group>
+      <group id="5">
+         <setting key="title" runtime="true">VG.no</setting>
+         <setting key="url" runtime="true">http://mobil.vg.no/</setting>
+      </group>
+      <group id="6">
+         <setting key="title" runtime="true">DR.dk</setting>
+         <setting key="url" runtime="true">http://mobil.dr.dk/</setting>
+      </group>
       <group id="100">
          <setting key="title" runtime="true">Google</setting>
          <setting key="url" runtime="true">http://www.google.com/m?client=ms-android-sonyericsson&amp;channel=bm</setting>
