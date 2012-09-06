@@ -72,7 +72,8 @@ local-zip-misc:
 	
 	@echo prepare fixes
 	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
-	cp other/NetworkLocation.apk $(ZIP_DIR)/system/app/NetworkLocation.apk
+#	cp other/NetworkLocation.apk $(ZIP_DIR)/system/app/NetworkLocation.apk
+	cp other/RAMOptimizationFree.apk $(ZIP_DIR)/system/app/RAMOptimizationFree.apk
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
 	
 	@echo remove gapps
@@ -92,6 +93,7 @@ local-zip-misc:
 	rm -rf $(ZIP_DIR)/system/app/MediaUploader.apk
 	rm -rf $(ZIP_DIR)/system/app/NetworkLocation.apk
 	rm -rf $(ZIP_DIR)/system/app/OneTimeInitializer.apk
+	rm -rf $(ZIP_DIR)/system/app/Phonesky.apk
 	rm -rf $(ZIP_DIR)/system/app/SetupWizard.apk
 	rm -rf $(ZIP_DIR)/system/app/Talk.apk
 	rm -rf $(ZIP_DIR)/system/app/VoiceSearch.apk
