@@ -12,7 +12,6 @@
     value = {
         Lcom/android/server/PowerManagerService$LockList;,
         Lcom/android/server/PowerManagerService$BrightnessState;,
-        Lcom/android/server/PowerManagerService$SendReleaseProximitySensorBroadCast;,
         Lcom/android/server/PowerManagerService$TimeoutTask;,
         Lcom/android/server/PowerManagerService$PokeLock;,
         Lcom/android/server/PowerManagerService$WakeLock;,
@@ -326,8 +325,6 @@
 
 .field private mWarningSpewThrottleTime:J
 
-.field private mReleaseProximitySensorRunnable:Ljava/lang/Runnable;
-
 
 # direct methods
 .method constructor <init>()V
@@ -516,12 +513,6 @@
     invoke-direct {v2, p0}, Lcom/android/server/PowerManagerService$8;-><init>(Lcom/android/server/PowerManagerService;)V
 
     iput-object v2, p0, Lcom/android/server/PowerManagerService;->mForceReenableScreenTask:Ljava/lang/Runnable;
-
-    new-instance v2, Lcom/android/server/PowerManagerService$SendReleaseProximitySensorBroadCast;
-
-    invoke-direct {v2, p0}, Lcom/android/server/PowerManagerService$SendReleaseProximitySensorBroadCast;-><init>(Lcom/android/server/PowerManagerService;)V
-
-    iput-object v2, p0, Lcom/android/server/PowerManagerService;->mReleaseProximitySensorRunnable:Ljava/lang/Runnable;
 
     new-instance v2, Lcom/android/server/PowerManagerService$9;
 
@@ -3315,15 +3306,7 @@
     .parameter "reason"
 
     .prologue
-    move-object/from16 v0, p0
-
-    move/from16 v1, p1
-
-    move/from16 v2, p3
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/PowerManagerService;->releaseProximitySensor(II)V
-
-    move-object/from16 v0, p0
+    .line 1733
     iget-object v10, p0, Lcom/android/server/PowerManagerService;->mLocks:Lcom/android/server/PowerManagerService$LockList;
 
     monitor-enter v10
@@ -4080,11 +4063,11 @@
 
     .line 1703
     :cond_0
-    #iget-object v1, p0, Lcom/android/server/PowerManagerService;->mScreenBrightness:Lcom/android/server/PowerManagerService$BrightnessState;
+    iget-object v1, p0, Lcom/android/server/PowerManagerService;->mScreenBrightness:Lcom/android/server/PowerManagerService$BrightnessState;
 
-    #const/4 v2, 0x0
+    const/4 v2, 0x0
 
-    #invoke-virtual {v1, v2}, Lcom/android/server/PowerManagerService$BrightnessState;->forceValueLocked(I)V
+    invoke-virtual {v1, v2}, Lcom/android/server/PowerManagerService$BrightnessState;->forceValueLocked(I)V
 
     .line 1706
     :cond_1
@@ -10823,47 +10806,6 @@
     .end local v0           #writer:Ljava/io/FileWriter;
     :catch_0
     move-exception v1
-
-    goto :goto_0
-.end method
-
-.method private releaseProximitySensor(II)V
-    .locals 2
-    .parameter "newState"
-    .parameter "reason"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    and-int/lit8 v0, p1, 0x1
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/PowerManagerService;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/server/PowerManagerService;->mReleaseProximitySensorRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-boolean v0, p0, Lcom/android/server/PowerManagerService;->mBootCompleted:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x4
-
-    if-eq v0, p2, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/PowerManagerService;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/server/PowerManagerService;->mReleaseProximitySensorRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 .end method

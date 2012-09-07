@@ -101,9 +101,9 @@ local-zip-misc:
 	rm -rf $(ZIP_DIR)/system/etc/permissions/com.google.android.maps.xml
 	rm -rf $(ZIP_DIR)/system/etc/permissions/com.google.android.media.effects.xml
 	rm -rf $(ZIP_DIR)/system/etc/permissions/com.google.widevine.software.drm.xml
-	rm -rf $(ZIP_DIR)/system/etc/framework/com.google.android.maps.jar
-	rm -rf $(ZIP_DIR)/system/etc/framework/com.google.android.media.effects.jar
-	rm -rf $(ZIP_DIR)/system/etc/framework/com.google.widevine.software.drm.jar
+	rm -rf $(ZIP_DIR)/system/framework/com.google.android.maps.jar
+	rm -rf $(ZIP_DIR)/system/framework/com.google.android.media.effects.jar
+	rm -rf $(ZIP_DIR)/system/framework/com.google.widevine.software.drm.jar
 	rm -rf $(ZIP_DIR)/system/lib/libfacelock_jni.so
 	rm -rf $(ZIP_DIR)/system/lib/libfilterpack_facedetect.so
 	rm -rf $(ZIP_DIR)/system/lib/libflint_engine_jni_api.so
