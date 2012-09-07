@@ -220,7 +220,7 @@ system/bin/idd-logreader 0 2000 755
 system/bin/ime 0 2000 755
 system/bin/input 0 2000 755
 system/bin/installd 0 2000 755
-system/bin/ip 0 2000 755
+system/bin/ip 0 3003 6755
 system/bin/ip6tables 0 2000 755
 system/bin/iptables 0 2000 755
 system/bin/iw 0 2000 755
