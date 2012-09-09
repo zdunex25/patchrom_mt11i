@@ -72,9 +72,10 @@ local-zip-misc:
 	
 	@echo prepare fixes
 	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
-#	cp other/NetworkLocation.apk $(ZIP_DIR)/system/app/NetworkLocation.apk
-	cp other/RAMOptimizationFree.apk $(ZIP_DIR)/system/app/RAMOptimizationFree.apk
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
+	cp other/RAMOptimizationFree.apk $(ZIP_DIR)/data/media/preinstall_apps/RAMOptimizationFree.apk
+	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/GameCenter.apk
+	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/VoiceAssist.apk
 	
 	@echo remove gapps
 	rm -rf $(ZIP_DIR)/system/app/ChromeBookmarksSyncAdapter.apk
