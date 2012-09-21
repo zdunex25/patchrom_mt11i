@@ -75,6 +75,7 @@ local-zip-misc:
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
 	cp other/RAMOptimizationFree.apk $(ZIP_DIR)/data/media/preinstall_apps/RAMOptimizationFree.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/GameCenter.apk
+	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/InputMethod.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/VoiceAssist.apk
 	
 	@echo remove gapps
