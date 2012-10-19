@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.ExpandedView android:orientation="vertical" android:focusable="true" android:descendantFocusability="afterDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/expanded_header" android:background="@drawable/notification_header_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.android.systemui.statusbar.policy.Clock android:textAppearance="@style/TextAppearance.StatusBar.Expanded.Clock" android:gravity="left|center" android:layout_gravity="center_vertical" android:id="@id/clock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+	<com.android.systemui.statusbar.policy.DateView android:textAppearance="@style/TextAppearance.StatusBar.Date" android:gravity="left|center" android:layout_gravity="center_vertical" android:id="@id/date" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/clear_all_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_notify_clear" android:contentDescription="@string/accessibility_clear_all" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/toggle_settings_button" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_notify_quicksettings" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include android:id="@id/expended_notifications" layout="@layout/status_bar_expanded_notifications" />
+        <ViewStub android:id="@id/expended_toggles" android:layout="@layout/status_bar_expanded_toggles" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+</com.android.systemui.statusbar.phone.ExpandedView>

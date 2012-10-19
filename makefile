@@ -13,7 +13,7 @@ local-modified-apps := SemcCamera3D CustomizedSettings
 
 local-modified-jars := #HTCExtension
 
-local-miui-modified-apps := MiuiHome Mms Settings Phone MiuiGallery Updater ThemeManager #TelephonyProvider MiuiSystemUI
+local-miui-modified-apps := MiuiHome Mms Settings Phone MiuiGallery Updater ThemeManager MiuiSystemUI #TelephonyProvider
 
 local-miui-removed-apps  := MediaProvider LatinIME LBESEC_MIUI NetworkLocation SuperMarket BugReport
 
@@ -74,6 +74,7 @@ local-zip-misc:
 	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
 	cp other/RAMOptimizationFree.apk $(ZIP_DIR)/data/media/preinstall_apps/RAMOptimizationFree.apk
+	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/AlipayMsp.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/GameCenter.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/InputMethod.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/VoiceAssist.apk

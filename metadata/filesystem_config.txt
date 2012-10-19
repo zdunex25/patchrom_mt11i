@@ -361,6 +361,7 @@ system/etc/hw_config.sh 0 0 644
 system/etc/iddd.conf 0 0 644
 system/etc/init.d 0 0 755
 system/etc/init.d/10fs 0 0 644
+system/etc/init.d/11speedup 0 0 644
 system/etc/init.d/12cleaner 0 0 644
 system/etc/init.goldfish.sh 0 2000 550
 system/etc/init.qcom.bt.sh 0 0 644
@@ -399,6 +400,7 @@ system/etc/permissions/com.sonyericsson.android.socialphonebook.xml 0 0 644
 system/etc/permissions/com.sonyericsson.appextensions.xml 0 0 644
 system/etc/permissions/com.sonyericsson.audioeffectif.xml 0 0 644
 system/etc/permissions/com.sonyericsson.bluetooth.a2dp.xml 0 0 644
+system/etc/permissions/com.sonyericsson.cameraextension.xml 0 0 644
 system/etc/permissions/com.sonyericsson.eventstream.xml 0 0 644
 system/etc/permissions/com.sonyericsson.facebook.proxy_1.xml 0 0 644
 system/etc/permissions/com.sonyericsson.idd.xml 0 0 644
@@ -625,6 +627,7 @@ system/framework/com.playstation.playstationcertified.jar 0 0 644
 system/framework/com.sonyericsson.android.media.sols.jar 0 0 644
 system/framework/com.sonyericsson.appextensions.jar 0 0 644
 system/framework/com.sonyericsson.bluetooth.a2dp.jar 0 0 644
+system/framework/com.sonyericsson.cameraextension_impl.jar 0 0 644
 system/framework/com.sonyericsson.eventstream.jar 0 0 644
 system/framework/com.sonyericsson.facebook.proxy_1_impl.jar 0 0 644
 system/framework/com.sonyericsson.idd.jar 0 0 644
@@ -798,6 +801,9 @@ system/lib/libicuuc.so 0 0 644
 system/lib/libiddjni.so 0 0 644
 system/lib/libidd.so 0 0 644
 system/lib/libidl.so 0 0 644
+system/lib/libimage-jpeg-dec-omx-comp.so 0 0 644
+system/lib/libimage-jpeg-enc-omx-comp.so 0 0 644
+system/lib/libimage-omx-common.so 0 0 644
 system/lib/libinput.so 0 0 644
 system/lib/libiprouteutil.so 0 0 644
 system/lib/libiwiOmx.so 0 0 644
@@ -817,6 +823,12 @@ system/lib/libmediaplayerservice.so 0 0 644
 system/lib/libmedia.so 0 0 644
 system/lib/libMiscTaAccessor.so 0 0 644
 system/lib/libmiscta.so 0 0 644
+system/lib/libmm-abl.so 0 0 644
+system/lib/libmm-abl-oem.so 0 0 644
+system/lib/libmm-audio-resampler.so 0 0 644
+system/lib/libmmcamera_faceproc.so 0 0 644
+system/lib/libmmcamera_frameproc.so 0 0 644
+system/lib/libmmcamera_statsproc30.so 0 0 644
 system/lib/libmmgsdilib.so 0 0 644
 system/lib/libmmipl.so 0 0 644
 system/lib/libmmjpeg.so 0 0 644
