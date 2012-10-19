@@ -77,6 +77,7 @@ local-zip-misc:
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/AlipayMsp.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/GameCenter.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/InputMethod.apk
+	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/MiuiVideo.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/VoiceAssist.apk
 	
 	@echo remove gapps
