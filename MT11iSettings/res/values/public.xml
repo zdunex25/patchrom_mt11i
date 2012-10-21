@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="xml" name="lt18i_special_settings" id="0x7f020000" />
+    <public type="string" name="lt18i_settings" id="0x7f030000" />
+    <public type="string" name="lt18i_settings_summary" id="0x7f030001" />
+    <public type="string" name="xloud_strings_xloud_txt" id="0x7f030002" />
+    <public type="string" name="xloud_strings_xloud_desc_txt" id="0x7f030003" />
+    <public type="string" name="swiqi_strings_swiqi_txt" id="0x7f030004" />
+    <public type="string" name="swiqi_strings_swiqi_desc_txt" id="0x7f030005" />
+</resources>

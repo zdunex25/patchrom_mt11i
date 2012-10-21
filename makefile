@@ -9,13 +9,13 @@ local-zip-file     := stockrom.zip
 #local-out-zip-file := MIUI_mt11i.zip
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := SemcCamera3D CustomizedSettings
+local-modified-apps := SemcCamera3D CustomizedSettings MT11iSettings
 
 local-modified-jars := #HTCExtension
 
-local-miui-modified-apps := MiuiHome Mms Settings Phone MiuiGallery Updater ThemeManager MiuiSystemUI #TelephonyProvider
+local-miui-modified-apps := MiuiHome Mms Settings Phone MiuiGallery Updater ThemeManager MiuiSystemUI LBESEC_MIUI #TelephonyProvider
 
-local-miui-removed-apps  := MediaProvider LatinIME LBESEC_MIUI NetworkLocation SuperMarket BugReport
+local-miui-removed-apps  := MediaProvider LatinIME NetworkLocation SuperMarket
 
 # All apps need to be removed from original ZIP file
 local-remove-apps   := AdobeFlashPlayer Conversations datatrafficswitch DigitalClockWidget \
@@ -57,12 +57,9 @@ include $(PORT_BUILD)/porting.mk
 
 # To define any local-target
 local-zip-misc:
-#	cp misc/com.google.android.maps.jar $(ZIP_DIR)/system/framework/
-#	@echo Add google apks
-#	cp misc/apk/* $(ZIP_DIR)/system/app/
 	@echo Replace build.prop
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
-	cp other/MT11iSettings.apk $(ZIP_DIR)/system/app/MT11iSettings.apk
+#	cp other/MT11iSettings.apk $(ZIP_DIR)/system/app/MT11iSettings.apk
 	rm -rf $(ZIP_DIR)/system/bin/su
 	cp other/handle_device_name.sh $(ZIP_DIR)/system/bin/
 	
@@ -71,14 +68,9 @@ local-zip-misc:
 	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
 	
 	@echo prepare fixes
-	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
+	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/*.apk
 	cp other/RAMOptimizationFree.apk $(ZIP_DIR)/data/media/preinstall_apps/RAMOptimizationFree.apk
-	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/AlipayMsp.apk
-	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/GameCenter.apk
-	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/InputMethod.apk
-	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/MiuiVideo.apk
-	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/VoiceAssist.apk
 	
 	@echo remove gapps
 	rm -rf $(ZIP_DIR)/system/app/ChromeBookmarksSyncAdapter.apk

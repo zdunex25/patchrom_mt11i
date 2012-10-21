@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/lt18i_settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <CheckBoxPreference android:persistent="false" android:title="@string/xloud_strings_xloud_txt" android:key="xloud" android:summary="@string/xloud_strings_xloud_desc_txt" />
+    <CheckBoxPreference android:title="@string/swiqi_strings_swiqi_txt" android:key="swiqi_strings_swiqi_txt" android:summary="@string/swiqi_strings_swiqi_desc_txt" />
+</PreferenceScreen>

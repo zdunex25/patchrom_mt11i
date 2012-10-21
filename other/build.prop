@@ -37,7 +37,7 @@ ro.semc.content.number=PA3
 
 ################# Updating of the SW Version #################
 ro.semc.version.fs_revision=4.1.B.0.587
-ro.build.id=4.1.B.0.587
+ro.build.id=Z25
 ro.build.display.id=4.1.B.0.587
 
 ##### Values from product package metadata #####
@@ -72,7 +72,7 @@ ro.build.characteristics=default
 #
 
 # Notify the system that the RIL only signals once
-ro.telephony.call_ring.multiple=false
+ro.telephony.call_ring.multiple=true
 
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
