@@ -9,7 +9,7 @@ Once you get fullota.zip open it and edit two files:
 
 assert(getprop("ro.product.device") == "MT11i" ||
        getprop("ro.build.product") == "MT11i");
-- then look for set_perm_recursive(2987, 2987, 0777, 0755, "/system/vendor"); and put 0644 in place of 0755
+- then look for set_perm_recursive(2987, 2987, 0777, 0755, "/system/vendor"); and type 0644 in place of 0755
 
 3)remove following files from META-INF
 - CERT.RSA
