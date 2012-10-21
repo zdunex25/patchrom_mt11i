@@ -13,3 +13,5 @@ echo "ro.skia.use_data_fonts=1" >> 'other/neo-patch/system/build.prop'
 echo "" >> 'other/neo-patch/system/build.prop'
 cd 'other/neo-patch'
 zip -r "../../patch-neo-$version.zip" 'META-INF' 'system'
+echo Done, wait until window closes.
+sleep 5

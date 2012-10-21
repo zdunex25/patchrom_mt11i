@@ -18,6 +18,6 @@ assert(getprop("ro.product.device") == "MT11i" ||
 
 Resign edited fullota.zip and that is all, rom is ready to flash.
 
-To gest latest control panel visit http://d-h.st/users/fusionjack/?fld_id=6579#files and download lt18i one it works well on mt11i/mt15i.
+To get latest control panel visit http://d-h.st/users/fusionjack/?fld_id=6579#files and download lt18i's one it works well on mt11i/mt15i.
 
 Cheers Z25.
