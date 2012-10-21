@@ -5,7 +5,7 @@ Once you get fullota.zip open it and edit two files:
 - then look for ro.product.mod_device= and write mt11i instead of Unknown
 
 2)updater-scrpit
-- find abnd cut out
+- find and cut out
 
 assert(getprop("ro.product.device") == "MT11i" ||
        getprop("ro.build.product") == "MT11i");
@@ -17,5 +17,7 @@ assert(getprop("ro.product.device") == "MT11i" ||
 - MANIFEST.MF
 
 Resign edited fullota.zip and that is all, rom is ready to flash.
+
+To gest latest control panel visit http://d-h.st/users/fusionjack/?fld_id=6579#files and download lt18i one it works well on mt11i/mt15i.
 
 Chers Z25.
