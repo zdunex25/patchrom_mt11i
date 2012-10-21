@@ -1,13 +1,11 @@
 Once you get fullota.zip open it and edit two files:
 
 1)build.prop
-
-look for: ro.build.version.incremental= and write version number that you were building (example 2.x.x)
-then look for ro.product.mod_device= and write mt11i instead of Unknown
+*look for: ro.build.version.incremental= and write version number that you were building (example 2.x.x)
+*then look for ro.product.mod_device= and write mt11i instead of Unknown
 
 2)updater-scrpit
-
-find abnd cut out
+*find abnd cut out
 
 assert(getprop("ro.product.device") == "MT11i" ||
        getprop("ro.build.product") == "MT11i");
@@ -15,9 +13,9 @@ assert(getprop("ro.product.device") == "MT11i" ||
 then look for set_perm_recursive(2987, 2987, 0777, 0755, "/system/vendor"); and put 0644 in place of 0755
 
 3)remove following files from META-INF
--CERT.RSA
--CERT.SF
--MANIFEST.MF
+*CERT.RSA
+*CERT.SF
+*MANIFEST.MF
 
 Resign edited fullota.zip and that is all, rom is ready to flash.
 
