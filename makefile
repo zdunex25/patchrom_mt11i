@@ -59,7 +59,6 @@ include $(PORT_BUILD)/porting.mk
 local-zip-misc:
 	@echo Replace build.prop
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
-#	cp other/MT11iSettings.apk $(ZIP_DIR)/system/app/MT11iSettings.apk
 	rm -rf $(ZIP_DIR)/system/bin/su
 	cp other/handle_device_name.sh $(ZIP_DIR)/system/bin/
 	

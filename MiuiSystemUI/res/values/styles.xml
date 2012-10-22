@@ -22,12 +22,12 @@
         <item name="android:textColor">@android:color/holo_blue_light</item>
     </style>
     <style name="TextAppearance.StatusBar.Expanded.Clock" parent="@android:style/TextAppearance.StatusBar.Icon">
-        <item name="android:textSize">38.0dip</item>
+        <item name="android:textSize">32.0dip</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/status_bar_textColor_alternative</item>
     </style>
     <style name="TextAppearance.StatusBar.Date" parent="@android:style/TextAppearance.StatusBar.Icon">
-        <item name="android:textSize">16.0sp</item>
+        <item name="android:textSize">14.0sp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/status_bar_textColor_alternative</item>
 	<item name="android:textAllCaps">true</item>
