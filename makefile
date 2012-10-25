@@ -13,7 +13,7 @@ local-modified-apps := SemcCamera3D CustomizedSettings MT11iSettings
 
 local-modified-jars := #HTCExtension
 
-local-miui-modified-apps := MiuiHome Mms Settings Phone MiuiGallery Updater ThemeManager MiuiSystemUI LBESEC_MIUI #TelephonyProvider
+local-miui-modified-apps := MiuiHome Mms Settings Phone MiuiGallery Updater ThemeManager MiuiSystemUI #TelephonyProvider
 
 local-miui-removed-apps  := MediaProvider LatinIME NetworkLocation SuperMarket
 
@@ -68,6 +68,7 @@ local-zip-misc:
 	
 	@echo prepare fixes
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
+	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/*.apk
 	cp other/RAMOptimizationFree.apk $(ZIP_DIR)/data/media/preinstall_apps/RAMOptimizationFree.apk
 	
