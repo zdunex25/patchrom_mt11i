@@ -15,7 +15,7 @@ local-modified-jars := #HTCExtension
 
 local-miui-modified-apps := MiuiHome Mms Settings Phone MiuiGallery Updater ThemeManager MiuiSystemUI #TelephonyProvider
 
-local-miui-removed-apps  := MediaProvider LatinIME NetworkLocation SuperMarket
+local-miui-removed-apps  := MediaProvider LatinIME NetworkLocation SuperMarket BugReport
 
 # All apps need to be removed from original ZIP file
 local-remove-apps   := AdobeFlashPlayer Conversations datatrafficswitch DigitalClockWidget \
