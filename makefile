@@ -9,13 +9,13 @@ local-zip-file     := stockrom.zip
 #local-out-zip-file := MIUI_mt11i.zip
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := SemcCamera3D CustomizedSettings MT11iSettings
+local-modified-apps := SemcCamera3D CustomizedSettings MT11iSettings MediaProvider
 
 local-modified-jars := #HTCExtension
 
 local-miui-modified-apps := MiuiHome Mms Settings Phone MiuiGallery Updater ThemeManager MiuiSystemUI #TelephonyProvider
 
-local-miui-removed-apps  := MediaProvider LatinIME NetworkLocation SuperMarket BugReport
+local-miui-removed-apps  := MediaProvider LatinIME NetworkLocation SuperMarket BugReport Updater
 
 # All apps need to be removed from original ZIP file
 local-remove-apps   := AdobeFlashPlayer Conversations datatrafficswitch DigitalClockWidget \
