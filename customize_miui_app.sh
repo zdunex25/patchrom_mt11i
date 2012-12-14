@@ -41,7 +41,3 @@ if [ $1 = "ThemeManager" ];then
     $XMLMERGYTOOL $1/res/values $2/res/values
 fi
 
-if [ $1 = "Updater" ];then
-    $XMLMERGYTOOL $1/res/values $2/res/values
-fi
-

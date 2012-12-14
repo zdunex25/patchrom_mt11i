@@ -30,6 +30,10 @@ cp 'out/temp/system/build2.prop' 'out/temp/system/build.prop'
 rm -f 'out/temp/system/build2.prop'
 
 cd 'out/temp'
+'../../../tools/apktool' d -f '../../out/temp/system/framework/android.policy.jar'
+cp -r '../../other/4-way-reboot/impl' '../../out/temp/android.policy.jar.out/smali/com/android/internal/policy'
+'../../../tools/apktool' b -f '../../out/temp/android.policy.jar.out' '../../out/temp/system/framework/android.policy.jar'
+rm -r '../../out/temp/android.policy.jar.out'
 zip -r "../../miuixperia-neov-$version.zip" 'data' 'META-INF' 'system'
 cd ../..
 . ../build/envsetup.sh
