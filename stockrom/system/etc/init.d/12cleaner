@@ -24,10 +24,3 @@ then
   chmod 400 /data/system/appusagestats
 fi
 
-
-#remove main log
-if [ -e /dev/log/main ]
-then
-  rm -f /dev/log/main
-fi
-

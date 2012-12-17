@@ -72,8 +72,8 @@
         launcher:x="3"
         launcher:y="4" />
 <favorite
-        launcher:packageName="com.android.updater"
-        launcher:className="com.android.updater.MainActivity"
+        launcher:packageName="com.android.calculator2"
+        launcher:className="com.android.calculator2.Calculator"
         launcher:screen="2"
         launcher:x="0"
         launcher:y="0" />
@@ -108,12 +108,6 @@
         launcher:x="3"
         launcher:y="1" />
 <!-- View -->
-<favorite
-        launcher:packageName="com.android.calculator2"
-        launcher:className="com.android.calculator2.Calculator"
-        launcher:container="1"
-        launcher:x="0"
-        launcher:y="0" />
 <favorite
         launcher:packageName="com.android.soundrecorder"
         launcher:className="com.android.soundrecorder.SoundRecorder"

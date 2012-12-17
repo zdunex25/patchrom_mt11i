@@ -360,6 +360,7 @@ system/etc/hosts 0 0 644
 system/etc/hw_config.sh 0 0 644
 system/etc/iddd.conf 0 0 644
 system/etc/init.d 0 0 755
+system/etc/init.d/09shell 0 0 644
 system/etc/init.d/10fs 0 0 644
 system/etc/init.d/11speedup 0 0 644
 system/etc/init.d/12cleaner 0 0 644

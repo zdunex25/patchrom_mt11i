@@ -1,0 +1,2 @@
+#Start Shell Service (to fix mihome)
+/system/xbin/shelld&
