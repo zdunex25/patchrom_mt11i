@@ -65,6 +65,7 @@ local-zip-misc:
 	@echo update bootanimation
 	rm -rf $(ZIP_DIR)/system/bin/bootanimation
 	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
+	cp other/boot.img $(ZIP_DIR)/boot.img	
 	
 	@echo prepare fixes
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
