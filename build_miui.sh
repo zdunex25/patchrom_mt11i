@@ -1,7 +1,7 @@
 #!/bin/bash
 cd ../..
-#export PATH=$PATH:/home/z25/android-sdk-linux/tools:/home/z25/android-sdk-linux/platform-tools
-cd miuipatchrom
+export PATH=$PATH:/home/z25/android-sdk-linux/tools:/home/z25/android-sdk-linux/platform-tools
+cd patchrom
 . build/envsetup.sh
 cd mt11i
 make fullota
