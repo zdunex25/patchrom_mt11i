@@ -110,7 +110,7 @@
 
     .line 438
     .local v0, v:Landroid/view/View;
-    const v1, 0x60b003f
+    const v1, 0x60b0041
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -121,7 +121,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SinglePressAction;->mIconView:Landroid/widget/ImageView;
 
     .line 439
-    const v1, 0x60b0040
+    const v1, 0x60b0042
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -132,7 +132,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SinglePressAction;->mTextview:Landroid/widget/TextView;
 
     .line 441
-    const v1, 0x60b0041
+    const v1, 0x60b0043
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

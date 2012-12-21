@@ -1,4 +1,5 @@
 #!/bin/bash
+ls /var/log >> buildlog.log
 cd ../..
 export PATH=$PATH:/home/z25/android-sdk-linux/tools:/home/z25/android-sdk-linux/platform-tools
 cd patchrom
@@ -23,7 +24,11 @@ x=`date +%Y`
 y=`date +.%m.%d`
 z=${x: -1:1}
 version=$z$y
-cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.version\.incremental=.*/ro\.build\.version\.incremental=$version/g" \
+time=`date +%_a%_4b%_3d%_3H:%M:%S%_5Y`
+utc=`date +%s`
+cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
+				| sed -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$utc/g" \
+				| sed -e "s/ro\.build\.version\.incremental=.*/ro\.build\.version\.incremental=$version/g" \
 				| sed -e "s/ro\.product\.mod_device=.*/ro\.product\.mod_device=mt11i/g" > 'out/temp/system/build2.prop'
 echo "" >> 'out/temp/system/build2.prop'
 cp 'out/temp/system/build2.prop' 'out/temp/system/build.prop'
