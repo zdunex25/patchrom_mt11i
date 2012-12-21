@@ -38,9 +38,15 @@ cd 'out/temp'
 cp -r '../../other/4-way-reboot/impl' '../../out/temp/android.policy.jar.out/smali/com/android/internal/policy'
 '../../../tools/apktool' b -f '../../out/temp/android.policy.jar.out' '../../out/temp/system/framework/android.policy.jar'
 rm -r '../../out/temp/android.policy.jar.out'
-zip -r "../../miuixperia-neov-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
+rm -r 'META-INF/CERT.RSA'
+rm -r 'META-INF/CERT.SF'
+rm -r 'META-INF/MANIFEST.MF'
+zip -r "../../unsigned-miuixperia-neov-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
 cd ../..
 . ../build/envsetup.sh
 cd mt11i
 make clean
+echo Signing rom
+java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-neov-$version.zip" "miuixperia-neov-$version.zip"
+rm -r "unsigned-miuixperia-neov-$version.zip"
 read -p "Done, miuixperia-neov-$version.zip has been created in root of mt11i directory, copy to sd and flash. Press ENTER to close this window!"

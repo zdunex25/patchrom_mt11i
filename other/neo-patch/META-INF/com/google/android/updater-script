@@ -1,5 +1,5 @@
 ui_print(" ");
-ui_print("MIUI XPERIA by Z25 PATCH");
+ui_print("MIUI XPERIA by Z25 NEO PATCH");
 ui_print("Installing patch files...");
 show_progress(1.000000, 0);
 set_progress(0.125000);
