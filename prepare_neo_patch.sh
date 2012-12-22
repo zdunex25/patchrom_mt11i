@@ -3,8 +3,11 @@ a=`date +%Y`
 b=`date +.%m.%d`
 c=${a: -1:1}
 version=$c$b
-
-cat 'other/build.prop' | sed -e "s/MT11/MT15/g" \
+time=`date +%_a%_4b%_3d%_3H:%M:%S%_5Y`
+utc=`date +%s`
+cat 'other/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
+			| sed -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$utc/g" \
+			| sed -e "s/MT11/MT15/g" \
 			| sed -e "s/Xperia neo V/Xperia neo/g" \
 			| sed -e "s/UL5_3w/$version/g" \
 			| sed -e "s/haida/hallon/g" > 'other/neo-patch/system/build.prop'
