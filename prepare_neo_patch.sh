@@ -16,6 +16,7 @@ echo "ro.skia.use_data_fonts=1" >> 'other/neo-patch/system/build.prop'
 echo "" >> 'other/neo-patch/system/build.prop'
 cd 'other/neo-patch'
 zip -r "../../unsigned-patch-neo-$version.zip" 'META-INF' 'system'
+rm -r "system/build.prop"
 cd ../..
 java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-patch-neo-$version.zip" "patch-neo-$version.zip"
 rm -r "unsigned-patch-neo-$version.zip"
