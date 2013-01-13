@@ -141,7 +141,7 @@
         <activity android:theme="@android:style/Theme.Translucent" android:label="@string/class_0_message_activity" android:name=".ui.ClassZeroActivity" android:excludeFromRecents="true" />
         <activity android:theme="@style/Theme.Holo.Light" android:label="@string/preferences_title" android:name=".ui.MessagingPreferenceActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:theme="@style/Theme.Holo.Light" android:label="@string/pref_advanced_settings_title" android:name=".ui.MessagingAdvancedPreferenceActivity" />
-        <activity android:theme="@style/Theme.Holo.Light" android:label="@string/pref_messaging_style" android:name=".ui.MessagingStylePreferenceActivity" android:screenOrientation="portrait">
+        <activity android:theme="@style/Theme.Holo.Light" android:label="@string/pref_messaging_style" android:name=".ui.MessagingStylePreferenceActivity">
             <intent-filter>
                 <action android:name="com.android.mms.MESSAGING_STYLE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -240,7 +240,7 @@
                 <action android:name="com.xiaomi.action.ACTIVATE_ALL_MI_SERVICES" />
             </intent-filter>
         </receiver>
-        <activity android:theme="@style/Theme.Holo.Light.Dialog" android:name=".ui.ConfirmRateLimitActivity" android:screenOrientation="portrait">
+        <activity android:theme="@style/Theme.Holo.Light.Dialog" android:name=".ui.ConfirmRateLimitActivity">
             <intent-filter>
                 <action android:name="com.android.mms.RATE_LIMIT_SURPASSED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -301,7 +301,7 @@
         <service android:name=".transaction.SendMessageService" />
         <provider android:name="TempFileProvider" android:multiprocess="true" android:authorities="mms_temp_file" />
         <provider android:name=".data.FestivalSmsProvider" android:authorities="com.android.mms.festival" />
-        <activity android:name=".ui.MiniPreferenceActivity" android:screenOrientation="portrait">
+        <activity android:name=".ui.MiniPreferenceActivity">
             <intent-filter>
                 <action android:name="com.android.mms.intent.action.MESSAGING_APP_NOTIFICATIONS" />
                 <category android:name="android.intent.category.DEFAULT" />
