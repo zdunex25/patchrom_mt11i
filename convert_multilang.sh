@@ -1,5 +1,5 @@
 #!/bin/bash
-export PATH=$PATH:/home/z25/android-sdk-linux/tools:/home/z25/android-sdk-linux/platform-tools
+export PATH=$PATH:/home/$USER/android-sdk-linux/tools:/home/$USER/android-sdk-linux/platform-tools
 cd other/multilang
 echo Extracting languages...
 unzip miuiandroid_lang_LT18i.zip -d temp
