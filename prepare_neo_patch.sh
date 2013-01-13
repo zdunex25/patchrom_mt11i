@@ -1,6 +1,6 @@
 #!/bin/bash
 a=`date +%Y`
-b=`date +.%m.%d`
+b=`date +.%-m.%d`
 c=${a: -1:1}
 version=$c$b
 time=`date +%_a%_4b%_3d%_3H:%M:%S%_5Y`

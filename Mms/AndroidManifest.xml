@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest android:versionCode="15" android:versionName="4.0.4-eng.yumingyang.20121130.155936" package="com.android.mms"
+<manifest android:versionCode="15" android:versionName="4.0.4-eng..20130111.140422" package="com.android.mms"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15" />
     <original-package android:name="com.android.mms" />
@@ -57,6 +57,7 @@
         <activity android:theme="@style/Theme.Holo.Light" android:name=".ui.FestivalSmsList" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:theme="@style/Theme.Translucent.NoTitleBar.Dark" android:name=".ui.FestivalActivity" android:launchMode="singleTop" />
         <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name=".ui.BirthdayActivity" android:launchMode="singleTop" />
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name=".ui.NewYearActivity" android:launchMode="singleTop" />
         <activity android:theme="@android:style/Theme.NoDisplay" android:name=".ui.ComposeMessageRouterActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -140,7 +141,7 @@
         <activity android:theme="@android:style/Theme.Translucent" android:label="@string/class_0_message_activity" android:name=".ui.ClassZeroActivity" android:excludeFromRecents="true" />
         <activity android:theme="@style/Theme.Holo.Light" android:label="@string/preferences_title" android:name=".ui.MessagingPreferenceActivity" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:theme="@style/Theme.Holo.Light" android:label="@string/pref_advanced_settings_title" android:name=".ui.MessagingAdvancedPreferenceActivity" />
-        <activity android:theme="@style/Theme.Holo.Light" android:label="@string/pref_messaging_style" android:name=".ui.MessagingStylePreferenceActivity">
+        <activity android:theme="@style/Theme.Holo.Light" android:label="@string/pref_messaging_style" android:name=".ui.MessagingStylePreferenceActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.android.mms.MESSAGING_STYLE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -171,11 +172,6 @@
                 <action android:name="com.xiaomi.push.channel_opened" />
                 <action android:name="com.xiaomi.push.channel_closed" />
                 <action android:name="com.xiaomi.push.kicked" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.xiaomi.mms.transaction.MxActivationConnectivityReceiver">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
         <activity android:theme="@style/Theme.Holo.Light" android:label="@string/sim_manage_messages_title" android:name=".ui.ManageSimMessages" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize">
@@ -239,7 +235,12 @@
                 <action android:name="android.provider.Telephony.DISMISS_NEW_MESSAGE_NOTIFICATION" />
             </intent-filter>
         </receiver>
-        <activity android:theme="@style/Theme.Holo.Light.Dialog" android:name=".ui.ConfirmRateLimitActivity">
+        <receiver android:name="com.xiaomi.mms.transaction.ExternalActivateMxReceiver" android:permission="com.xiaomi.permission.ACTIVATE_SIM">
+            <intent-filter>
+                <action android:name="com.xiaomi.action.ACTIVATE_ALL_MI_SERVICES" />
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Holo.Light.Dialog" android:name=".ui.ConfirmRateLimitActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.android.mms.RATE_LIMIT_SURPASSED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -287,6 +288,7 @@
         <service android:name="com.xiaomi.mms.transaction.MxTaskService">
             <intent-filter>
                 <action android:name="com.xiaomi.mms.mx.ACTION_QUERY_PRESENCE" />
+                <action android:name="com.xiaomi.mms.mx.ACTION_QUERY_PENDING_PRESENCE" />
             </intent-filter>
         </service>
         <service android:name="com.xiaomi.mms.transaction.MxMessageTrackService">
@@ -295,16 +297,11 @@
             </intent-filter>
         </service>
         <service android:name="com.xiaomi.mms.transaction.MxResendService" />
-        <service android:name="com.xiaomi.mms.transaction.ExternalActivateMxService" android:permission="com.xiaomi.permission.ACTIVATE_MIMSG">
-            <intent-filter>
-                <action android:name="com.xiaomi.action.ACTIVATE_MX_EXTERNAL" />
-            </intent-filter>
-        </service>
         <service android:name="com.xiaomi.mms.transaction.MxMmsTransactionService" />
         <service android:name=".transaction.SendMessageService" />
         <provider android:name="TempFileProvider" android:multiprocess="true" android:authorities="mms_temp_file" />
         <provider android:name=".data.FestivalSmsProvider" android:authorities="com.android.mms.festival" />
-        <activity android:name=".ui.MiniPreferenceActivity">
+        <activity android:name=".ui.MiniPreferenceActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.android.mms.intent.action.MESSAGING_APP_NOTIFICATIONS" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -329,5 +326,6 @@
                 <action android:name="com.xiaomi.CUSMSAutoRegistration_SMS_SENT" />
             </intent-filter>
         </receiver>
+        <service android:name=".autoregistration.cu.DeviceManagerService" />
     </application>
 </manifest>

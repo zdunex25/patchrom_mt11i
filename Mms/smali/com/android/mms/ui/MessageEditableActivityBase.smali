@@ -242,38 +242,38 @@
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMidCacheStatusReceiver:Lcom/android/mms/ui/MessageEditableActivityBase$MiBroadcastReceiver;
 
-    .line 645
+    .line 647
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$9;
 
     invoke-direct {v0, p0}, Lcom/android/mms/ui/MessageEditableActivityBase$9;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;)V
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditorWatcher:Landroid/text/TextWatcher;
 
-    .line 873
+    .line 875
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMaxPendingMessagesReachedToast:Landroid/widget/Toast;
 
-    .line 1174
+    .line 1176
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$17;
 
     invoke-direct {v0, p0}, Lcom/android/mms/ui/MessageEditableActivityBase$17;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;)V
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectKeyListener:Landroid/view/View$OnKeyListener;
 
-    .line 1191
+    .line 1193
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$18;
 
     invoke-direct {v0, p0}, Lcom/android/mms/ui/MessageEditableActivityBase$18;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;)V
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectEditorWatcher:Landroid/text/TextWatcher;
 
-    .line 1776
+    .line 1778
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$20;
 
     invoke-direct {v0, p0}, Lcom/android/mms/ui/MessageEditableActivityBase$20;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;)V
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mHandler:Landroid/os/Handler;
 
-    .line 1860
+    .line 1862
     return-void
 .end method
 
@@ -448,32 +448,32 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1760
+    .line 1762
     if-ne p1, v2, :cond_0
 
-    .line 1761
+    .line 1763
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxMmsRecipients:Ljava/util/Map;
 
     sget-object v1, Lcom/android/mms/ui/MessageEditableActivityBase;->PRESENCE:Ljava/lang/Object;
 
     invoke-interface {v0, p3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1765
+    .line 1767
     :goto_0
     if-ne p2, v2, :cond_1
 
-    .line 1766
+    .line 1768
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxSmsRecipients:Ljava/util/Map;
 
     sget-object v1, Lcom/android/mms/ui/MessageEditableActivityBase;->PRESENCE:Ljava/lang/Object;
 
     invoke-interface {v0, p3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1770
+    .line 1772
     :goto_1
     return-void
 
-    .line 1763
+    .line 1765
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxMmsRecipients:Ljava/util/Map;
 
@@ -481,7 +481,7 @@
 
     goto :goto_0
 
-    .line 1768
+    .line 1770
     :cond_1
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxSmsRecipients:Ljava/util/Map;
 
@@ -500,7 +500,7 @@
 
     const/4 v1, 0x0
 
-    .line 1696
+    .line 1698
     const-string v0, "window"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -511,10 +511,10 @@
 
     move-result-object v3
 
-    .line 1697
+    .line 1699
     const/4 v0, 0x0
 
-    .line 1700
+    .line 1702
     :try_start_0
     invoke-interface {v3}, Landroid/view/IWindowManager;->getAnimationScales()[F
     :try_end_0
@@ -524,16 +524,16 @@
 
     move-object v3, v0
 
-    .line 1703
+    .line 1705
     :goto_0
     if-eqz v3, :cond_3
 
-    .line 1704
+    .line 1706
     array-length v0, v3
 
     if-lt v0, v2, :cond_2
 
-    .line 1705
+    .line 1707
     aget v0, v3, v1
 
     add-float/2addr v0, v6
@@ -542,7 +542,7 @@
 
     rem-int/lit8 v0, v0, 0xa
 
-    .line 1707
+    .line 1709
     :goto_1
     array-length v4, v3
 
@@ -550,7 +550,7 @@
 
     if-lt v4, v5, :cond_0
 
-    .line 1708
+    .line 1710
     aget v3, v3, v2
 
     add-float/2addr v3, v6
@@ -563,7 +563,7 @@
 
     add-int/2addr v0, v3
 
-    .line 1711
+    .line 1713
     :cond_0
     :goto_2
     if-eqz v0, :cond_1
@@ -573,7 +573,7 @@
     :cond_1
     return v1
 
-    .line 1701
+    .line 1703
     :catch_0
     move-exception v3
 
@@ -596,7 +596,7 @@
     .locals 3
 
     .prologue
-    .line 667
+    .line 669
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSharedPrefs:Landroid/content/SharedPreferences;
 
     const-string v1, "pref_key_edit_signature"
@@ -609,7 +609,7 @@
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSignature:Ljava/lang/String;
 
-    .line 669
+    .line 671
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -620,14 +620,14 @@
 
     move-result v0
 
-    .line 670
+    .line 672
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSignature:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->append(Ljava/lang/CharSequence;)V
 
-    .line 671
+    .line 673
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -636,7 +636,7 @@
 
     invoke-static {v1, v0}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
-    .line 672
+    .line 674
     return-void
 .end method
 
@@ -673,10 +673,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1496
+    .line 1498
     const/4 v1, 0x0
 
-    .line 1497
+    .line 1499
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mActionBarGroup:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
@@ -685,26 +685,26 @@
 
     move v3, v2
 
-    .line 1498
+    .line 1500
     :goto_0
     if-ge v3, v4, :cond_0
 
-    .line 1499
+    .line 1501
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mActionBarGroup:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 1500
+    .line 1502
     instance-of v5, v0, Lcom/android/internal/widget/ActionBarView;
 
     if-eqz v5, :cond_3
 
-    .line 1501
+    .line 1503
     check-cast v0, Lcom/android/internal/widget/ActionBarView;
 
-    .line 1498
+    .line 1500
     :goto_1
     add-int/lit8 v1, v3, 0x1
 
@@ -714,11 +714,11 @@
 
     goto :goto_0
 
-    .line 1504
+    .line 1506
     :cond_0
     if-nez v1, :cond_2
 
-    .line 1505
+    .line 1507
     const-string v0, "MessageEditableActivityBase"
 
     const-string v1, "getActionBarHeight: cann\'t find ActionBarView"
@@ -727,26 +727,26 @@
 
     move v0, v2
 
-    .line 1513
+    .line 1515
     :cond_1
     :goto_2
     return v0
 
-    .line 1508
+    .line 1510
     :cond_2
     invoke-virtual {v1}, Lcom/android/internal/widget/ActionBarView;->getHeight()I
 
     move-result v0
 
-    .line 1509
+    .line 1511
     if-gtz v0, :cond_1
 
-    .line 1512
+    .line 1514
     const/high16 v0, -0x8000
 
     invoke-virtual {v1, p1, v0}, Lcom/android/internal/widget/ActionBarView;->measure(II)V
 
-    .line 1513
+    .line 1515
     invoke-virtual {v1}, Lcom/android/internal/widget/ActionBarView;->getMeasuredHeight()I
 
     move-result v0
@@ -766,21 +766,21 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 471
+    .line 473
     if-nez p1, :cond_1
 
-    .line 488
+    .line 490
     :cond_0
     :goto_0
     return-object v6
 
-    .line 474
+    .line 476
     :cond_1
     invoke-virtual {p1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 475
+    .line 477
     .local v5, urlStr:Ljava/lang/String;
     const-string v7, "?"
 
@@ -790,7 +790,7 @@
 
     if-eqz v7, :cond_0
 
-    .line 478
+    .line 480
     const/16 v7, 0x3f
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->indexOf(I)I
@@ -803,14 +803,14 @@
 
     move-result-object v5
 
-    .line 479
+    .line 481
     const-string v7, "&"
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v4
 
-    .line 480
+    .line 482
     .local v4, params:[Ljava/lang/String;
     move-object v0, v4
 
@@ -826,7 +826,7 @@
 
     aget-object v3, v0, v1
 
-    .line 481
+    .line 483
     .local v3, p:Ljava/lang/String;
     const-string v7, "body="
 
@@ -836,7 +836,7 @@
 
     if-eqz v7, :cond_2
 
-    .line 483
+    .line 485
     const/4 v7, 0x5
 
     :try_start_0
@@ -854,11 +854,11 @@
 
     goto :goto_0
 
-    .line 484
+    .line 486
     :catch_0
     move-exception v7
 
-    .line 480
+    .line 482
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
@@ -870,35 +870,35 @@
     .parameter "intent"
 
     .prologue
-    .line 518
+    .line 520
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v11
 
-    .line 519
+    .line 521
     .local v11, extras:Landroid/os/Bundle;
     if-nez v11, :cond_0
 
-    .line 520
+    .line 522
     const/4 v2, 0x0
 
-    .line 604
+    .line 606
     :goto_0
     return v2
 
-    .line 523
+    .line 525
     :cond_0
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getType()Ljava/lang/String;
 
     move-result-object v6
 
-    .line 524
+    .line 526
     .local v6, mimeType:Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 525
+    .line 527
     .local v9, action:Ljava/lang/String;
     const-string v2, "android.intent.action.SEND"
 
@@ -908,7 +908,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 529
+    .line 531
     invoke-static/range {p0 .. p0}, Lcom/android/mms/model/ContactParser;->getContactParser(Landroid/content/Context;)Lcom/android/mms/model/ContactParser;
 
     move-result-object v2
@@ -919,7 +919,7 @@
 
     move-result-object v14
 
-    .line 530
+    .line 532
     .local v14, message:Ljava/lang/String;
     invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -927,23 +927,23 @@
 
     if-nez v2, :cond_1
 
-    .line 531
+    .line 533
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v2, v14}, Lcom/android/mms/data/WorkingMessage;->setText(Ljava/lang/CharSequence;)V
 
-    .line 532
+    .line 534
     const/4 v2, 0x1
 
     goto :goto_0
 
-    .line 535
+    .line 537
     :cond_1
     const/4 v12, 0x0
 
-    .line 536
+    .line 538
     .local v12, flag:Z
     const-string v2, "android.intent.extra.STREAM"
 
@@ -953,7 +953,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 537
+    .line 539
     const-string v2, "android.intent.extra.STREAM"
 
     invoke-virtual {v11, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -962,7 +962,7 @@
 
     check-cast v16, Landroid/net/Uri;
 
-    .line 538
+    .line 540
     .local v16, uri:Landroid/net/Uri;
     move-object/from16 v0, p0
 
@@ -974,10 +974,10 @@
 
     invoke-virtual {v2, v6, v0, v3}, Lcom/android/mms/ui/AttachmentProcessor;->addAttachment(Ljava/lang/String;Landroid/net/Uri;Z)V
 
-    .line 539
+    .line 541
     const/4 v12, 0x1
 
-    .line 541
+    .line 543
     .end local v16           #uri:Landroid/net/Uri;
     :cond_2
     const-string v2, "android.intent.extra.TEXT"
@@ -988,7 +988,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 542
+    .line 544
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
@@ -1001,19 +1001,19 @@
 
     invoke-virtual {v2, v3}, Lcom/android/mms/data/WorkingMessage;->setText(Ljava/lang/CharSequence;)V
 
-    .line 543
+    .line 545
     const/4 v12, 0x1
 
-    .line 545
+    .line 547
     :cond_3
     if-eqz v12, :cond_9
 
-    .line 546
+    .line 548
     const/4 v2, 0x1
 
     goto :goto_0
 
-    .line 548
+    .line 550
     .end local v12           #flag:Z
     .end local v14           #message:Ljava/lang/String;
     :cond_4
@@ -1033,7 +1033,7 @@
 
     if-eqz v2, :cond_7
 
-    .line 550
+    .line 552
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
@@ -1042,7 +1042,7 @@
 
     move-result-object v15
 
-    .line 551
+    .line 553
     .local v15, slideShow:Lcom/android/mms/model/SlideshowModel;
     const-string v2, "android.intent.extra.STREAM"
 
@@ -1050,7 +1050,7 @@
 
     move-result-object v5
 
-    .line 552
+    .line 554
     .local v5, uris:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/Parcelable;>;"
     if-eqz v15, :cond_6
 
@@ -1058,14 +1058,14 @@
 
     move-result v10
 
-    .line 553
+    .line 555
     .local v10, currentSlideCount:I
     :goto_1
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v13
 
-    .line 554
+    .line 556
     .local v13, importCount:I
     add-int v2, v13, v10
 
@@ -1073,14 +1073,14 @@
 
     if-le v2, v3, :cond_5
 
-    .line 555
+    .line 557
     rsub-int/lit8 v2, v10, 0xa
 
     invoke-static {v2, v13}, Ljava/lang/Math;->min(II)I
 
     move-result v13
 
-    .line 557
+    .line 559
     const v2, 0x7f0a0064
 
     const/4 v3, 0x2
@@ -1121,7 +1121,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 568
+    .line 570
     :cond_5
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
@@ -1151,7 +1151,7 @@
 
     move-result-object v8
 
-    .line 573
+    .line 575
     .local v8, dialog:Landroid/app/AlertDialog;
     new-instance v7, Lcom/android/mms/ui/MessageEditableActivityBase$7;
 
@@ -1159,7 +1159,7 @@
 
     invoke-direct {v7, v0, v8}, Lcom/android/mms/ui/MessageEditableActivityBase$7;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;Landroid/app/AlertDialog;)V
 
-    .line 579
+    .line 581
     .local v7, showProgress:Ljava/lang/Runnable;
     move-object/from16 v0, p0
 
@@ -1171,10 +1171,10 @@
 
     invoke-virtual {v2, v7, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 581
+    .line 583
     move v4, v13
 
-    .line 582
+    .line 584
     .local v4, numberToImport:I
     new-instance v17, Ljava/lang/Thread;
 
@@ -1192,12 +1192,12 @@
 
     invoke-virtual/range {v17 .. v17}, Ljava/lang/Thread;->start()V
 
-    .line 593
+    .line 595
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
-    .line 552
+    .line 554
     .end local v4           #numberToImport:I
     .end local v7           #showProgress:Ljava/lang/Runnable;
     .end local v8           #dialog:Landroid/app/AlertDialog;
@@ -1208,7 +1208,7 @@
 
     goto/16 :goto_1
 
-    .line 595
+    .line 597
     .end local v5           #uris:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/Parcelable;>;"
     .end local v15           #slideShow:Lcom/android/mms/model/SlideshowModel;
     :cond_7
@@ -1220,12 +1220,12 @@
 
     if-eqz v2, :cond_9
 
-    .line 596
+    .line 598
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v16
 
-    .line 597
+    .line 599
     .restart local v16       #uri:Landroid/net/Uri;
     invoke-static/range {v16 .. v16}, Lcom/android/mms/data/Conversation;->checkContentScheme(Landroid/net/Uri;)Z
 
@@ -1233,12 +1233,12 @@
 
     if-nez v2, :cond_8
 
-    .line 598
+    .line 600
     const/4 v2, 0x0
 
     goto/16 :goto_0
 
-    .line 600
+    .line 602
     :cond_8
     move-object/from16 v0, p0
 
@@ -1250,12 +1250,12 @@
 
     invoke-virtual {v2, v6, v0, v3}, Lcom/android/mms/ui/AttachmentProcessor;->addAttachment(Ljava/lang/String;Landroid/net/Uri;Z)V
 
-    .line 601
+    .line 603
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
-    .line 604
+    .line 606
     .end local v16           #uri:Landroid/net/Uri;
     :cond_9
     const/4 v2, 0x0
@@ -1270,33 +1270,33 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 492
+    .line 494
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 493
+    .line 495
     .local v1, extras:Landroid/os/Bundle;
     if-nez v1, :cond_1
 
-    .line 514
+    .line 516
     :cond_0
     :goto_0
     return v5
 
-    .line 497
+    .line 499
     :cond_1
     invoke-virtual {p1}, Landroid/content/Intent;->getType()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 498
+    .line 500
     .local v3, mimeType:Ljava/lang/String;
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 499
+    .line 501
     .local v0, action:Ljava/lang/String;
     const-string v6, "android.intent.action.SENDTO"
 
@@ -1306,10 +1306,10 @@
 
     if-eqz v6, :cond_0
 
-    .line 500
+    .line 502
     const/4 v2, 0x0
 
-    .line 501
+    .line 503
     .local v2, flag:Z
     const-string v6, "android.intent.extra.STREAM"
 
@@ -1319,7 +1319,7 @@
 
     if-eqz v6, :cond_2
 
-    .line 502
+    .line 504
     const-string v6, "android.intent.extra.STREAM"
 
     invoke-virtual {v1, v6}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -1328,16 +1328,16 @@
 
     check-cast v4, Landroid/net/Uri;
 
-    .line 503
+    .line 505
     .local v4, uri:Landroid/net/Uri;
     iget-object v6, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentProcessor:Lcom/android/mms/ui/AttachmentProcessor;
 
     invoke-virtual {v6, v3, v4, v5}, Lcom/android/mms/ui/AttachmentProcessor;->addAttachment(Ljava/lang/String;Landroid/net/Uri;Z)V
 
-    .line 504
+    .line 506
     const/4 v2, 0x1
 
-    .line 506
+    .line 508
     .end local v4           #uri:Landroid/net/Uri;
     :cond_2
     const-string v6, "android.intent.extra.TEXT"
@@ -1348,7 +1348,7 @@
 
     if-eqz v6, :cond_3
 
-    .line 507
+    .line 509
     iget-object v6, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     const-string v7, "android.intent.extra.TEXT"
@@ -1359,14 +1359,14 @@
 
     invoke-virtual {v6, v7}, Lcom/android/mms/data/WorkingMessage;->setText(Ljava/lang/CharSequence;)V
 
-    .line 508
+    .line 510
     const/4 v2, 0x1
 
-    .line 510
+    .line 512
     :cond_3
     if-eqz v2, :cond_0
 
-    .line 511
+    .line 513
     const/4 v5, 0x1
 
     goto :goto_0
@@ -1380,7 +1380,7 @@
 
     const/4 v2, 0x0
 
-    .line 1312
+    .line 1314
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSharedPrefs:Landroid/content/SharedPreferences;
 
     const-string v1, "nickname_revised_numbers"
@@ -1391,19 +1391,19 @@
 
     move-result-object v0
 
-    .line 1313
+    .line 1315
     const-string v1, "\n"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1314
+    .line 1316
     invoke-static {v0}, Lcom/google/android/collect/Sets;->newHashSet([Ljava/lang/Object;)Ljava/util/HashSet;
 
     move-result-object v4
 
-    .line 1316
+    .line 1318
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mConversation:Lcom/android/mms/data/Conversation;
 
     invoke-virtual {v0}, Lcom/android/mms/data/Conversation;->getRecipients()Lcom/android/mms/data/ContactList;
@@ -1412,7 +1412,7 @@
 
     move v1, v2
 
-    .line 1317
+    .line 1319
     :goto_0
     invoke-virtual {v5}, Lcom/android/mms/data/ContactList;->size()I
 
@@ -1420,14 +1420,14 @@
 
     if-ge v1, v0, :cond_0
 
-    .line 1318
+    .line 1320
     invoke-virtual {v5, v1}, Lcom/android/mms/data/ContactList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/mms/data/Contact;
 
-    .line 1319
+    .line 1321
     invoke-virtual {v0}, Lcom/android/mms/data/Contact;->existsInDatabase()Z
 
     move-result v6
@@ -1440,25 +1440,25 @@
 
     if-eqz v6, :cond_1
 
-    .line 1320
+    .line 1322
     invoke-virtual {v0}, Lcom/android/mms/data/Contact;->getNumber()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1321
+    .line 1323
     invoke-static {v0}, Lmiui/telephony/PhoneNumberUtils$PhoneNumber;->parse(Ljava/lang/CharSequence;)Lmiui/telephony/PhoneNumberUtils$PhoneNumber;
 
     move-result-object v0
 
-    .line 1322
+    .line 1324
     invoke-virtual {v0, v2, v3}, Lmiui/telephony/PhoneNumberUtils$PhoneNumber;->getNormalizedNumber(ZZ)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 1323
+    .line 1325
     invoke-virtual {v0}, Lmiui/telephony/PhoneNumberUtils$PhoneNumber;->recycle()V
 
-    .line 1324
+    .line 1326
     invoke-virtual {v4, v6}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
@@ -1467,11 +1467,11 @@
 
     move v2, v3
 
-    .line 1329
+    .line 1331
     :cond_0
     return v2
 
-    .line 1317
+    .line 1319
     :cond_1
     add-int/lit8 v0, v1, 0x1
 
@@ -1484,7 +1484,7 @@
     .locals 3
 
     .prologue
-    .line 662
+    .line 664
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSharedPrefs:Landroid/content/SharedPreferences;
 
     const-string v1, "pref_key_append_signature"
@@ -1504,7 +1504,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1294
+    .line 1296
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -1513,7 +1513,7 @@
 
     move v1, v0
 
-    .line 1296
+    .line 1298
     :goto_0
     invoke-interface {v2}, Landroid/text/Editable;->length()I
 
@@ -1521,59 +1521,59 @@
 
     if-ge v0, v3, :cond_1
 
-    .line 1297
+    .line 1299
     invoke-interface {v2, v0}, Landroid/text/Editable;->charAt(I)C
 
     move-result v3
 
-    .line 1298
+    .line 1300
     const v4, 0xffff
 
     if-ne v3, v4, :cond_0
 
-    .line 1299
+    .line 1301
     add-int/lit8 v1, v0, 0x1
 
     invoke-interface {v2, v0, v1}, Landroid/text/Editable;->delete(II)Landroid/text/Editable;
 
-    .line 1300
+    .line 1302
     const/4 v1, 0x1
 
-    .line 1296
+    .line 1298
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1303
+    .line 1305
     :cond_1
     if-eqz v1, :cond_2
 
-    .line 1304
+    .line 1306
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 1305
+    .line 1307
     const v1, 0x7f0a0195
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 1306
+    .line 1308
     const v1, 0x104000a
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 1307
+    .line 1309
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    .line 1309
+    .line 1311
     :cond_2
     return-void
 .end method
@@ -1586,7 +1586,7 @@
 
     const/4 v2, 0x0
 
-    .line 1650
+    .line 1652
     const-string v0, "Mms:app"
 
     const/4 v1, 0x2
@@ -1597,40 +1597,40 @@
 
     if-eqz v0, :cond_0
 
-    .line 1651
+    .line 1653
     const-string v0, "MessageEditableActivityBase"
 
     const-string v1, "resetMessage"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1655
+    .line 1657
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentView:Lcom/android/mms/ui/AttachmentView;
 
     invoke-virtual {v0, v3}, Lcom/android/mms/ui/AttachmentView;->setVisibility(I)V
 
-    .line 1656
+    .line 1658
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
 
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 1659
+    .line 1661
     invoke-virtual {p0, v2}, Lcom/android/mms/ui/MessageEditableActivityBase;->showSubjectEditor(Z)V
 
-    .line 1662
+    .line 1664
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 1668
+    .line 1670
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditorWatcher:Landroid/text/TextWatcher;
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->removeTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 1671
+    .line 1673
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -1639,47 +1639,47 @@
 
     invoke-static {v0}, Landroid/text/method/TextKeyListener;->clear(Landroid/text/Editable;)V
 
-    .line 1673
+    .line 1675
     invoke-static {p0}, Lcom/android/mms/data/WorkingMessage;->createEmpty(Lcom/android/mms/data/WorkingMessage$MessageStatusListener;)Lcom/android/mms/data/WorkingMessage;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
-    .line 1674
+    .line 1676
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mConversation:Lcom/android/mms/data/Conversation;
 
     invoke-virtual {v0, v1}, Lcom/android/mms/data/WorkingMessage;->setConversation(Lcom/android/mms/data/Conversation;)V
 
-    .line 1676
+    .line 1678
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->drawBottomPanel()V
 
-    .line 1679
+    .line 1681
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->updateSendButtonState()V
 
-    .line 1681
+    .line 1683
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentProcessor:Lcom/android/mms/ui/AttachmentProcessor;
 
     invoke-virtual {v0}, Lcom/android/mms/ui/AttachmentProcessor;->updateAttachmentTypeStates()V
 
-    .line 1684
+    .line 1686
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditorWatcher:Landroid/text/TextWatcher;
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 1686
+    .line 1688
     iget-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mIsLandscape:Z
 
     if-eqz v0, :cond_1
 
-    .line 1687
+    .line 1689
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->hideSoftKeyboard()V
 
-    .line 1690
+    .line 1692
     :cond_1
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->isSignatureRequired()Z
 
@@ -1687,10 +1687,10 @@
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->handleSignature(Z)V
 
-    .line 1692
+    .line 1694
     iput-boolean v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSendingMessage:Z
 
-    .line 1693
+    .line 1695
     return-void
 .end method
 
@@ -1701,24 +1701,24 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 767
+    .line 769
     if-eqz p1, :cond_1
 
-    .line 769
+    .line 771
     const-string v0, "ril.cdma.inecmmode"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 770
+    .line 772
     invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 772
+    .line 774
     :try_start_0
     new-instance v0, Landroid/content/Intent;
 
@@ -1734,41 +1734,41 @@
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 788
+    .line 790
     :cond_0
     :goto_0
     return-void
 
-    .line 776
+    .line 778
     :catch_0
     move-exception v0
 
-    .line 778
+    .line 780
     const-string v1, "MessageEditableActivityBase"
 
     const-string v2, "Cannot find EmergencyCallbackModeExitDialog"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 783
+    .line 785
     :cond_1
     iget-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSendingMessage:Z
 
     if-nez v0, :cond_0
 
-    .line 784
+    .line 786
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->getWorkingRecipients()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 785
+    .line 787
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v1, v0}, Lcom/android/mms/data/WorkingMessage;->send(Ljava/lang/String;)V
 
-    .line 786
+    .line 788
     iput-boolean v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSendingMessage:Z
 
     goto :goto_0
@@ -1778,19 +1778,19 @@
     .locals 7
 
     .prologue
-    .line 1736
+    .line 1738
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->requiresMms()Z
 
     move-result v1
 
-    .line 1737
+    .line 1739
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getRecipients()Lcom/android/mms/data/ContactList;
 
     move-result-object v2
 
-    .line 1738
+    .line 1740
     iget-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxEnabled:Z
 
     if-eqz v0, :cond_2
@@ -1857,25 +1857,25 @@
     :cond_1
     const/4 v0, 0x1
 
-    .line 1745
+    .line 1747
     :goto_0
     if-eqz v0, :cond_4
 
-    .line 1746
+    .line 1748
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mEditorContainer:Landroid/view/View;
 
     const v1, 0x7f020017
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 1747
+    .line 1749
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
-    const v1, 0x7f02014f
+    const v1, 0x7f020157
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setCursorDrawableRes(I)V
 
-    .line 1748
+    .line 1750
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v2}, Lcom/android/mms/data/ContactList;->size()I
@@ -1893,45 +1893,39 @@
     :goto_1
     invoke-virtual {v1, v0}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
-    .line 1757
+    .line 1759
     :goto_2
     return-void
 
-    .line 1738
+    .line 1740
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 1748
+    .line 1750
     :cond_3
     const-string v0, ""
 
     goto :goto_1
 
-    .line 1751
+    .line 1753
     :cond_4
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mEditorContainer:Landroid/view/View;
 
-    const v3, 0x7f020019
+    const v2, 0x7f020019
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->setBackgroundResource(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 1752
+    .line 1754
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
-    const v3, 0x7f020150
+    const v2, 0x7f020158
 
-    invoke-virtual {v0, v3}, Landroid/widget/EditText;->setCursorDrawableRes(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/EditText;->setCursorDrawableRes(I)V
 
-    .line 1753
-    iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
-
-    invoke-virtual {v2}, Lcom/android/mms/data/ContactList;->size()I
-
-    move-result v0
-
-    if-lez v0, :cond_6
+    .line 1755
+    iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     if-eqz v1, :cond_5
 
@@ -1942,7 +1936,7 @@
     move-result-object v0
 
     :goto_3
-    invoke-virtual {v3, v0}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v0}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
     goto :goto_2
 
@@ -1954,11 +1948,6 @@
     move-result-object v0
 
     goto :goto_3
-
-    :cond_6
-    const-string v0, ""
-
-    goto :goto_3
 .end method
 
 .method private toastConvertInfo(Z)V
@@ -1966,12 +1955,12 @@
     .parameter
 
     .prologue
-    .line 829
+    .line 831
     if-eqz p1, :cond_0
 
     const v0, 0x7f0a005d
 
-    .line 831
+    .line 833
     :goto_0
     const/4 v1, 0x0
 
@@ -1981,10 +1970,10 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 832
+    .line 834
     return-void
 
-    .line 829
+    .line 831
     :cond_0
     const v0, 0x7f0a005e
 
@@ -2019,7 +2008,7 @@
     .locals 1
 
     .prologue
-    .line 743
+    .line 745
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->requiresMms()Z
@@ -2028,7 +2017,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->updateCounter(Z)V
 
-    .line 744
+    .line 746
     return-void
 .end method
 
@@ -2039,21 +2028,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 747
+    .line 749
     if-eqz p1, :cond_0
 
-    .line 748
+    .line 750
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextCounter:Landroid/widget/TextView;
 
     const v1, 0x7f0a0045
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 756
+    .line 758
     :goto_0
     return-void
 
-    .line 750
+    .line 752
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
@@ -2069,15 +2058,15 @@
 
     move-result-object v0
 
-    .line 751
+    .line 753
     aget v1, v0, v1
 
-    .line 752
+    .line 754
     const/4 v2, 0x2
 
     aget v0, v0, v2
 
-    .line 754
+    .line 756
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextCounter:Landroid/widget/TextView;
 
     invoke-static {v1, v0}, Lcom/android/mms/ui/MessageUtils;->getMessageStats(II)Ljava/lang/String;
@@ -2095,7 +2084,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1333
+    .line 1335
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSharedPrefs:Landroid/content/SharedPreferences;
 
     const-string v1, "nickname_revised_numbers"
@@ -2106,19 +2095,19 @@
 
     move-result-object v0
 
-    .line 1334
+    .line 1336
     const-string v1, "\n"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1335
+    .line 1337
     invoke-static {v0}, Lcom/google/android/collect/Sets;->newHashSet([Ljava/lang/Object;)Ljava/util/HashSet;
 
     move-result-object v3
 
-    .line 1337
+    .line 1339
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mConversation:Lcom/android/mms/data/Conversation;
 
     invoke-virtual {v0}, Lcom/android/mms/data/Conversation;->getRecipients()Lcom/android/mms/data/ContactList;
@@ -2127,7 +2116,7 @@
 
     move v1, v2
 
-    .line 1338
+    .line 1340
     :goto_0
     invoke-virtual {v4}, Lcom/android/mms/data/ContactList;->size()I
 
@@ -2135,14 +2124,14 @@
 
     if-ge v1, v0, :cond_1
 
-    .line 1339
+    .line 1341
     invoke-virtual {v4, v1}, Lcom/android/mms/data/ContactList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/mms/data/Contact;
 
-    .line 1340
+    .line 1342
     invoke-virtual {v0}, Lcom/android/mms/data/Contact;->existsInDatabase()Z
 
     move-result v5
@@ -2155,30 +2144,30 @@
 
     if-eqz v5, :cond_0
 
-    .line 1341
+    .line 1343
     invoke-virtual {v0}, Lcom/android/mms/data/Contact;->getNumber()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1342
+    .line 1344
     invoke-static {v0}, Lmiui/telephony/PhoneNumberUtils$PhoneNumber;->parse(Ljava/lang/CharSequence;)Lmiui/telephony/PhoneNumberUtils$PhoneNumber;
 
     move-result-object v0
 
-    .line 1343
+    .line 1345
     const/4 v5, 0x1
 
     invoke-virtual {v0, v2, v5}, Lmiui/telephony/PhoneNumberUtils$PhoneNumber;->getNormalizedNumber(ZZ)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 1344
+    .line 1346
     invoke-virtual {v0}, Lmiui/telephony/PhoneNumberUtils$PhoneNumber;->recycle()V
 
-    .line 1345
+    .line 1347
     invoke-virtual {v3, v5}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 1338
+    .line 1340
     :cond_0
     add-int/lit8 v0, v1, 0x1
 
@@ -2186,7 +2175,7 @@
 
     goto :goto_0
 
-    .line 1348
+    .line 1350
     :cond_1
     const-string v0, "\n"
 
@@ -2198,22 +2187,22 @@
 
     move-result-object v0
 
-    .line 1349
+    .line 1351
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSharedPrefs:Landroid/content/SharedPreferences;
 
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    .line 1350
+    .line 1352
     const-string v2, "nickname_revised_numbers"
 
     invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 1351
+    .line 1353
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1352
+    .line 1354
     return-void
 .end method
 
@@ -2223,24 +2212,24 @@
     .locals 3
 
     .prologue
-    .line 1730
+    .line 1732
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 1731
+    .line 1733
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     const-wide/16 v1, 0x0
 
     invoke-virtual {v0, v1, v2}, Lcom/android/mms/data/WorkingMessage;->setTimeToSend(J)V
 
-    .line 1732
+    .line 1734
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->switchMsgType()V
 
-    .line 1733
+    .line 1735
     return-void
 .end method
 
@@ -2249,14 +2238,14 @@
     .parameter
 
     .prologue
-    .line 791
+    .line 793
     invoke-static {p0}, Lcom/android/mms/ui/MessageUtils;->isPrivacyModeEnabled(Landroid/content/Context;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 792
+    .line 794
     const v0, 0x7f0a019c
 
     const/4 v1, 0x0
@@ -2267,11 +2256,11 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 810
+    .line 812
     :goto_0
     return-void
 
-    .line 795
+    .line 797
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSignature:Ljava/lang/String;
 
@@ -2303,7 +2292,7 @@
 
     if-nez v0, :cond_1
 
-    .line 796
+    .line 798
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -2348,7 +2337,7 @@
 
     goto :goto_0
 
-    .line 808
+    .line 810
     :cond_1
     invoke-direct {p0, p1}, Lcom/android/mms/ui/MessageEditableActivityBase;->sendMessage(Z)V
 
@@ -2359,14 +2348,14 @@
     .locals 2
 
     .prologue
-    .line 1546
+    .line 1548
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentPanel:Landroid/view/View;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1547
+    .line 1549
     return-void
 .end method
 
@@ -2378,7 +2367,7 @@
 
     const/4 v4, 0x0
 
-    .line 1052
+    .line 1054
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->getTimeToSend()J
@@ -2391,12 +2380,12 @@
 
     if-lez v0, :cond_1
 
-    .line 1053
+    .line 1055
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
 
     invoke-virtual {v0, v4}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 1057
+    .line 1059
     :goto_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
@@ -2406,23 +2395,23 @@
 
     if-eqz v0, :cond_2
 
-    .line 1058
+    .line 1060
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0, v5}, Landroid/widget/EditText;->setVisibility(I)V
 
-    .line 1083
+    .line 1085
     :cond_0
     :goto_1
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->updateCounter()V
 
-    .line 1084
+    .line 1086
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->switchMsgType()V
 
-    .line 1085
+    .line 1087
     return-void
 
-    .line 1055
+    .line 1057
     :cond_1
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
 
@@ -2430,13 +2419,13 @@
 
     goto :goto_0
 
-    .line 1060
+    .line 1062
     :cond_2
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0, v4}, Landroid/widget/EditText;->setVisibility(I)V
 
-    .line 1061
+    .line 1063
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->hasAttachment()Z
@@ -2445,14 +2434,14 @@
 
     if-eqz v0, :cond_3
 
-    .line 1062
+    .line 1064
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     const-string v1, ""
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
-    .line 1065
+    .line 1067
     :cond_3
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
@@ -2460,10 +2449,10 @@
 
     move-result-object v0
 
-    .line 1067
+    .line 1069
     if-eqz v0, :cond_4
 
-    .line 1068
+    .line 1070
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -2476,14 +2465,14 @@
 
     if-nez v1, :cond_0
 
-    .line 1076
+    .line 1078
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v1, v0}, Landroid/widget/EditText;->setTextKeepState(Ljava/lang/CharSequence;)V
 
     goto :goto_1
 
-    .line 1079
+    .line 1081
     :cond_4
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
@@ -2498,7 +2487,7 @@
     .locals 1
 
     .prologue
-    .line 1048
+    .line 1050
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->hasSubject()Z
@@ -2507,7 +2496,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->showSubjectEditor(Z)V
 
-    .line 1049
+    .line 1051
     return-void
 .end method
 
@@ -2517,20 +2506,20 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1529
+    .line 1531
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getEditMessageFocus()Landroid/widget/EditText;
 
-    .line 1530
+    .line 1532
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentProcessor:Lcom/android/mms/ui/AttachmentProcessor;
 
     invoke-virtual {v0, v1}, Lcom/android/mms/ui/AttachmentProcessor;->gotoAttachmentPanel(Z)V
 
-    .line 1531
+    .line 1533
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentPanel:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1532
+    .line 1534
     return-void
 .end method
 
@@ -2538,7 +2527,7 @@
     .locals 2
 
     .prologue
-    .line 998
+    .line 1000
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSignature:Ljava/lang/String;
@@ -2549,14 +2538,14 @@
 
     if-nez v0, :cond_0
 
-    .line 999
+    .line 1001
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->postExit()V
 
-    .line 1010
+    .line 1012
     :goto_0
     return-void
 
-    .line 1003
+    .line 1005
     :cond_0
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->willDiscardDraft()Z
 
@@ -2564,7 +2553,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 1004
+    .line 1006
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$DiscardDraftListener;
 
     const/4 v1, 0x0
@@ -2575,13 +2564,13 @@
 
     goto :goto_0
 
-    .line 1008
+    .line 1010
     :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mToastForDraftSave:Z
 
-    .line 1009
+    .line 1011
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->postExit()V
 
     goto :goto_0
@@ -2614,7 +2603,7 @@
     .locals 1
 
     .prologue
-    .line 1535
+    .line 1537
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
     if-eqz v0, :cond_0
@@ -2627,14 +2616,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 1536
+    .line 1538
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
-    .line 1541
+    .line 1543
     :goto_0
     return-object v0
 
-    .line 1537
+    .line 1539
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
@@ -2644,18 +2633,18 @@
 
     if-eqz v0, :cond_1
 
-    .line 1538
+    .line 1540
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     goto :goto_0
 
-    .line 1540
+    .line 1542
     :cond_1
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 1541
+    .line 1543
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     goto :goto_0
@@ -2675,7 +2664,7 @@
     .locals 0
 
     .prologue
-    .line 901
+    .line 903
     return-object p0
 .end method
 
@@ -2710,12 +2699,12 @@
 
     const/4 v1, 0x0
 
-    .line 1248
+    .line 1250
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
-    .line 1252
+    .line 1254
     const-string v0, "forwarded_message"
 
     invoke-virtual {v3, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -2726,11 +2715,11 @@
 
     move v0, v1
 
-    .line 1269
+    .line 1271
     :goto_0
     return v0
 
-    .line 1256
+    .line 1258
     :cond_0
     const-string v0, "msg_uri"
 
@@ -2740,7 +2729,7 @@
 
     check-cast v0, Landroid/net/Uri;
 
-    .line 1258
+    .line 1260
     const-string v4, "Mms:app"
 
     const/4 v5, 0x3
@@ -2751,7 +2740,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 1259
+    .line 1261
     const-string v4, "MessageEditableActivityBase"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2774,18 +2763,18 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1262
+    .line 1264
     :cond_1
     if-eqz v0, :cond_2
 
-    .line 1263
+    .line 1265
     invoke-static {p0, v0, v2}, Lcom/android/mms/data/WorkingMessage;->load(Lcom/android/mms/data/WorkingMessage$MessageStatusListener;Landroid/net/Uri;Z)Lcom/android/mms/data/WorkingMessage;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
-    .line 1264
+    .line 1266
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     const-string v4, "subject"
@@ -2799,10 +2788,10 @@
     :goto_1
     move v0, v2
 
-    .line 1269
+    .line 1271
     goto :goto_0
 
-    .line 1266
+    .line 1268
     :cond_2
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
@@ -2824,19 +2813,19 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 434
+    .line 436
     invoke-static {p0}, Lcom/android/mms/data/WorkingMessage;->createEmpty(Lcom/android/mms/data/WorkingMessage$MessageStatusListener;)Lcom/android/mms/data/WorkingMessage;
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
-    .line 436
+    .line 438
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->isSignatureRequired()Z
 
     move-result v1
 
-    .line 437
+    .line 439
     .local v1, needSignature:Z
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->handleForwardedMessage()Z
 
@@ -2844,10 +2833,10 @@
 
     if-nez v3, :cond_0
 
-    .line 438
+    .line 440
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->loadDraft()V
 
-    .line 439
+    .line 441
     iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v3}, Lcom/android/mms/data/WorkingMessage;->hasText()Z
@@ -2856,10 +2845,10 @@
 
     if-eqz v3, :cond_0
 
-    .line 440
+    .line 442
     const/4 v1, 0x0
 
-    .line 445
+    .line 447
     :cond_0
     invoke-virtual {p1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
@@ -2869,7 +2858,7 @@
 
     move-result-object v0
 
-    .line 446
+    .line 448
     .local v0, body:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2877,12 +2866,12 @@
 
     if-nez v3, :cond_1
 
-    .line 447
+    .line 449
     iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v3, v0}, Lcom/android/mms/data/WorkingMessage;->setText(Ljava/lang/CharSequence;)V
 
-    .line 450
+    .line 452
     :cond_1
     const-string v3, "sms_body"
 
@@ -2890,19 +2879,19 @@
 
     move-result-object v0
 
-    .line 451
+    .line 453
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_2
 
-    .line 452
+    .line 454
     iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v3, v0}, Lcom/android/mms/data/WorkingMessage;->setText(Ljava/lang/CharSequence;)V
 
-    .line 455
+    .line 457
     :cond_2
     const-string v3, "subject"
 
@@ -2910,7 +2899,7 @@
 
     move-result-object v2
 
-    .line 456
+    .line 458
     .local v2, subject:Ljava/lang/String;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2918,12 +2907,12 @@
 
     if-nez v3, :cond_3
 
-    .line 457
+    .line 459
     iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v3, v2, v4}, Lcom/android/mms/data/WorkingMessage;->setSubject(Ljava/lang/CharSequence;Z)V
 
-    .line 459
+    .line 461
     :cond_3
     const-string v3, "exit_on_sent"
 
@@ -2933,20 +2922,20 @@
 
     iput-boolean v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mExitOnSent:Z
 
-    .line 462
+    .line 464
     iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     iget-object v4, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mConversation:Lcom/android/mms/data/Conversation;
 
     invoke-virtual {v3, v4}, Lcom/android/mms/data/WorkingMessage;->setConversation(Lcom/android/mms/data/Conversation;)V
 
-    .line 464
+    .line 466
     invoke-direct {p0, p1}, Lcom/android/mms/ui/MessageEditableActivityBase;->handleSendIntent(Landroid/content/Intent;)Z
 
-    .line 465
+    .line 467
     invoke-direct {p0, p1}, Lcom/android/mms/ui/MessageEditableActivityBase;->handleSendToIntent(Landroid/content/Intent;)Z
 
-    .line 467
+    .line 469
     return v1
 .end method
 
@@ -2955,13 +2944,13 @@
     .parameter "needSignature"
 
     .prologue
-    .line 611
+    .line 613
     if-eqz p1, :cond_0
 
-    .line 615
+    .line 617
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->appendSignature()V
 
-    .line 617
+    .line 619
     :cond_0
     return-void
 .end method
@@ -2970,21 +2959,21 @@
     .locals 4
 
     .prologue
-    .line 1578
+    .line 1580
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentView:Lcom/android/mms/ui/SizeAwareLinearLayout;
 
     invoke-virtual {v1}, Lcom/android/mms/ui/SizeAwareLinearLayout;->findFocus()Landroid/view/View;
 
     move-result-object v0
 
-    .line 1579
+    .line 1581
     .local v0, focus:Landroid/view/View;
     if-nez v0, :cond_0
 
-    .line 1580
+    .line 1582
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
-    .line 1582
+    .line 1584
     :cond_0
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
 
@@ -2996,7 +2985,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 1583
+    .line 1585
     return-void
 .end method
 
@@ -3004,7 +2993,7 @@
     .locals 3
 
     .prologue
-    .line 358
+    .line 360
     const v1, 0x7f100095
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3013,7 +3002,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContactPanel:Landroid/view/View;
 
-    .line 359
+    .line 361
     const v1, 0x7f100080
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3022,7 +3011,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mHistoryView:Landroid/view/View;
 
-    .line 360
+    .line 362
     const v1, 0x7f100057
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3031,7 +3020,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mBottomPanel:Landroid/view/View;
 
-    .line 361
+    .line 363
     const v1, 0x7f10004c
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3040,7 +3029,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentPanel:Landroid/view/View;
 
-    .line 363
+    .line 365
     const v1, 0x7f100059
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3049,7 +3038,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mEditorContainer:Landroid/view/View;
 
-    .line 364
+    .line 366
     const v1, 0x7f100062
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3060,14 +3049,14 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
-    .line 365
+    .line 367
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditorWatcher:Landroid/text/TextWatcher;
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 366
+    .line 368
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     new-instance v2, Lcom/android/mms/ui/MessageEditableActivityBase$2;
@@ -3076,7 +3065,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
-    .line 382
+    .line 384
     const v1, 0x7f100064
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3087,7 +3076,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextCounter:Landroid/widget/TextView;
 
-    .line 383
+    .line 385
     const v1, 0x7f100063
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3098,12 +3087,12 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSendButton:Landroid/widget/Button;
 
-    .line 384
+    .line 386
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSendButton:Landroid/widget/Button;
 
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 385
+    .line 387
     const v1, 0x7f10005e
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3114,7 +3103,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentView:Lcom/android/mms/ui/AttachmentView;
 
-    .line 386
+    .line 388
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentView:Lcom/android/mms/ui/AttachmentView;
 
     new-instance v2, Lcom/android/mms/ui/MessageEditableActivityBase$3;
@@ -3123,7 +3112,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/mms/ui/AttachmentView;->setHandler(Landroid/os/Handler;)V
 
-    .line 392
+    .line 394
     const v1, 0x7f100058
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3134,12 +3123,12 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mShowAttachmentPanelButton:Landroid/widget/Button;
 
-    .line 393
+    .line 395
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mShowAttachmentPanelButton:Landroid/widget/Button;
 
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 394
+    .line 396
     const v1, 0x7f10005c
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3150,7 +3139,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
 
-    .line 395
+    .line 397
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
 
     new-instance v2, Lcom/android/mms/ui/MessageEditableActivityBase$4;
@@ -3159,14 +3148,14 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 401
+    .line 403
     const v1, 0x7f100061
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 402
+    .line 404
     .local v0, focuser:Landroid/view/View;
     new-instance v1, Lcom/android/mms/ui/MessageEditableActivityBase$5;
 
@@ -3174,7 +3163,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 411
+    .line 413
     const v1, 0x7f10005b
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3183,7 +3172,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMessageContentPanel:Landroid/view/View;
 
-    .line 412
+    .line 414
     const v1, 0x7f100097
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -3194,12 +3183,12 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mHomeButton:Landroid/widget/Button;
 
-    .line 413
+    .line 415
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mHomeButton:Landroid/widget/Button;
 
     if-eqz v1, :cond_0
 
-    .line 414
+    .line 416
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mHomeButton:Landroid/widget/Button;
 
     new-instance v2, Lcom/android/mms/ui/MessageEditableActivityBase$6;
@@ -3208,7 +3197,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 423
+    .line 425
     :cond_0
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentView:Lcom/android/mms/ui/SizeAwareLinearLayout;
 
@@ -3220,7 +3209,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentParent:Landroid/view/View;
 
-    .line 424
+    .line 426
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentParent:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -3231,7 +3220,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentGrandpa:Landroid/view/View;
 
-    .line 425
+    .line 427
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentGrandpa:Landroid/view/View;
 
     const v2, 0x60b0004
@@ -3248,7 +3237,7 @@
 
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mActionBarGroup:Landroid/view/ViewGroup;
 
-    .line 427
+    .line 429
     return-void
 .end method
 
@@ -3256,7 +3245,7 @@
     .locals 4
 
     .prologue
-    .line 620
+    .line 622
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
@@ -3265,27 +3254,27 @@
 
     move-result v1
 
-    .line 621
+    .line 623
     .local v1, needSignature:Z
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->updateSendButtonState()V
 
-    .line 622
+    .line 624
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->drawTopPanel()V
 
-    .line 623
+    .line 625
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->drawBottomPanel()V
 
-    .line 624
+    .line 626
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentView:Lcom/android/mms/ui/AttachmentView;
 
     iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v2, v3}, Lcom/android/mms/ui/AttachmentView;->update(Lcom/android/mms/data/WorkingMessage;)V
 
-    .line 625
+    .line 627
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->handleSignature(Z)V
 
-    .line 627
+    .line 629
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -3294,7 +3283,7 @@
 
     move-result-object v0
 
-    .line 628
+    .line 630
     .local v0, config:Landroid/content/res/Configuration;
     iget v2, v0, Landroid/content/res/Configuration;->orientation:I
 
@@ -3307,10 +3296,10 @@
     :goto_0
     iput-boolean v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mIsLandscape:Z
 
-    .line 629
+    .line 631
     return-void
 
-    .line 628
+    .line 630
     :cond_0
     const/4 v2, 0x0
 
@@ -3321,7 +3310,7 @@
     .locals 3
 
     .prologue
-    .line 1273
+    .line 1275
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->requiresMms()Z
@@ -3330,35 +3319,35 @@
 
     if-eqz v0, :cond_0
 
-    .line 1274
+    .line 1276
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 1275
+    .line 1277
     const v1, 0x7f0a0195
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 1276
+    .line 1278
     const v1, 0x104000a
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 1277
+    .line 1279
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    .line 1291
+    .line 1293
     :goto_0
     return-void
 
-    .line 1281
+    .line 1283
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
@@ -3366,14 +3355,14 @@
 
     move-result v0
 
-    .line 1284
+    .line 1286
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v1
 
-    .line 1285
+    .line 1287
     const v2, 0xffff
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
@@ -3382,19 +3371,19 @@
 
     invoke-interface {v1, v0, v2}, Landroid/text/Editable;->insert(ILjava/lang/CharSequence;)Landroid/text/Editable;
 
-    .line 1286
+    .line 1288
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     add-int/lit8 v0, v0, 0x1
 
     invoke-virtual {v1, v0}, Landroid/widget/EditText;->setSelection(I)V
 
-    .line 1287
+    .line 1289
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->startNicknamePicker(Z)V
 
-    .line 1290
+    .line 1292
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->showSoftKeyboard()Z
 
     goto :goto_0
@@ -3404,7 +3393,7 @@
     .locals 1
 
     .prologue
-    .line 1525
+    .line 1527
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentPanel:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->isVisible(Landroid/view/View;)Z
@@ -3421,7 +3410,7 @@
     .locals 1
 
     .prologue
-    .line 1139
+    .line 1141
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
     if-eqz v0, :cond_0
@@ -3450,7 +3439,7 @@
     .parameter "view"
 
     .prologue
-    .line 1521
+    .line 1523
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/view/View;->getVisibility()I
@@ -3476,7 +3465,7 @@
     .locals 2
 
     .prologue
-    .line 675
+    .line 677
     const-string v0, "Mms:app"
 
     const/4 v1, 0x2
@@ -3487,14 +3476,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 676
+    .line 678
     const-string v0, "MessageEditableActivityBase"
 
     const-string v1, "loadDraft: call WorkingMessage.loadDraft"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 679
+    .line 681
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mConversation:Lcom/android/mms/data/Conversation;
 
@@ -3504,10 +3493,10 @@
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
-    .line 680
+    .line 682
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->updateCounter()V
 
-    .line 681
+    .line 683
     return-void
 .end method
 
@@ -3580,13 +3569,13 @@
 
     const/4 v4, 0x1
 
-    const/4 v1, 0x0
-
-    .line 694
-    invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
+    const/4 v0, 0x0
 
     .line 696
-    const-string v0, "MessageEditableActivityBase"
+    invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
+
+    .line 698
+    const-string v1, "MessageEditableActivityBase"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -3626,152 +3615,150 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 699
-    iput-boolean v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWaitingForSubActivity:Z
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 701
-    iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
+    iput-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWaitingForSubActivity:Z
 
-    invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->isFakeMmsForDraft()Z
+    .line 703
+    iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
-    move-result v0
+    invoke-virtual {v1}, Lcom/android/mms/data/WorkingMessage;->isFakeMmsForDraft()Z
 
-    if-eqz v0, :cond_0
+    move-result v1
 
-    .line 704
-    iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->removeFakeMmsForDraft()V
+    .line 706
+    iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
-    .line 707
+    invoke-virtual {v1}, Lcom/android/mms/data/WorkingMessage;->removeFakeMmsForDraft()V
+
+    .line 709
     :cond_0
     if-ne p1, v4, :cond_2
 
-    .line 708
-    const-string v0, "exit_ecm_result"
-
-    invoke-virtual {p3, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    .line 709
-    if-eqz v0, :cond_1
-
     .line 710
-    invoke-direct {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->sendMessage(Z)V
+    const-string v1, "exit_ecm_result"
 
-    .line 738
+    invoke-virtual {p3, v1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    .line 711
+    if-eqz v1, :cond_1
+
+    .line 712
+    invoke-direct {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->sendMessage(Z)V
+
+    .line 740
     :cond_1
     :goto_0
     return-void
 
-    .line 712
+    .line 714
     :cond_2
-    const/4 v0, 0x3
+    const/4 v1, 0x3
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v1, :cond_3
 
     if-eqz p3, :cond_3
 
-    .line 713
-    const-string v0, "numbers"
+    .line 715
+    const-string v1, "numbers"
 
-    invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p3, v1}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 716
+    const-string v2, "names"
+
+    invoke-virtual {p3, v2}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
-    .line 714
-    const-string v0, "names"
+    .line 718
+    if-eqz v1, :cond_1
 
-    invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    if-eqz v2, :cond_1
+
+    array-length v3, v1
+
+    array-length v4, v2
+
+    if-ne v3, v4, :cond_1
+
+    .line 720
+    :goto_1
+    array-length v3, v1
+
+    if-ge v0, v3, :cond_1
+
+    .line 721
+    aget-object v3, v1, v0
+
+    .line 722
+    aget-object v4, v2, v0
+
+    .line 723
+    invoke-static {v3}, Lcom/android/mms/data/Contact;->get(Ljava/lang/String;)Lcom/android/mms/data/Contact;
 
     move-result-object v3
 
-    .line 716
-    if-eqz v2, :cond_1
-
-    if-eqz v3, :cond_1
-
-    array-length v0, v2
-
-    array-length v4, v3
-
-    if-ne v0, v4, :cond_1
-
-    move v0, v1
-
-    .line 718
-    :goto_1
-    array-length v4, v2
-
-    if-ge v0, v4, :cond_1
-
-    .line 719
-    aget-object v4, v2, v0
+    .line 724
+    invoke-virtual {v3, v4}, Lcom/android/mms/data/Contact;->setNickname(Ljava/lang/String;)V
 
     .line 720
-    aget-object v5, v3, v0
-
-    .line 721
-    invoke-static {v4, v1}, Lcom/android/mms/data/Contact;->get(Ljava/lang/String;Z)Lcom/android/mms/data/Contact;
-
-    move-result-object v4
-
-    .line 722
-    invoke-virtual {v4, v5}, Lcom/android/mms/data/Contact;->setNickname(Ljava/lang/String;)V
-
-    .line 718
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 725
-    :cond_3
-    const/4 v0, 0x4
-
-    if-ne p1, v0, :cond_5
-
-    .line 726
-    iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
-
-    invoke-virtual {v0, v4}, Landroid/widget/Button;->setClickable(Z)V
-
     .line 727
-    const/4 v0, -0x1
+    :cond_3
+    const/4 v1, 0x4
 
-    if-ne p2, v0, :cond_1
+    if-ne p1, v1, :cond_5
 
     .line 728
-    sget-object v0, Lcom/android/mms/ui/DateTimePickerActivity;->FIELD_TIME:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
 
-    invoke-virtual {p3, v0, v5, v6}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
-
-    move-result-wide v2
+    invoke-virtual {v1, v4}, Landroid/widget/Button;->setClickable(Z)V
 
     .line 729
-    cmp-long v0, v2, v5
+    const/4 v1, -0x1
 
-    if-eqz v0, :cond_4
+    if-ne p2, v1, :cond_1
 
     .line 730
-    iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
+    sget-object v1, Lcom/android/mms/ui/DateTimePickerActivity;->FIELD_TIME:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {p3, v1, v5, v6}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+
+    move-result-wide v1
 
     .line 731
-    iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
+    cmp-long v3, v1, v5
 
-    invoke-virtual {v0, v2, v3}, Lcom/android/mms/data/WorkingMessage;->setTimeToSend(J)V
+    if-eqz v3, :cond_4
+
+    .line 732
+    iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
+
+    invoke-virtual {v3, v0}, Landroid/widget/Button;->setVisibility(I)V
 
     .line 733
+    iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/mms/data/WorkingMessage;->setTimeToSend(J)V
+
+    .line 735
     :cond_4
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->switchMsgType()V
 
     goto :goto_0
 
-    .line 736
+    .line 738
     :cond_5
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentProcessor:Lcom/android/mms/ui/AttachmentProcessor;
 
@@ -3784,14 +3771,14 @@
     .locals 1
 
     .prologue
-    .line 838
+    .line 840
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$12;
 
     invoke-direct {v0, p0}, Lcom/android/mms/ui/MessageEditableActivityBase$12;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;)V
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 846
+    .line 848
     return-void
 .end method
 
@@ -3800,14 +3787,14 @@
     .parameter "error"
 
     .prologue
-    .line 891
+    .line 893
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$16;
 
     invoke-direct {v0, p0, p1}, Lcom/android/mms/ui/MessageEditableActivityBase$16;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;I)V
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 897
+    .line 899
     return-void
 .end method
 
@@ -3815,7 +3802,7 @@
     .locals 2
 
     .prologue
-    .line 980
+    .line 982
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentView:Lcom/android/mms/ui/AttachmentView;
 
     invoke-virtual {v0}, Lcom/android/mms/ui/AttachmentView;->onBackPressed()Z
@@ -3824,11 +3811,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 993
+    .line 995
     :goto_0
     return-void
 
-    .line 984
+    .line 986
     :cond_0
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->isAttachmentPanelEnabled()Z
 
@@ -3836,7 +3823,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 985
+    .line 987
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentProcessor:Lcom/android/mms/ui/AttachmentProcessor;
 
     invoke-virtual {v0}, Lcom/android/mms/ui/AttachmentProcessor;->isOnAttachmentPanel()Z
@@ -3845,7 +3832,7 @@
 
     if-nez v0, :cond_1
 
-    .line 986
+    .line 988
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentProcessor:Lcom/android/mms/ui/AttachmentProcessor;
 
     const/4 v1, 0x1
@@ -3854,13 +3841,13 @@
 
     goto :goto_0
 
-    .line 988
+    .line 990
     :cond_1
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->disableAttachmentPanel()V
 
     goto :goto_0
 
-    .line 991
+    .line 993
     :cond_2
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->exit()V
 
@@ -3872,19 +3859,19 @@
     .parameter "v"
 
     .prologue
-    .line 905
+    .line 907
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 923
+    .line 925
     :cond_0
     :goto_0
     return-void
 
-    .line 907
+    .line 909
     :sswitch_0
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->isPreparedForSending()Z
 
@@ -3892,12 +3879,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 908
+    .line 910
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->sendMessage()V
 
     goto :goto_0
 
-    .line 912
+    .line 914
     :sswitch_1
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->isAttachmentPanelEnabled()Z
 
@@ -3905,15 +3892,15 @@
 
     if-nez v0, :cond_1
 
-    .line 913
+    .line 915
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->enableAttachmentPanel()V
 
-    .line 914
+    .line 916
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->hideSoftKeyboard()V
 
     goto :goto_0
 
-    .line 916
+    .line 918
     :cond_1
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
@@ -3929,13 +3916,13 @@
 
     if-nez v0, :cond_0
 
-    .line 917
+    .line 919
     :cond_2
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->disableAttachmentPanel()V
 
     goto :goto_0
 
-    .line 905
+    .line 907
     nop
 
     :sswitch_data_0
@@ -3950,10 +3937,10 @@
     .parameter "newConfig"
 
     .prologue
-    .line 633
+    .line 635
     invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 635
+    .line 637
     iget v1, p1, Landroid/content/res/Configuration;->orientation:I
 
     const/4 v2, 0x2
@@ -3962,28 +3949,28 @@
 
     const/4 v0, 0x1
 
-    .line 636
+    .line 638
     .local v0, isLandscape:Z
     :goto_0
     iget-boolean v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mIsLandscape:Z
 
     if-eq v1, v0, :cond_0
 
-    .line 637
+    .line 639
     iput-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mIsLandscape:Z
 
-    .line 641
+    .line 643
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentView:Lcom/android/mms/ui/AttachmentView;
 
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v1, v2}, Lcom/android/mms/ui/AttachmentView;->update(Lcom/android/mms/data/WorkingMessage;)V
 
-    .line 643
+    .line 645
     :cond_0
     return-void
 
-    .line 635
+    .line 637
     .end local v0           #isLandscape:Z
     :cond_1
     const/4 v0, 0x0
@@ -4025,9 +4012,15 @@
 
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
+    .line 341
+    :goto_0
+    return-void
+
     .line 339
     :cond_0
-    return-void
+    invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->switchMsgType()V
+
+    goto :goto_0
 .end method
 
 .method protected onContactRemoved(Lcom/android/mms/data/Contact;)V
@@ -4035,31 +4028,31 @@
     .parameter "orig"
 
     .prologue
-    .line 342
+    .line 344
     invoke-virtual {p1}, Lcom/android/mms/data/Contact;->getMxPhoneNumber()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 343
+    .line 345
     .local v0, address:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mPendingRecipients:Ljava/util/Map;
 
     invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 344
+    .line 346
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxMmsRecipients:Ljava/util/Map;
 
     invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 345
+    .line 347
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxSmsRecipients:Ljava/util/Map;
 
     invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 346
+    .line 348
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->switchMsgType()V
 
-    .line 347
+    .line 349
     return-void
 .end method
 
@@ -4068,7 +4061,7 @@
     .parameter "address"
 
     .prologue
-    .line 350
+    .line 352
     return-void
 .end method
 
@@ -4288,7 +4281,7 @@
     .parameter
 
     .prologue
-    .line 1089
+    .line 1091
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
@@ -4297,7 +4290,7 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 1090
+    .line 1092
     const/4 v0, 0x1
 
     return v0
@@ -4336,19 +4329,19 @@
     .locals 1
 
     .prologue
-    .line 876
+    .line 878
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->saveDraft(Z)V
 
-    .line 877
+    .line 879
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$15;
 
     invoke-direct {v0, p0}, Lcom/android/mms/ui/MessageEditableActivityBase$15;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;)V
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 887
+    .line 889
     return-void
 .end method
 
@@ -4356,7 +4349,7 @@
     .locals 1
 
     .prologue
-    .line 859
+    .line 861
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -4367,11 +4360,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 871
+    .line 873
     :goto_0
     return-void
 
-    .line 862
+    .line 864
     :cond_0
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$14;
 
@@ -4388,23 +4381,23 @@
     .parameter
 
     .prologue
-    .line 1031
+    .line 1033
     iget-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxEnabled:Z
 
     if-nez v0, :cond_0
 
-    .line 1032
+    .line 1034
     const-string v0, "MessageEditableActivityBase"
 
     const-string v1, "mx id offline, but mx disabled"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1037
+    .line 1039
     :goto_0
     return-void
 
-    .line 1035
+    .line 1037
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mQueryStatusHandler:Landroid/os/Handler;
 
@@ -4425,23 +4418,23 @@
     .parameter
 
     .prologue
-    .line 1020
+    .line 1022
     iget-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxEnabled:Z
 
     if-nez v0, :cond_0
 
-    .line 1021
+    .line 1023
     const-string v0, "MessageEditableActivityBase"
 
     const-string v1, "mx id online, but mx disabled"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1027
+    .line 1029
     :goto_0
     return-void
 
-    .line 1024
+    .line 1026
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mQueryStatusHandler:Landroid/os/Handler;
 
@@ -4453,7 +4446,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1026
+    .line 1028
     invoke-virtual {p0, p2}, Lcom/android/mms/ui/MessageEditableActivityBase;->onContactStatusUpdate(Ljava/lang/String;)V
 
     goto :goto_0
@@ -4466,19 +4459,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1112
+    .line 1114
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1135
+    .line 1137
     :goto_0
     :pswitch_0
     return v2
 
-    .line 1114
+    .line 1116
     :pswitch_1
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->isSubjectEditorVisible()Z
 
@@ -4486,55 +4479,55 @@
 
     if-nez v0, :cond_0
 
-    .line 1115
+    .line 1117
     invoke-virtual {p0, v2}, Lcom/android/mms/ui/MessageEditableActivityBase;->showSubjectEditor(Z)V
 
-    .line 1116
+    .line 1118
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     const-string v1, ""
 
     invoke-virtual {v0, v1, v2}, Lcom/android/mms/data/WorkingMessage;->setSubject(Ljava/lang/CharSequence;Z)V
 
-    .line 1117
+    .line 1119
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
     goto :goto_0
 
-    .line 1119
+    .line 1121
     :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->showSubjectEditor(Z)V
 
-    .line 1120
+    .line 1122
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, v2}, Lcom/android/mms/data/WorkingMessage;->setSubject(Ljava/lang/CharSequence;Z)V
 
-    .line 1121
+    .line 1123
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
     goto :goto_0
 
-    .line 1125
+    .line 1127
     :pswitch_2
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->discard()V
 
-    .line 1126
+    .line 1128
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->postExit()V
 
     goto :goto_0
 
-    .line 1129
+    .line 1131
     :pswitch_3
     new-instance v0, Landroid/content/Intent;
 
@@ -4542,14 +4535,14 @@
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 1130
+    .line 1132
     const/4 v1, -0x1
 
     invoke-virtual {p0, v0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->startActivityIfNeeded(Landroid/content/Intent;I)Z
 
     goto :goto_0
 
-    .line 1112
+    .line 1114
     :pswitch_data_0
     .packed-switch 0x7f1000df
         :pswitch_1
@@ -4576,22 +4569,22 @@
 
     const/4 v4, 0x0
 
-    .line 1400
+    .line 1402
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0, v4}, Landroid/widget/EditText;->setMinHeight(I)V
 
-    .line 1401
+    .line 1403
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextCounter:Landroid/widget/TextView;
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1402
+    .line 1404
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mBottomPanel:Landroid/view/View;
 
     invoke-virtual {v0, p2, v4}, Landroid/view/View;->measure(II)V
 
-    .line 1403
+    .line 1405
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getLineCount()I
@@ -4616,14 +4609,14 @@
 
     if-nez v0, :cond_0
 
-    .line 1405
+    .line 1407
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextCounter:Landroid/widget/TextView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1409
+    .line 1411
     :cond_0
     iget v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMessageContentPanelMinHeight:I
 
@@ -4635,10 +4628,10 @@
 
     sub-int/2addr v0, v1
 
-    .line 1410
+    .line 1412
     if-lez v0, :cond_1
 
-    .line 1411
+    .line 1413
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
@@ -4651,7 +4644,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/EditText;->setMinHeight(I)V
 
-    .line 1416
+    .line 1418
     :cond_1
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -4661,11 +4654,11 @@
 
     move v0, v3
 
-    .line 1417
+    .line 1419
     :goto_0
     if-eqz v0, :cond_7
 
-    .line 1418
+    .line 1420
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentParent:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -4674,13 +4667,13 @@
 
     check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 1419
+    .line 1421
     iget v1, v0, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    .line 1420
+    .line 1422
     iget v0, v0, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
 
-    .line 1426
+    .line 1428
     :goto_1
     iget v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSoftKeyboardMinHeight:I
 
@@ -4688,16 +4681,16 @@
 
     move v2, v3
 
-    .line 1427
+    .line 1429
     :goto_2
     iget-boolean v5, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mIsSoftInputEnabled:Z
 
     if-eq v2, v5, :cond_2
 
-    .line 1428
+    .line 1430
     invoke-virtual {p0, v2}, Lcom/android/mms/ui/MessageEditableActivityBase;->onSoftInputStateChange(Z)V
 
-    .line 1430
+    .line 1432
     :cond_2
     if-eqz v2, :cond_3
 
@@ -4711,10 +4704,10 @@
 
     if-eqz v5, :cond_3
 
-    .line 1431
+    .line 1433
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->disableAttachmentPanel()V
 
-    .line 1433
+    .line 1435
     :cond_3
     iget-boolean v5, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mIsLandscape:Z
 
@@ -4722,12 +4715,12 @@
 
     if-eqz v2, :cond_4
 
-    .line 1434
+    .line 1436
     iget-object v5, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentView:Lcom/android/mms/ui/AttachmentView;
 
     invoke-virtual {v5}, Lcom/android/mms/ui/AttachmentView;->dismissPopup()V
 
-    .line 1437
+    .line 1439
     :cond_4
     iget-object v6, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mShowAttachmentPanelButton:Landroid/widget/Button;
 
@@ -4742,10 +4735,10 @@
     :goto_3
     invoke-virtual {v6, v5}, Landroid/widget/Button;->setBackgroundResource(I)V
 
-    .line 1439
+    .line 1441
     iput-boolean v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mIsSoftInputEnabled:Z
 
-    .line 1441
+    .line 1443
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -4758,15 +4751,15 @@
 
     move-result-object v5
 
-    .line 1442
+    .line 1444
     invoke-virtual {v5}, Landroid/view/Display;->getHeight()I
 
     move-result v2
 
-    .line 1443
+    .line 1445
     sub-int v1, v2, v1
 
-    .line 1445
+    .line 1447
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentPanel:Landroid/view/View;
 
     invoke-virtual {p0, v2}, Lcom/android/mms/ui/MessageEditableActivityBase;->isVisible(Landroid/view/View;)Z
@@ -4775,7 +4768,7 @@
 
     if-eqz v2, :cond_a
 
-    .line 1446
+    .line 1448
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentProcessor:Lcom/android/mms/ui/AttachmentProcessor;
 
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
@@ -4784,12 +4777,12 @@
 
     invoke-virtual {v0, v2}, Lcom/android/mms/ui/AttachmentProcessor;->arrangeAttachmentPanel(I)V
 
-    .line 1447
+    .line 1449
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentPanel:Landroid/view/View;
 
     invoke-virtual {v0, p2, v4}, Landroid/view/View;->measure(II)V
 
-    .line 1448
+    .line 1450
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentPanel:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredHeight()I
@@ -4798,18 +4791,18 @@
 
     sub-int v0, v1, v0
 
-    .line 1457
+    .line 1459
     :goto_4
     iget-boolean v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mActionBarVisible:Z
 
     if-eqz v1, :cond_b
 
-    .line 1458
+    .line 1460
     invoke-direct {p0, p2}, Lcom/android/mms/ui/MessageEditableActivityBase;->getActionBarHeight(I)I
 
     move-result v2
 
-    .line 1460
+    .line 1462
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -4824,11 +4817,11 @@
 
     move v1, v2
 
-    .line 1464
+    .line 1466
     :goto_5
     invoke-virtual {p1, v4, v2, v4, v1}, Lcom/android/mms/ui/SizeAwareLinearLayout;->setPadding(IIII)V
 
-    .line 1465
+    .line 1467
     invoke-virtual {p1}, Lcom/android/mms/ui/SizeAwareLinearLayout;->getPaddingTop()I
 
     move-result v1
@@ -4841,7 +4834,7 @@
 
     sub-int/2addr v0, v1
 
-    .line 1470
+    .line 1472
     :goto_6
     new-array v2, v7, [Landroid/view/View;
 
@@ -4857,23 +4850,23 @@
 
     move v0, v4
 
-    .line 1471
+    .line 1473
     :goto_7
     array-length v3, v2
 
     if-ge v0, v3, :cond_d
 
-    .line 1472
+    .line 1474
     aget-object v3, v2, v0
 
-    .line 1473
+    .line 1475
     invoke-virtual {p0, v3}, Lcom/android/mms/ui/MessageEditableActivityBase;->isVisible(Landroid/view/View;)Z
 
     move-result v6
 
     if-eqz v6, :cond_5
 
-    .line 1474
+    .line 1476
     const/high16 v6, -0x8000
 
     invoke-virtual {v5}, Landroid/view/Display;->getHeight()I
@@ -4886,14 +4879,14 @@
 
     invoke-virtual {v3, p2, v6}, Landroid/view/View;->measure(II)V
 
-    .line 1475
+    .line 1477
     invoke-virtual {v3}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v6
 
     if-ge v1, v6, :cond_c
 
-    .line 1476
+    .line 1478
     new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v6, v9, v1, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
@@ -4902,7 +4895,7 @@
 
     move v1, v4
 
-    .line 1471
+    .line 1473
     :cond_5
     :goto_8
     add-int/lit8 v0, v0, 0x1
@@ -4912,10 +4905,10 @@
     :cond_6
     move v0, v4
 
-    .line 1416
+    .line 1418
     goto/16 :goto_0
 
-    .line 1422
+    .line 1424
     :cond_7
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentGrandpa:Landroid/view/View;
 
@@ -4923,7 +4916,7 @@
 
     move-result v1
 
-    .line 1423
+    .line 1425
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentGrandpa:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getPaddingBottom()I
@@ -4935,28 +4928,28 @@
     :cond_8
     move v2, v4
 
-    .line 1426
+    .line 1428
     goto/16 :goto_2
 
-    .line 1437
+    .line 1439
     :cond_9
     const v5, 0x7f0200d1
 
     goto/16 :goto_3
 
-    .line 1450
+    .line 1452
     :cond_a
     sub-int v0, v1, v0
 
     goto :goto_4
 
-    .line 1467
+    .line 1469
     :cond_b
     invoke-virtual {p1, v4, v4, v4, v4}, Lcom/android/mms/ui/SizeAwareLinearLayout;->setPadding(IIII)V
 
     goto :goto_6
 
-    .line 1481
+    .line 1483
     :cond_c
     new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -4966,7 +4959,7 @@
 
     invoke-virtual {v3, v6}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1484
+    .line 1486
     invoke-virtual {v3}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v3
@@ -4975,7 +4968,7 @@
 
     goto :goto_8
 
-    .line 1489
+    .line 1491
     :cond_d
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mHistoryView:Landroid/view/View;
 
@@ -4985,7 +4978,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1492
+    .line 1494
     return-void
 
     :cond_e
@@ -4998,14 +4991,14 @@
     .locals 1
 
     .prologue
-    .line 850
+    .line 852
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$13;
 
     invoke-direct {v0, p0}, Lcom/android/mms/ui/MessageEditableActivityBase$13;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;)V
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 855
+    .line 857
     return-void
 .end method
 
@@ -5018,40 +5011,40 @@
 
     const/4 v2, 0x1
 
-    .line 1095
+    .line 1097
     invoke-static {}, Lcom/android/mms/MmsConfig;->getMmsEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 1096
+    .line 1098
     invoke-static {p1, v1, v2}, Lcom/android/mms/ui/MessageUtils;->makeMenuItemVisible(Landroid/view/Menu;IZ)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 1097
+    .line 1099
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->isSubjectEditorVisible()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 1098
+    .line 1100
     const v1, 0x7f0a003f
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
-    .line 1106
+    .line 1108
     :goto_0
     const v0, 0x7f1000e2
 
     invoke-static {p1, v0, v2}, Lcom/android/mms/ui/MessageUtils;->makeMenuItemVisible(Landroid/view/Menu;IZ)Landroid/view/MenuItem;
 
-    .line 1107
+    .line 1109
     return v2
 
-    .line 1100
+    .line 1102
     :cond_0
     const v1, 0x7f0a0189
 
@@ -5059,7 +5052,7 @@
 
     goto :goto_0
 
-    .line 1103
+    .line 1105
     :cond_1
     const/4 v0, 0x0
 
@@ -5073,14 +5066,14 @@
     .parameter "mms"
 
     .prologue
-    .line 818
+    .line 820
     new-instance v0, Lcom/android/mms/ui/MessageEditableActivityBase$11;
 
     invoke-direct {v0, p0, p1}, Lcom/android/mms/ui/MessageEditableActivityBase$11;-><init>(Lcom/android/mms/ui/MessageEditableActivityBase;Z)V
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 826
+    .line 828
     return-void
 .end method
 
@@ -5088,7 +5081,7 @@
     .locals 2
 
     .prologue
-    .line 1773
+    .line 1775
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mQueryStatusHandler:Landroid/os/Handler;
 
     const/4 v1, 0x2
@@ -5099,7 +5092,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1774
+    .line 1776
     return-void
 .end method
 
@@ -5107,7 +5100,7 @@
     .locals 0
 
     .prologue
-    .line 1589
+    .line 1591
     return-void
 .end method
 
@@ -5115,7 +5108,7 @@
     .locals 0
 
     .prologue
-    .line 1586
+    .line 1588
     return-void
 .end method
 
@@ -5123,10 +5116,10 @@
     .locals 1
 
     .prologue
-    .line 927
+    .line 929
     invoke-super {p0}, Landroid/app/Activity;->onRestart()V
 
-    .line 929
+    .line 931
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->isDiscarded()Z
@@ -5135,17 +5128,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 937
+    .line 939
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mConversation:Lcom/android/mms/data/Conversation;
 
     invoke-virtual {v0}, Lcom/android/mms/data/Conversation;->ensureThreadId()J
 
-    .line 938
+    .line 940
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->unDiscard()V
 
-    .line 940
+    .line 942
     :cond_0
     invoke-static {p0}, Lcom/xiaomi/mms/transaction/MxActivateService;->isMxEnabled(Landroid/content/Context;)Z
 
@@ -5153,7 +5146,7 @@
 
     iput-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMxEnabled:Z
 
-    .line 941
+    .line 943
     return-void
 .end method
 
@@ -5162,7 +5155,7 @@
     .parameter "isSoftInputEnabled"
 
     .prologue
-    .line 1518
+    .line 1520
     return-void
 .end method
 
@@ -5196,18 +5189,18 @@
     .locals 1
 
     .prologue
-    .line 945
+    .line 947
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->saveDraft(Z)V
 
-    .line 946
+    .line 948
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->cancelUpdateContactNames()V
 
-    .line 947
+    .line 949
     invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
-    .line 948
+    .line 950
     return-void
 .end method
 
@@ -5215,20 +5208,20 @@
     .locals 1
 
     .prologue
-    .line 1554
+    .line 1556
     iget-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mRequestedShowSoftKeyboard:Z
 
     if-eqz v0, :cond_0
 
-    .line 1555
+    .line 1557
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->showSoftKeyboard()Z
 
-    .line 1556
+    .line 1558
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mRequestedShowSoftKeyboard:Z
 
-    .line 1558
+    .line 1560
     :cond_0
     return-void
 .end method
@@ -5237,10 +5230,10 @@
     .locals 0
 
     .prologue
-    .line 1013
+    .line 1015
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->finish()V
 
-    .line 1014
+    .line 1016
     return-void
 .end method
 
@@ -5248,12 +5241,12 @@
     .locals 1
 
     .prologue
-    .line 1550
+    .line 1552
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mRequestedShowSoftKeyboard:Z
 
-    .line 1551
+    .line 1553
     return-void
 .end method
 
@@ -5261,10 +5254,10 @@
     .locals 3
 
     .prologue
-    .line 1592
+    .line 1594
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->onResetMessageAnimationStart()V
 
-    .line 1593
+    .line 1595
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->getBaseContext()Landroid/content/Context;
 
     move-result-object v0
@@ -5275,17 +5268,17 @@
 
     move-result-object v0
 
-    .line 1595
+    .line 1597
     iget-boolean v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAllowAnimation:Z
 
     if-nez v1, :cond_0
 
-    .line 1596
+    .line 1598
     const-wide/16 v1, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/Animation;->setDuration(J)V
 
-    .line 1598
+    .line 1600
     :cond_0
     new-instance v1, Lcom/android/mms/ui/MessageEditableActivityBase$19;
 
@@ -5293,7 +5286,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 1646
+    .line 1648
     const v1, 0x7f10005b
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -5302,7 +5295,7 @@
 
     invoke-virtual {v1, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 1647
+    .line 1649
     return-void
 .end method
 
@@ -5313,7 +5306,7 @@
     .prologue
     const/4 v2, 0x2
 
-    .line 954
+    .line 956
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->isDiscarded()Z
@@ -5322,12 +5315,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 976
+    .line 978
     :cond_0
     :goto_0
     return-void
 
-    .line 958
+    .line 960
     :cond_1
     iget-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWaitingForSubActivity:Z
 
@@ -5343,7 +5336,7 @@
 
     if-nez v0, :cond_3
 
-    .line 959
+    .line 961
     const-string v0, "Mms:app"
 
     invoke-static {v0, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -5352,14 +5345,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 960
+    .line 962
     const-string v0, "MessageEditableActivityBase"
 
     const-string v1, "saveDraft: not worth saving, discard WorkingMessage and bail"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 962
+    .line 964
     :cond_2
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
@@ -5367,7 +5360,7 @@
 
     goto :goto_0
 
-    .line 966
+    .line 968
     :cond_3
     const-string v0, "Mms:app"
 
@@ -5377,25 +5370,25 @@
 
     if-eqz v0, :cond_4
 
-    .line 967
+    .line 969
     const-string v0, "MessageEditableActivityBase"
 
     const-string v1, "saveDraft: call WorkingMessage.saveDraft"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 970
+    .line 972
     :cond_4
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0, p1}, Lcom/android/mms/data/WorkingMessage;->saveDraft(Z)V
 
-    .line 972
+    .line 974
     iget-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mToastForDraftSave:Z
 
     if-eqz v0, :cond_0
 
-    .line 973
+    .line 975
     const v0, 0x7f0a0062
 
     const/4 v1, 0x0
@@ -5416,21 +5409,21 @@
     .locals 4
 
     .prologue
-    .line 1715
+    .line 1717
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->getTimeToSend()J
 
     move-result-wide v0
 
-    .line 1716
+    .line 1718
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
 
     if-nez v2, :cond_0
 
-    .line 1717
+    .line 1719
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -5439,7 +5432,7 @@
 
     add-long/2addr v0, v2
 
-    .line 1719
+    .line 1721
     :cond_0
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTimedMsgIndicator:Landroid/widget/Button;
 
@@ -5447,24 +5440,24 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setClickable(Z)V
 
-    .line 1721
+    .line 1723
     new-instance v2, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.PICK"
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1722
+    .line 1724
     sget-object v3, Lcom/android/mms/ui/DateTimePickerActivity;->CONTENT_TYPE:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1723
+    .line 1725
     sget-object v3, Lcom/android/mms/ui/DateTimePickerActivity;->FIELD_TIME:Ljava/lang/String;
 
     invoke-virtual {v2, v3, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    .line 1724
+    .line 1726
     sget-object v0, Lcom/android/mms/ui/DateTimePickerActivity;->FIELD_TITLE:Ljava/lang/String;
 
     const v1, 0x7f0a01a4
@@ -5475,12 +5468,12 @@
 
     invoke-virtual {v2, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1726
+    .line 1728
     const/4 v0, 0x4
 
     invoke-virtual {p0, v2, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 1727
+    .line 1729
     return-void
 .end method
 
@@ -5501,18 +5494,18 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1562
+    .line 1564
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContentView:Lcom/android/mms/ui/SizeAwareLinearLayout;
 
     invoke-virtual {v2}, Lcom/android/mms/ui/SizeAwareLinearLayout;->findFocus()Landroid/view/View;
 
     move-result-object v0
 
-    .line 1563
+    .line 1565
     .local v0, focus:Landroid/view/View;
     if-nez v0, :cond_0
 
-    .line 1564
+    .line 1566
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {p0, v2}, Lcom/android/mms/ui/MessageEditableActivityBase;->isVisible(Landroid/view/View;)Z
@@ -5521,29 +5514,29 @@
 
     if-eqz v2, :cond_0
 
-    .line 1565
+    .line 1567
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
     invoke-virtual {v2}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 1566
+    .line 1568
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextEditor:Landroid/widget/EditText;
 
-    .line 1569
+    .line 1571
     :cond_0
     if-nez v0, :cond_1
 
-    .line 1573
+    .line 1575
     :goto_0
     return v1
 
-    .line 1572
+    .line 1574
     :cond_1
     iget-object v2, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
 
     invoke-virtual {v2, v0, v1}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    .line 1573
+    .line 1575
     const/4 v1, 0x1
 
     goto :goto_0
@@ -5558,7 +5551,7 @@
 
     const/4 v1, 0x0
 
-    .line 1144
+    .line 1146
     const-string v0, "Mms:app"
 
     const/4 v3, 0x2
@@ -5569,7 +5562,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1145
+    .line 1147
     const-string v0, "MessageEditableActivityBase"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5592,20 +5585,20 @@
 
     invoke-static {v0, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1148
+    .line 1150
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
     if-nez v0, :cond_2
 
-    .line 1151
+    .line 1153
     if-nez p1, :cond_1
 
-    .line 1172
+    .line 1174
     :goto_0
     return-void
 
-    .line 1154
+    .line 1156
     :cond_1
     const v0, 0x7f100018
 
@@ -5617,7 +5610,7 @@
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
-    .line 1155
+    .line 1157
     const v0, 0x7f10005d
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
@@ -5626,7 +5619,7 @@
 
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectDivider:Landroid/view/View;
 
-    .line 1158
+    .line 1160
     :cond_2
     iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
@@ -5637,17 +5630,17 @@
     :goto_1
     invoke-virtual {v3, v0}, Landroid/widget/EditText;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    .line 1160
+    .line 1162
     if-eqz p1, :cond_4
 
-    .line 1161
+    .line 1163
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
     iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectEditorWatcher:Landroid/text/TextWatcher;
 
     invoke-virtual {v0, v3}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 1166
+    .line 1168
     :goto_2
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
@@ -5659,7 +5652,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1167
+    .line 1169
     iget-object v3, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
     if-eqz p1, :cond_5
@@ -5669,7 +5662,7 @@
     :goto_3
     invoke-virtual {v3, v0}, Landroid/widget/EditText;->setVisibility(I)V
 
-    .line 1168
+    .line 1170
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectDivider:Landroid/view/View;
 
     if-eqz p1, :cond_6
@@ -5677,23 +5670,23 @@
     :goto_4
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1170
+    .line 1172
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentProcessor:Lcom/android/mms/ui/AttachmentProcessor;
 
     invoke-virtual {v0}, Lcom/android/mms/ui/AttachmentProcessor;->updateAttachmentTypeStates()V
 
-    .line 1171
+    .line 1173
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->invalidateOptionsMenu()V
 
     goto :goto_0
 
-    .line 1158
+    .line 1160
     :cond_3
     const/4 v0, 0x0
 
     goto :goto_1
 
-    .line 1163
+    .line 1165
     :cond_4
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
@@ -5706,13 +5699,13 @@
     :cond_5
     move v0, v2
 
-    .line 1167
+    .line 1169
     goto :goto_3
 
     :cond_6
     move v1, v2
 
-    .line 1168
+    .line 1170
     goto :goto_4
 .end method
 
@@ -5722,19 +5715,19 @@
     .parameter "requestCode"
 
     .prologue
-    .line 686
+    .line 688
     if-ltz p2, :cond_0
 
-    .line 687
+    .line 689
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWaitingForSubActivity:Z
 
-    .line 689
+    .line 691
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 690
+    .line 692
     return-void
 .end method
 
@@ -5745,12 +5738,12 @@
     .prologue
     const v4, 0x7f0a0122
 
-    .line 1355
+    .line 1357
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mWorkingMessage:Lcom/android/mms/data/WorkingMessage;
 
     invoke-virtual {v0}, Lcom/android/mms/data/WorkingMessage;->syncWorkingRecipients()V
 
-    .line 1356
+    .line 1358
     if-nez p1, :cond_0
 
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->hasRecipientsToRevise()Z
@@ -5759,7 +5752,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 1357
+    .line 1359
     :cond_0
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mConversation:Lcom/android/mms/data/Conversation;
 
@@ -5767,21 +5760,21 @@
 
     move-result-object v2
 
-    .line 1358
+    .line 1360
     invoke-virtual {v2}, Lcom/android/mms/data/ContactList;->size()I
 
     move-result v0
 
     if-lez v0, :cond_3
 
-    .line 1359
+    .line 1361
     invoke-virtual {v2}, Lcom/android/mms/data/ContactList;->size()I
 
     move-result v0
 
     new-array v3, v0, [Ljava/lang/String;
 
-    .line 1360
+    .line 1362
     const/4 v0, 0x0
 
     move v1, v0
@@ -5793,28 +5786,28 @@
 
     if-ge v1, v0, :cond_1
 
-    .line 1361
+    .line 1363
     invoke-virtual {v2, v1}, Lcom/android/mms/data/ContactList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/mms/data/Contact;
 
-    .line 1362
+    .line 1364
     invoke-virtual {v0}, Lcom/android/mms/data/Contact;->getNumber()Ljava/lang/String;
 
     move-result-object v0
 
     aput-object v0, v3, v1
 
-    .line 1360
+    .line 1362
     add-int/lit8 v0, v1, 0x1
 
     move v1, v0
 
     goto :goto_0
 
-    .line 1365
+    .line 1367
     :cond_1
     new-instance v0, Landroid/content/Intent;
 
@@ -5822,17 +5815,17 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1366
+    .line 1368
     const-string v1, "vnd.android.cursor.item/nickname"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1367
+    .line 1369
     const-string v1, "numbers"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1368
+    .line 1370
     const-string v1, "android.intent.extra.TEXT"
 
     invoke-virtual {p0, v4}, Lcom/android/mms/ui/MessageEditableActivityBase;->getString(I)Ljava/lang/String;
@@ -5841,42 +5834,42 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1369
+    .line 1371
     const/4 v1, 0x3
 
     invoke-virtual {p0, v0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 1370
+    .line 1372
     invoke-direct {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->updateNicknameRevisedNumbers()V
 
-    .line 1384
+    .line 1386
     :cond_2
     :goto_1
     return-void
 
-    .line 1372
+    .line 1374
     :cond_3
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 1373
+    .line 1375
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 1374
+    .line 1376
     const v1, 0x1010355
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
 
-    .line 1375
+    .line 1377
     if-eqz p1, :cond_4
 
-    .line 1376
+    .line 1378
     const v1, 0x7f0a0123
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 1380
+    .line 1382
     :goto_2
     const v1, 0x104000a
 
@@ -5884,12 +5877,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 1381
+    .line 1383
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto :goto_1
 
-    .line 1378
+    .line 1380
     :cond_4
     const v1, 0x7f0a0124
 
@@ -5903,14 +5896,14 @@
     .parameter "key"
 
     .prologue
-    .line 1869
+    .line 1871
     iget-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAnalytics:Lmiui/analytics/XiaomiAnalytics;
 
     const-wide/16 v1, 0x1
 
     invoke-virtual {v0, p1, v1, v2}, Lmiui/analytics/XiaomiAnalytics;->trackEvent(Ljava/lang/String;J)V
 
-    .line 1870
+    .line 1872
     return-void
 .end method
 
@@ -5918,23 +5911,23 @@
     .locals 2
 
     .prologue
-    .line 759
+    .line 761
     invoke-virtual {p0}, Lcom/android/mms/ui/MessageEditableActivityBase;->isPreparedForSending()Z
 
     move-result v0
 
-    .line 760
+    .line 762
     .local v0, preparedForSending:Z
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSendButton:Landroid/widget/Button;
 
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 761
+    .line 763
     iget-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSendButton:Landroid/widget/Button;
 
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setFocusable(Z)V
 
-    .line 762
+    .line 764
     return-void
 .end method
 

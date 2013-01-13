@@ -91,7 +91,7 @@
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/mms/transaction/SmsMessageSender;->mMessageText:Ljava/lang/String;
-
+	
     const/4 v2, 0x0
 
     .line 72
@@ -477,9 +477,7 @@
 
     aget-object v2, v2, v14
 
-    const/4 v3, 0x1
-
-    invoke-static {v2, v3}, Lcom/android/mms/data/Contact;->get(Ljava/lang/String;Z)Lcom/android/mms/data/Contact;
+    invoke-static {v2}, Lcom/android/mms/data/Contact;->get(Ljava/lang/String;)Lcom/android/mms/data/Contact;
 
     move-result-object v2
 
@@ -931,9 +929,9 @@
     .prologue
     const/4 v11, 0x2
 
-    const/4 v10, 0x0
+    const/4 v10, 0x1
 
-    const/4 v9, 0x1
+    const/4 v9, 0x0
 
     .line 102
     new-instance v5, Ljava/lang/StringBuilder;
@@ -968,7 +966,11 @@
     if-ne v0, v6, :cond_2
 
     .line 107
-    invoke-static {p1, v9}, Lcom/android/mms/data/Contact;->get(Ljava/lang/String;Z)Lcom/android/mms/data/Contact;
+    invoke-static {p1}, Lcom/android/mms/data/Contact;->get(Ljava/lang/String;)Lcom/android/mms/data/Contact;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v10, v9}, Lcom/android/mms/data/Contact;->load(ZZ)Lcom/android/mms/data/Contact;
 
     move-result-object v1
 
@@ -1004,9 +1006,9 @@
 
     move-result-object v8
 
-    aput-object v8, v7, v10
+    aput-object v8, v7, v9
 
-    aput-object v3, v7, v9
+    aput-object v3, v7, v10
 
     invoke-static {v6, v7}, Lcom/android/mms/LogTag;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -1043,9 +1045,9 @@
 
     move-result-object v8
 
-    aput-object v8, v7, v10
+    aput-object v8, v7, v9
 
-    aput-object v4, v7, v9
+    aput-object v4, v7, v10
 
     invoke-static {v6, v7}, Lcom/android/mms/LogTag;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
