@@ -87,7 +87,7 @@ cd ..
 echo Applying changes...
 cp -r '../../MiuiHome/res/xml' '../../other/multilang/temp/MiuiHome/res'
 cp -r '../../MiuiSystemUI/res/drawable-hdpi' '../../other/multilang/temp/MiuiSystemUI/res'
-cp '../../Mms/AndroidManifest.xml' '../../other/multilang/temp/Mms'
+# cp '../../Mms/AndroidManifest.xml' '../../other/multilang/temp/Mms'
 cp -r '../../Mms/smali/com/android/mms' '../../other/multilang/temp/Mms/smali/com/android'
 cp '../../MT11iSettings/res/values/strings.xml' '../../other/multilang/temp/MT11iSettings/res/values'
 cp -r '../../Settings/res/drawable-en-hdpi' '../../other/multilang/temp/Settings/res'

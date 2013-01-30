@@ -23,7 +23,7 @@ x=`date +%Y`
 y=`date +.%-m.%d`
 z=${x: -1:1}
 version=$z$y
-time=`date +%_a%_4b%_3d%_3H:%M:%S%_5Y`
+time=`date +%_a%_3d%_4b%_9X%_4Z%_5Y`
 utc=`date +%s`
 cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
 				| sed -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$utc/g" \

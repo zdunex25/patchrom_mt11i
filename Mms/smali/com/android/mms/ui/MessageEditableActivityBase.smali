@@ -2994,7 +2994,7 @@
 
     .prologue
     .line 360
-    const v1, 0x7f100095
+    const v1, 0x7f100097
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3003,7 +3003,7 @@
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mContactPanel:Landroid/view/View;
 
     .line 361
-    const v1, 0x7f100080
+    const v1, 0x7f100082
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3012,7 +3012,7 @@
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mHistoryView:Landroid/view/View;
 
     .line 362
-    const v1, 0x7f100057
+    const v1, 0x7f100059
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3021,7 +3021,7 @@
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mBottomPanel:Landroid/view/View;
 
     .line 363
-    const v1, 0x7f10004c
+    const v1, 0x7f10004e
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3030,7 +3030,7 @@
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mAttachmentPanel:Landroid/view/View;
 
     .line 365
-    const v1, 0x7f100059
+    const v1, 0x7f10005b
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3039,7 +3039,7 @@
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mEditorContainer:Landroid/view/View;
 
     .line 366
-    const v1, 0x7f100062
+    const v1, 0x7f100064
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3066,7 +3066,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
     .line 384
-    const v1, 0x7f100064
+    const v1, 0x7f100066
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3077,7 +3077,7 @@
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mTextCounter:Landroid/widget/TextView;
 
     .line 385
-    const v1, 0x7f100063
+    const v1, 0x7f100065
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3093,7 +3093,7 @@
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 387
-    const v1, 0x7f10005e
+    const v1, 0x7f100060
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3113,7 +3113,7 @@
     invoke-virtual {v1, v2}, Lcom/android/mms/ui/AttachmentView;->setHandler(Landroid/os/Handler;)V
 
     .line 394
-    const v1, 0x7f100058
+    const v1, 0x7f10005a
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3129,7 +3129,7 @@
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 396
-    const v1, 0x7f10005c
+    const v1, 0x7f10005e
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3149,7 +3149,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 403
-    const v1, 0x7f100061
+    const v1, 0x7f100063
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3164,7 +3164,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 413
-    const v1, 0x7f10005b
+    const v1, 0x7f10005d
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3173,7 +3173,7 @@
     iput-object v1, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mMessageContentPanel:Landroid/view/View;
 
     .line 414
-    const v1, 0x7f100097
+    const v1, 0x7f100099
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -3927,8 +3927,8 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f100058 -> :sswitch_1
-        0x7f100063 -> :sswitch_0
+        0x7f10005a -> :sswitch_1
+        0x7f100065 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -4544,7 +4544,7 @@
 
     .line 1114
     :pswitch_data_0
-    .packed-switch 0x7f1000df
+    .packed-switch 0x7f1000e1
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -5007,7 +5007,7 @@
     .parameter
 
     .prologue
-    const v1, 0x7f1000df
+    const v1, 0x7f1000e1
 
     const/4 v2, 0x1
 
@@ -5037,7 +5037,7 @@
 
     .line 1108
     :goto_0
-    const v0, 0x7f1000e2
+    const v0, 0x7f1000e4
 
     invoke-static {p1, v0, v2}, Lcom/android/mms/ui/MessageUtils;->makeMenuItemVisible(Landroid/view/Menu;IZ)Landroid/view/MenuItem;
 
@@ -5287,7 +5287,7 @@
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
     .line 1648
-    const v1, 0x7f10005b
+    const v1, 0x7f10005d
 
     invoke-virtual {p0, v1}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 
@@ -5611,7 +5611,7 @@
     iput-object v0, p0, Lcom/android/mms/ui/MessageEditableActivityBase;->mSubjectTextEditor:Landroid/widget/EditText;
 
     .line 1157
-    const v0, 0x7f10005d
+    const v0, 0x7f10005f
 
     invoke-virtual {p0, v0}, Lcom/android/mms/ui/MessageEditableActivityBase;->findViewById(I)Landroid/view/View;
 

@@ -65,11 +65,12 @@ local-zip-misc:
 	@echo update bootanimation
 	rm -rf $(ZIP_DIR)/system/bin/bootanimation
 	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
+	cp other/bootanimation.zip $(ZIP_DIR)/system/media/bootanimation.zip
 	cp other/boot.img $(ZIP_DIR)/boot.img
 	
 	@echo prepare fixes
 	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
-	cp other/LBESEC_MIUI.apk $(ZIP_DIR)/system/app/LBESEC_MIUI.apk
+	cp other/Calculator.apk $(ZIP_DIR)/system/app/Calculator.apk
 	cp other/MiuiWeather.apk $(ZIP_DIR)/system/app/MiuiWeather.apk
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/*.apk
 	
