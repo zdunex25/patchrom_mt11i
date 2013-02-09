@@ -20,7 +20,7 @@ cp 'out/temp/META-INF/com/google/android/updater-script2' 'out/temp/META-INF/com
 rm -f 'out/temp/META-INF/com/google/android/updater-script2'
 
 x=`date +%Y`
-y=`date +.%-m.%d`
+y=`date +.%-m.%-d`
 z=${x: -1:1}
 version=$z$y
 time=`date +%_a%_3d%_4b%_9X%_4Z%_5Y`
