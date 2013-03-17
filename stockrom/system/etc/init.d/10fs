@@ -1,9 +1,10 @@
 #!/system/bin/sh
 
 #fs tweaks
-busybox mount -o remount,noatime,nodiratime,rw,barrier=0,data=writeback /data
-busybox mount -o remount,noatime,nodiratime,rw,barrier=0,data=writeback /cache
-busybox mount -o remount,noatime,nodiratime,rw /system
+busybox mount -o remount,noatime,noauto_da_alloc,nosuid,nodev,nodiratime,barrier=0,nobh /data
+busybox mount -o remount,noatime,noauto_da_alloc,nosuid,nodev,nodiratime,barrier=0,nobh /cache
+busybox mount -o remount,noatime,noauto_da_alloc,nodiratime,barrier=0,nobh /system
 busybox mount -o remount,noatime,nodiratime /dev
 busybox mount -o remount,noatime,nodiratime /proc
 busybox mount -o remount,noatime,nodiratime /sys
+

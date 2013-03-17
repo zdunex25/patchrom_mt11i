@@ -1,17 +1,17 @@
 #!/system/bin/sh
 
 #Tweak SD readahead values
-echo 256 > /sys/devices/virtual/bdi/179:0/read_ahead_kb;
-echo 256 > /sys/devices/virtual/bdi/default/read_ahead_kb;
+echo 1024 > /sys/devices/virtual/bdi/179:0/read_ahead_kb;
+echo 1024 > /sys/devices/virtual/bdi/default/read_ahead_kb;
 
 #Tweak various memory settings
-sysctl -w vm.dirty_ratio=50;
-sysctl -w vm.dirty_background_ratio=10;
-sysctl -w vm.vfs_cache_pressure=35;
+sysctl -w vm.dirty_ratio=20;
+sysctl -w vm.dirty_background_ratio=5;
+sysctl -w vm.vfs_cache_pressure=300;
 sysctl -w vm.oom_kill_allocating_task=0;
-sysctl -w vm.min_free_kbytes=3072;
-sysctl -w vm.dirty_expire_centisecs=600;
-sysctl -w vm.dirty_writeback_centisecs=800;
+sysctl -w vm.min_free_kbytes=2048;
+sysctl -w vm.dirty_expire_centisecs=200;
+sysctl -w vm.dirty_writeback_centisecs=500;
 sysctl -w vm.panic_on_oom=0;
 sysctl -w vm.overcommit_memory=1;
 sysctl -w vm.overcommit_ratio=50;

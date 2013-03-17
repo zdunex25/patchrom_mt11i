@@ -91,7 +91,7 @@
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/mms/transaction/SmsMessageSender;->mMessageText:Ljava/lang/String;
-	
+
     const/4 v2, 0x0
 
     .line 72
