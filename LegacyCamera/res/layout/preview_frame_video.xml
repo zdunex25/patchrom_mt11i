@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/frame_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.moblynx.cameraics.PreviewFrameLayout android:id="@id/frame" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true">
+        <SurfaceView android:id="@id/camera_preview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <FrameLayout android:id="@id/preview_border" android:background="@drawable/ic_snapshot_border" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <com.moblynx.cameraics.ui.RotateLayout android:id="@id/recording_time_rect" style="@style/ViewfinderLableLayout">
+            <include android:id="@id/labels" layout="@layout/viewfinder_labels_video" />
+        </com.moblynx.cameraics.ui.RotateLayout>
+        <ImageView android:id="@id/review_image" android:background="@android:color/black" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <com.moblynx.cameraics.ui.RotateImageView android:id="@id/btn_play" android:visibility="gone" android:src="@drawable/ic_gallery_play" android:layout_centerInParent="true" android:onClick="onReviewPlayClicked" style="@style/ReviewControlIcon" />
+        <include layout="@layout/guidelines" />
+    </com.moblynx.cameraics.PreviewFrameLayout>
+    <include android:visibility="gone" layout="@layout/promo_banner" />
+    <FrameLayout android:id="@id/ads_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <View android:background="#ff000000" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_below="@id/frame" android:layout_alignParentBottom="true" />
+    <include layout="@layout/indicator_bar" />
+</RelativeLayout>

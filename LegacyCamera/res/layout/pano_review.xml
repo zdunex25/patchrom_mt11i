@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/pano_review_layout" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout style="@style/PanoViewHorizontalBar">
+        <com.moblynx.cameraics.ui.RotateLayout android:id="@id/pano_review_saving_indication_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
+            <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/pano_review_saving_indication" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pano_review_saving_indication_str" />
+        </com.moblynx.cameraics.ui.RotateLayout>
+        <com.moblynx.cameraics.ui.RotateLayout android:id="@id/pano_saving_progress_bar_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <com.moblynx.cameraics.panorama.PanoProgressBar android:id="@id/pano_saving_progress_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_pan_progression" android:layout_centerInParent="true" />
+        </com.moblynx.cameraics.ui.RotateLayout>
+    </RelativeLayout>
+    <com.moblynx.cameraics.ui.RotateLayout android:id="@id/pano_rotate_reviewarea" android:layout_width="@dimen/pano_mosaic_surface_height" android:layout_height="fill_parent">
+        <ImageView android:id="@id/pano_reviewarea" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitCenter" />
+    </com.moblynx.cameraics.ui.RotateLayout>
+    <LinearLayout android:gravity="bottom" android:orientation="vertical" android:id="@id/pano_review_control" android:layout_height="fill_parent" android:layout_alignParentBottom="true" style="@style/PanoViewHorizontalBar">
+        <com.moblynx.cameraics.ui.RotateLayout android:layout_gravity="bottom|center" android:id="@id/pano_review_cancel_button_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="12.0sp" android:gravity="center" android:id="@id/pano_review_cancel_button" android:background="@drawable/bg_pressed" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="@dimen/pano_review_button_width" android:text="@string/review_cancel" android:onClick="onCancelButtonClicked" />
+        </com.moblynx.cameraics.ui.RotateLayout>
+    </LinearLayout>
+</LinearLayout>

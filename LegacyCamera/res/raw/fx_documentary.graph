@@ -1,0 +1,93 @@
+//
+// Copyright (C) 2011 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+// Imports ---------------------------------------------------
+@import android.filterpacks.videosrc;
+@import android.filterpacks.videosink;
+@import android.filterpacks.ui;
+@import android.filterpacks.base;
+@import android.filterpacks.imageproc;
+
+@import com.google.android.filterpacks.facedetect;
+
+@import android.support.filters;
+
+@setting autoBranch = "synced";
+
+// Externals -------------------------------------------------
+
+@external textureSourceCallback;
+@external recordingWidth;
+@external recordingHeight;
+@external recordingProfile;
+@external recordingDoneListener;
+
+@external previewSurface;
+@external previewWidth;
+@external previewHeight;
+
+// Not used by this graph, but simplifies higher-level
+// graph initialization code.
+@external orientation;
+
+// Filters ---------------------------------------------------
+
+// Camera input
+@filter SurfaceTextureSource source {
+  sourceListener = $textureSourceCallback;
+  width = $recordingWidth;
+  height = $recordingHeight;
+  closeOnTimeout = true;
+}
+
+// Display output
+@filter SurfaceTargetFilter display {
+  surface = $previewSurface;
+  owidth = $previewWidth;
+  oheight = $previewHeight;
+}
+
+
+// Recording output
+@filter MediaEncoderFilter recorder {
+  recordingProfile = $recordingProfile;
+  recordingDoneListener = $recordingDoneListener;
+  recording = false;
+  // outputFile, orientationHint, inputRegion,
+  // audioSource, listeners, captureRate
+  // will be set when recording starts
+}
+
+
+@filter CustomDocumentaryFilter toDocumentary {
+	
+}
+
+
+// Connections -----------------------------------------------
+
+
+// fx -> display out
+//@connect source[video] => display[frame];
+// fx -> record
+//@connect source[video] => recorder[videoframe];
+
+// fx -> display out
+@connect source[video] => toDocumentary[image];
+
+@connect toDocumentary[image] => display[frame];
+// fx -> record
+@connect toDocumentary[image] => recorder[videoframe];

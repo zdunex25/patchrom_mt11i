@@ -1,0 +1,6 @@
+#!/system/bin/sh
+
+#Tweak SD readahead values
+echo 1024 > /sys/devices/virtual/bdi/179:0/read_ahead_kb;
+echo 1024 > /sys/devices/virtual/bdi/default/read_ahead_kb;
+

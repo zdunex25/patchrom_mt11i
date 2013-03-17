@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="setting_row_height">54.0dip</dimen>
+    <dimen name="setting_item_text_size">21.0dip</dimen>
+    <dimen name="setting_knob_width">72.0dip</dimen>
+    <dimen name="setting_item_text_width">130.0dip</dimen>
+    <dimen name="setting_popup_window_width">410.0dip</dimen>
+    <dimen name="setting_item_list_margin">24.0dip</dimen>
+    <dimen name="popup_title_text_size">22.0dip</dimen>
+    <dimen name="popup_title_frame_min_height">64.0dip</dimen>
+    <dimen name="big_setting_popup_window_width">590.0dip</dimen>
+    <dimen name="setting_item_icon_width">35.0dip</dimen>
+    <dimen name="mode_switcher_margin_right">34.0dip</dimen>
+    <dimen name="mode_switcher_margin_bottom">50.0dip</dimen>
+    <dimen name="camera_switcher_margin_right">30.0dip</dimen>
+    <dimen name="camera_switcher_margin_bottom">56.0dip</dimen>
+    <dimen name="thumbnail_margin_top">32.0dip</dimen>
+    <dimen name="thumbnail_margin_right">32.0dip</dimen>
+    <dimen name="mode_switcher_inner_padding">15.0dip</dimen>
+</resources>

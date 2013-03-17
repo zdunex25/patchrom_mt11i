@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="@dimen/share_item_width" android:layout_height="@dimen/share_item_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.moblynx.cameraics.ui.RotateLayout android:layout_gravity="center" android:id="@id/share_icon_rotate_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/icon" android:layout_width="@dimen/share_icon_length" android:layout_height="@dimen/share_icon_length" />
+    </com.moblynx.cameraics.ui.RotateLayout>
+</FrameLayout>

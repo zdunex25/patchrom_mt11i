@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/guidelinesLayout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="0.0dip" android:weightSum="3.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/layout1" android:background="@android:color/transparent" android:layout_width="0.0dip" android:layout_height="fill_parent" android:weightSum="3.0" android:layout_weight="1.0">
+        <LinearLayout android:id="@id/layout1_1" android:background="@drawable/border_guidelines_1_1" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:id="@id/layout1_2" android:background="@drawable/border_guidelines_1_2" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:id="@id/layout1_3" android:background="@drawable/border_guidelines_1_3" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/layout2" android:layout_width="0.0dip" android:layout_height="fill_parent" android:weightSum="3.0" android:layout_weight="1.0">
+        <LinearLayout android:id="@id/layout2_1" android:background="@drawable/border_guidelines_2_1" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:id="@id/layout2_2" android:background="@drawable/border_guidelines_2_2" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:id="@id/layout2_3" android:background="@drawable/border_guidelines_2_3" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/layout3" android:layout_width="0.0dip" android:layout_height="fill_parent" android:weightSum="3.0" android:layout_weight="1.0">
+        <LinearLayout android:id="@id/layout3_1" android:background="@drawable/border_guidelines_3_1" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:id="@id/layout3_2" android:background="@drawable/border_guidelines_3_2" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:id="@id/layout3_3" android:background="@drawable/border_guidelines_3_3" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="recording_time_elapsed_text">#ffffffff</color>
+    <color name="recording_time_remaining_text">#ffff0033</color>
+    <color name="on_viewfinder_label_background_color">#77333333</color>
+    <color name="review_control_pressed_color">#ff33b5e5</color>
+    <color name="review_control_pressed_fan_color">#3f33b5e5</color>
+    <color name="icon_disabled_color">#dd777777</color>
+    <color name="time_lapse_arc">#ffc5c5c5</color>
+    <color name="dark_gray">#ff151515</color>
+    <color name="share_popup_background">#da000000</color>
+    <color name="share_popup_blackout">#ff222222</color>
+    <color name="share_icon_background">#80000000</color>
+    <color name="indicator_background">#40000000</color>
+    <color name="popup_title_color">#ff33b5e5</color>
+    <color name="popup_background">#ff282828</color>
+    <color name="pano_custom_dialog_background">#ff666666</color>
+    <color name="pano_progress_empty">#ff2e2e2e</color>
+    <color name="pano_progress_done">#ff33525e</color>
+    <color name="pano_progress_indication">#ff0099cc</color>
+    <color name="pano_progress_indication_fast">#ffff2222</color>
+    <color name="mode_selection_border">#ff33b5e5</color>
+</resources>

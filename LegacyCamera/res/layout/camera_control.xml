@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.moblynx.cameraics.ui.ControlPanelLayout android:id="@id/control_panel" android:background="@drawable/bg_camera_pattern" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="76.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/review_thumbnail" />
+    <include layout="@layout/review_control" />
+    <com.moblynx.cameraics.ShutterButton android:id="@id/shutter_button" android:background="@drawable/btn_shutter" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" android:layout_centerInParent="true" android:contentDescription="@string/accessibility_shutter_button" />
+    <include layout="@layout/mode_picker" />
+</com.moblynx.cameraics.ui.ControlPanelLayout>
