@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="preferencesTextStyle">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:shadowColor">@color/light_grey</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+    <style name="fmapp_style" parent="@*android:style/Theme.Holo.Light" />
+    <style name="StatusBarButton">
+        <item name="android:layout_gravity">right|center</item>
+        <item name="android:background">?android:listChoiceBackgroundIndicator</item>
+    </style>
+</resources>

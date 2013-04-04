@@ -94,7 +94,7 @@
 
     .line 168
     :cond_2
-    invoke-static {}, Lcom/moblynx/cameraics/Util;->isTabletUI()Z
+    invoke-static {}, Lcom/android/cameraics/Util;->isTabletUI()Z
 
     move-result v1
 
@@ -418,7 +418,7 @@
 
     move-result-object v3
 
-    invoke-static {p0, v3}, Lcom/moblynx/cameraics/Util;->isUriValid(Landroid/net/Uri;Landroid/content/ContentResolver;)Z
+    invoke-static {p0, v3}, Lcom/android/cameraics/Util;->isUriValid(Landroid/net/Uri;Landroid/content/ContentResolver;)Z
 
     move-result v3
 

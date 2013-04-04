@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/image" android:background="@drawable/status_bg" android:layout_width="@dimen/notification_icon_size" android:layout_height="@dimen/notification_icon_size" android:src="@drawable/fm_statusbar_icon" android:scaleType="center" android:contentDescription="@string/app_name" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="80.0dip" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip">
+        <TextView android:textSize="16.0dip" android:textStyle="bold" android:textColor="@color/white" android:id="@id/tv_frequency" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="14.0dip" android:textColor="@color/white" android:ellipsize="end" android:id="@id/tv_station_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+    </LinearLayout>
+    <ImageButton android:layout_gravity="center_vertical" android:id="@id/ib_seek_down" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fm_autosearch_reduce_enable_white" android:layout_weight="1.0" android:contentDescription="@string/seek_down" style="@style/StatusBarButton" />
+    <ImageButton android:layout_gravity="center_vertical" android:id="@id/ib_seek_up" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fm_autosearch_plus_enable_white" android:layout_weight="1.0" android:contentDescription="@string/seek_up" style="@style/StatusBarButton" />
+    <ImageButton android:id="@id/ib_status_bar_collapse" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fm_notification_bar_collapse" android:layout_weight="1.0" android:contentDescription="@string/close_notification" style="@style/StatusBarButton" />
+</LinearLayout>

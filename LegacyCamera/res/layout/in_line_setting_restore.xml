@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.moblynx.cameraics.ui.InLineSettingRestore android:id="@id/setting_item" style="@style/SettingRow"
+<com.android.cameraics.ui.InLineSettingRestore android:id="@id/setting_item" style="@style/SettingRow"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView android:id="@id/title" android:layout_width="fill_parent" style="@style/SettingItemText" />
-</com.moblynx.cameraics.ui.InLineSettingRestore>
+</com.android.cameraics.ui.InLineSettingRestore>

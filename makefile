@@ -9,17 +9,21 @@ local-zip-file     := stockrom.zip
 local-out-zip-file := MIUI_MT11i.zip
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := LegacyCamera
+local-modified-apps := LegacyCamera Fmapplication MiuiCarrier
 
 local-modified-jars :=
 
 # All apks from MIUI
-local-miui-removed-apps := MediaProvider Stk SuperMarket Updater
+local-miui-removed-apps := MediaProvider Stk SuperMarket Updater Weather WeatherProvider
 
-local-miui-modified-apps := Mms MiuiHome MiuiSystemUI Settings Phone ThemeManager
+local-miui-modified-apps := MiuiHome Phone ThemeManager Mms Settings Music
+
+# Config density for co-developers to use the aaps with HDPI or XHDPI resource,
+# Default configrations are HDPI for ics branch and XHDPI for jellybean branch
+local-density := HDPI
 
 # All apps need to be removed from original ZIP file
-local-remove-apps   := SystemUI Gallery2 Launcher2 VideoEditor DSPManager PicoTts VoiceDialer \
+local-remove-apps   := SystemUI Gallery2 Launcher2 VideoEditor PicoTts VoiceDialer \
 		HoloSpiralWallpaper MagicSmokeWallpapers PhaseBeam Galaxy4 NoiseField \
 		#antstatenotifer FmRxService antradioservice Fmapplication
 
@@ -42,23 +46,25 @@ local-pre-zip-misc:
 #	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
 #	cp other/apns-conf.xml $(ZIP_DIR)/system/etc/apns-conf.xml
 	cp other/boot.img $(ZIP_DIR)/boot.img
-	cp other/icons $(ZIP_DIR)/system/media/theme/default/icons
+	
+	@echo Add missing icons
+	cp -f other/icons $(ZIP_DIR)/system/media/theme/default/icons
+	cp other/extras/miui_mod_icons/*.png $(ZIP_DIR)/system/media/theme/miui_mod_icons/
+#	cp -f other/extras/lock_wallpaper $(ZIP_DIR)/system/media/theme/default/lock_wallpaper
 	
 	@echo Add various apps
-	cp other/AirkanPhoneService.apk $(ZIP_DIR)/system/app/AirkanPhoneService.apk
 	cp other/MiuiWeather.apk $(ZIP_DIR)/system/app/MiuiWeather.apk
-#	cp other/MusicFX.apk $(ZIP_DIR)/system/app/MusicFX.apk
 	
 	@echo Add various tweaks
-	cp other/10speedmemory $(ZIP_DIR)/system/etc/init.d/10speedmemory
+#	cp other/09zram $(ZIP_DIR)/system/etc/init.d/09zram
 	cp other/11speedsd $(ZIP_DIR)/system/etc/init.d/11speedsd
 	cp other/12cleaner $(ZIP_DIR)/system/etc/init.d/12cleaner
 	
 	@echo DalvikVM Build 28 Qualcomm Optimized
-	cp other/dalvikvm $(ZIP_DIR)/system/bin/dalvikvm
-	cp other/dexopt $(ZIP_DIR)/system/bin/dexopt
-	cp other/libdvm.so $(ZIP_DIR)/system/lib/libdvm.so
-	cp other/libqc-opt.so $(ZIP_DIR)/system/lib/libqc-opt.so
+	cp -f other/dalvikvm $(ZIP_DIR)/system/bin/dalvikvm
+	cp -f other/dexopt $(ZIP_DIR)/system/bin/dexopt
+	cp -f other/libdvm.so $(ZIP_DIR)/system/lib/libdvm.so
+	cp -f other/libqc-opt.so $(ZIP_DIR)/system/lib/libqc-opt.so
 	
 	@echo Update build.prop
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
@@ -66,7 +72,7 @@ local-pre-zip-misc:
 	@echo Update bootanimation
 	rm $(ZIP_DIR)/system/bin/bootanimation
 	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
-	cp other/bootanimation.zip $(ZIP_DIR)/system/media/bootanimation.zip
+	cp -f other/bootanimation.zip $(ZIP_DIR)/system/media/bootanimation.zip
 	
 	@echo Remove usless stuff
 	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/*.apk

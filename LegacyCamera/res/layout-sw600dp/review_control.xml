@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@id/review_control" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.moblynx.cameraics.ui.RotateLayout android:id="@id/btn_done" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="36.0dip" android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
+    <com.android.cameraics.ui.RotateLayout android:id="@id/btn_done" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="36.0dip" android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
         <LinearLayout android:onClick="onReviewDoneClicked" style="@style/ReviewControlGroup">
             <ImageView android:src="@drawable/ic_menu_done_holo_light" style="@style/ReviewControlIcon" />
             <TextView android:text="@string/review_ok" style="@style/ReviewControlText" />
         </LinearLayout>
-    </com.moblynx.cameraics.ui.RotateLayout>
+    </com.android.cameraics.ui.RotateLayout>
     <ImageView android:id="@id/btn_retake" android:background="@drawable/btn_shutter_retake" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:onClick="onReviewRetakeClicked" />
-    <com.moblynx.cameraics.ui.RotateLayout android:id="@id/btn_cancel" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="36.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+    <com.android.cameraics.ui.RotateLayout android:id="@id/btn_cancel" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="36.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
         <LinearLayout android:onClick="onReviewCancelClicked" style="@style/ReviewControlGroup">
             <ImageView android:src="@drawable/ic_menu_cancel_holo_light" style="@style/ReviewControlIcon" />
             <TextView android:text="@string/review_cancel" style="@style/ReviewControlText" />
         </LinearLayout>
-    </com.moblynx.cameraics.ui.RotateLayout>
+    </com.android.cameraics.ui.RotateLayout>
 </RelativeLayout>

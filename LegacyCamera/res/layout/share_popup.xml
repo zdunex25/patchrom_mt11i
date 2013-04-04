@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:background="@color/share_popup_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:camera="http://schemas.android.com/apk/res/com.moblynx.cameraicsplus">
+  xmlns:camera="http://schemas.android.com/apk/res/com.android.camera">
     <FrameLayout android:layout_gravity="top|center" android:id="@id/root" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <com.moblynx.cameraics.ui.RotateLayout android:layout_gravity="bottom" android:id="@id/thumbnail_rotate_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.android.cameraics.ui.RotateLayout android:layout_gravity="bottom" android:id="@id/thumbnail_rotate_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
-                <com.moblynx.cameraics.ui.StackLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.cameraics.ui.StackLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
                     <ImageView android:id="@id/thumbnail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitCenter" android:adjustViewBounds="true" />
                     <View android:id="@id/thumbnail_image_frame" android:background="@drawable/border_last_picture" android:padding="0.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-                </com.moblynx.cameraics.ui.StackLayout>
+                </com.android.cameraics.ui.StackLayout>
                 <ImageView android:layout_gravity="center" android:id="@id/play" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" style="@style/ReviewPlayIcon" />
             </FrameLayout>
-        </com.moblynx.cameraics.ui.RotateLayout>
+        </com.android.cameraics.ui.RotateLayout>
         <RelativeLayout android:layout_gravity="bottom" android:background="@color/share_icon_background" android:layout_width="fill_parent" android:layout_height="@dimen/share_item_height">
-            <com.moblynx.cameraics.ui.RotateLayout android:id="@id/goto_gallery_button_rotate" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="6.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <com.android.cameraics.ui.RotateLayout android:id="@id/goto_gallery_button_rotate" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="6.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true">
                 <ImageButton android:layout_gravity="center" android:id="@id/goto_gallery_button" android:background="?android:selectableItemBackground" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_gallery" />
-            </com.moblynx.cameraics.ui.RotateLayout>
+            </com.android.cameraics.ui.RotateLayout>
             <View android:id="@id/gallery_button_divider" android:background="#5affffff" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_margin="8.0dip" android:layout_toLeftOf="@id/goto_gallery_button_rotate" />
-            <com.moblynx.cameraics.ui.RotateLayout android:id="@id/delete_button_rotate" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_toLeftOf="@id/gallery_button_divider" android:layout_centerVertical="true">
+            <com.android.cameraics.ui.RotateLayout android:id="@id/delete_button_rotate" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_toLeftOf="@id/gallery_button_divider" android:layout_centerVertical="true">
                 <ImageButton android:layout_gravity="center" android:id="@id/delete_button" android:background="@android:color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_delete" />
-            </com.moblynx.cameraics.ui.RotateLayout>
+            </com.android.cameraics.ui.RotateLayout>
             <View android:id="@id/gallery_button_divider2" android:background="#5affffff" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_margin="8.0dip" android:layout_toLeftOf="@id/delete_button_rotate" />
-            <com.moblynx.cameraics.ui.RightAlignedHorizontalScrollView android:id="@id/share_list_container" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_toLeftOf="@id/gallery_button_divider2">
-                <com.moblynx.cameraics.ui.OneRowGridView android:id="@id/share_list" style="@style/OneRowGrid" />
-            </com.moblynx.cameraics.ui.RightAlignedHorizontalScrollView>
+            <com.android.cameraics.ui.RightAlignedHorizontalScrollView android:id="@id/share_list_container" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_toLeftOf="@id/gallery_button_divider2">
+                <com.android.cameraics.ui.OneRowGridView android:id="@id/share_list" style="@style/OneRowGrid" />
+            </com.android.cameraics.ui.RightAlignedHorizontalScrollView>
         </RelativeLayout>
     </FrameLayout>
     <include android:layout_gravity="center" android:id="@id/delete_popup" android:visibility="visible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/rotate_dialog" />

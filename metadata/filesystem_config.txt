@@ -34,6 +34,7 @@ system/app/LiveWallpapersPicker.apk 0 0 644
 system/app/MagicSmokeWallpapers.apk 0 0 644
 system/app/MediaProvider.apk 0 0 644
 system/app/Mms.apk 0 0 644
+system/app/MiuiCarrier.apk 0 0 644
 system/app/NoiseField.apk 0 0 644
 system/app/PackageInstaller.apk 0 0 644
 system/app/PhaseBeam.apk 0 0 644
@@ -3373,11 +3374,14 @@ system/lib/libwmsts.so 0 0 644
 system/lib/libwpa_client.so 0 0 644
 system/lib/libXT9Engine.so 0 0 644
 system/lib/libz.so 0 0 644
+system/lib/modules/cifs.ko 0 0 644
 system/lib/modules/fuse.ko 0 0 644
 system/lib/modules/isofs.ko 0 0 644
+system/lib/modules/md4.ko 0 0 644
 system/lib/modules/nls_utf8.ko 0 0 644
 system/lib/modules/ntfs.ko 0 0 644
 system/lib/modules/scsi_wait_scan.ko 0 0 644
+system/lib/modules/usb-storage.ko 0 0 644
 system/lib/modules/wl12xx.ko 0 0 644
 system/lib/modules/wl12xx_sdio.ko 0 0 644
 system/lib/modules 0 0 755

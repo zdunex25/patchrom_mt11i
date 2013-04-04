@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.moblynx.cameraics.ui.OtherSettingsPopup style="@style/SettingPopupWindow"
+<com.android.cameraics.ui.OtherSettingsPopup style="@style/SettingPopupWindow"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:camera="http://schemas.android.com/apk/res/com.moblynx.cameraicsplus">
+  xmlns:camera="http://schemas.android.com/apk/res/com.android.camera">
     <LinearLayout android:orientation="vertical" android:background="@color/popup_background" android:layout_width="@dimen/big_setting_popup_window_width" android:layout_height="wrap_content">
         <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/popup_title_frame_min_height">
             <TextView android:id="@id/title" android:text="@string/pref_camera_settings_category" style="@style/PopupTitleText" />
@@ -11,4 +11,4 @@
             <ListView android:id="@id/settingList" style="@style/SettingItemList" />
         </FrameLayout>
     </LinearLayout>
-</com.moblynx.cameraics.ui.OtherSettingsPopup>
+</com.android.cameraics.ui.OtherSettingsPopup>

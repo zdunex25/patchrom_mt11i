@@ -36,8 +36,8 @@
         launcher:x="1"
         launcher:y="2" />
 <favorite
-        launcher:packageName="com.ti.fmapp"
-        launcher:className="com.ti.fmapp.FmRxApp"
+        launcher:packageName="com.miui.fmradio"
+        launcher:className="com.miui.fmradio.FmRxApp"
         launcher:screen="1"
         launcher:x="2"
         launcher:y="2" />
@@ -170,14 +170,14 @@
         launcher:x="0"
         launcher:y="0" />
 <favorite
-        launcher:packageName="com.lbe.security.miui"
-        launcher:className="com.lbe.security.ui.MainActivity"
+        launcher:packageName="com.android.settings"
+        launcher:className="com.android.settings.permission.PermManageActivity"
         launcher:container="2"
         launcher:x="0"
         launcher:y="0" />
 <favorite
-        launcher:packageName="com.lbe.security.miui"
-        launcher:className="com.lbe.security.ui.AutoStartAppList"
+        launcher:packageName="com.android.settings"
+        launcher:className="com.android.settings.BackgroundApplicationsManager"
         launcher:container="2"
         launcher:x="0"
         launcher:y="0" />
@@ -201,8 +201,8 @@
         launcher:x="2"
         launcher:y="0" />
 <favorite
-        launcher:packageName="com.moblynx.cameraicsplus"
-        launcher:className="com.moblynx.cameraics.Camera"
+        launcher:packageName="com.android.camera"
+        launcher:className="com.android.cameraics.Camera"
         launcher:container="-101"
         launcher:x="3"
         launcher:y="0" />

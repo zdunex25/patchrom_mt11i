@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_usual_content" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="16.0dip" android:textStyle="bold" android:textColor="@color/black" android:id="@id/tv_station_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/default_margin" android:text="@string/empty_text" />
+        <TextView android:textSize="16.0dip" android:textStyle="bold" android:textColor="@color/medium_dark_grey" android:id="@id/tv_station_frequency" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginTop="2.0dip" android:layout_marginRight="@dimen/default_margin" android:layout_marginBottom="11.0dip" android:text="@string/empty_text" />
+    </LinearLayout>
+    <TextView android:textSize="24.0dip" android:textStyle="bold" android:textColor="@color/cyan_neon" android:id="@id/tv_add_new_station" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/add_station" android:layout_centerInParent="true" />
+    <TextView android:background="@color/cyan_neon_lighter" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_alignBottom="@id/ll_usual_content" style="?android:attr/listSeparatorTextViewStyle" />
+</RelativeLayout>

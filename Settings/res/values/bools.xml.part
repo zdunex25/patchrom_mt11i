@@ -5,5 +5,6 @@
     <bool name="has_camera_key">true</bool>
     <bool name="has_led">true</bool>
     <bool name="mass_storage_enable">true</bool>
-    <bool name="has_button_light">true</bool>
+    <bool name="has_button_light">false</bool>
+    <bool name="emulated_available_internal_memroy">false</bool>
 </resources>

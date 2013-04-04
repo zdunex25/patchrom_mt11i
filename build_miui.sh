@@ -1,9 +1,19 @@
 #!/bin/bash
 cd ../..
 export PATH=$PATH:/home/$USER/android-sdk-linux/tools:/home/$USER/android-sdk-linux/platform-tools
-cd patchromjb
+cd patchromv5
 . build/envsetup.sh
 cd mt11i
+mkdir temp
+cd temp
+'../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Mms.apk'
+cat 'Mms/AndroidManifest.xml' | sed -e "s/android:screenOrientation=\"portrait\" //g" \
+				| sed -e "s/ android:screenOrientation=\"portrait\"//g" > '../Mms/AndroidManifest.xml'
+'../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Settings.apk'
+cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/MenuInflater;)V/MenuInflater;)V \
+    return-void/' > '../Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali'
+cd ..
+rm -r "temp"
 make fullota
 unzip out/fullota.zip -d out/temp
 
@@ -37,14 +47,14 @@ cd 'out/temp'
 rm -r 'META-INF/CERT.RSA'
 rm -r 'META-INF/CERT.SF'
 rm -r 'META-INF/MANIFEST.MF'
-zip -r "../../unsigned-miuixperia-jb-neov-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
+zip -r "../../unsigned-miuixperia-v5-neov-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
 cd ../..
 . ../build/envsetup.sh
 cd mt11i
+rm -f 'Mms/AndroidManifest.xml'
+rm -f 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali'
 make clean
 echo Signing rom
-java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-jb-neov-$version.zip" "miuixperia-jb-neov-$version.zip"
-rm -r "unsigned-miuixperia-jb-neov-$version.zip"
-echo MD5sum is
-md5sum -b "miuixperia-jb-neov-$version.zip"
-read -p "Done, miuixperia-jb-neov-$version.zip has been created in root of mt11i directory, copy to sd and flash. Press ENTER to close this window!"
+java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-neov-$version.zip" "miuixperia-v5-neov-$version.zip"
+rm -r "unsigned-miuixperia-v5-neov-$version.zip"
+exec ./other/neo_patch.sh

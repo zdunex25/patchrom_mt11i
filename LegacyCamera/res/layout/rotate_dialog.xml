@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:gravity="center" android:id="@id/rotate_dialog_root_layout" android:background="#55000000" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.moblynx.cameraics.ui.RotateLayout android:gravity="center" android:layout_gravity="center" android:id="@id/rotate_dialog_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <com.android.cameraics.ui.RotateLayout android:gravity="center" android:layout_gravity="center" android:id="@id/rotate_dialog_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
         <FrameLayout android:background="@color/popup_background" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
                 <LinearLayout android:orientation="vertical" android:id="@id/rotate_dialog_title_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
@@ -22,5 +22,5 @@
                 </LinearLayout>
             </LinearLayout>
         </FrameLayout>
-    </com.moblynx.cameraics.ui.RotateLayout>
+    </com.android.cameraics.ui.RotateLayout>
 </FrameLayout>

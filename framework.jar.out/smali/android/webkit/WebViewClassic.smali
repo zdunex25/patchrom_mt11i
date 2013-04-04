@@ -23576,7 +23576,7 @@
     goto :goto_0
 .end method
 
-.method sendOurVisibleRect()Landroid/graphics/Rect;
+.method public sendOurVisibleRect()Landroid/graphics/Rect;
     .locals 4
 
     .prologue

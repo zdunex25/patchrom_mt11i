@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest android:versionCode="82" android:versionName="1.3.1c" android:installLocation="auto" package="com.moblynx.cameraicsplus"
+<manifest android:versionCode="82" android:versionName="1.3.1c" android:installLocation="auto" package="com.android.camera"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="15" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -12,14 +12,14 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <application android:theme="@style/ThemeCamera" android:label="@string/camera_label_plus" android:icon="@mipmap/ic_launcher_camera_ics_plus" android:name="com.moblynx.cameraics.CameraAppImpl" android:hardwareAccelerated="true">
+    <application android:theme="@style/ThemeCamera" android:label="@string/camera_label_plus" android:icon="@mipmap/ic_launcher_camera_ics_plus" android:name="com.android.cameraics.CameraAppImpl" android:hardwareAccelerated="true">
         <uses-library android:name="com.google.android.media.effects" android:required="false" />
-        <receiver android:name="com.moblynx.cameraics.CameraButtonIntentReceiver">
+        <receiver android:name="com.android.cameraics.CameraButtonIntentReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.CAMERA_BUTTON" />
             </intent-filter>
         </receiver>
-        <activity android:name="com.moblynx.cameraics.Camera" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+        <activity android:name="com.android.cameraics.Camera" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -34,7 +34,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/video_camera_label" android:icon="@mipmap/ic_launcher_video_camera" android:name="com.moblynx.cameraics.VideoCamera" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+        <activity android:label="@string/video_camera_label" android:icon="@mipmap/ic_launcher_video_camera" android:name="com.android.cameraics.VideoCamera" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.media.action.VIDEO_CAMERA" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -44,7 +44,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/pano_dialog_title" android:name="com.moblynx.cameraics.panorama.PanoramaActivity" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity android:label="@string/pano_dialog_title" android:name="com.android.cameraics.panorama.PanoramaActivity" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
     </application>
 </manifest>

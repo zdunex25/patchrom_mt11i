@@ -20,7 +20,7 @@ then
     # including: smali/miui smali/android/widget
 	mkdir -p "$BUILD_OUT/$SEP_FRAME/smali"
     rm -rf $BUILD_OUT/$SEP_FRAME/smali/miui
-	mv "$BUILD_OUT/framework/smali/miui" "$BUILD_OUT/$SEP_FRAME/smali"
+	# mv "$BUILD_OUT/framework/smali/miui" "$BUILD_OUT/$SEP_FRAME/smali"
 fi
 
 if [ $2 = "$BUILD_OUT/framework2" ]
@@ -32,5 +32,5 @@ then
             rm -rf "$file"
     done
 
-	mv "$BUILD_OUT/$SEP_FRAME/smali/miui/"  "$BUILD_OUT/framework2/smali/miui"
+	# mv "$BUILD_OUT/$SEP_FRAME/smali/miui/"  "$BUILD_OUT/framework2/smali/miui"
 fi

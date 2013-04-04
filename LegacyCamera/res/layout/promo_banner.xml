@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:id="@id/promo" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.moblynx.cameraics.ui.RotateLayout android:layout_gravity="top|left|center" android:id="@id/promo_rotate_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <com.android.cameraics.ui.RotateLayout android:layout_gravity="top|left|center" android:id="@id/promo_rotate_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
         <ImageView android:layout_width="211.0dip" android:layout_height="45.0dip" android:src="@drawable/promo" />
-    </com.moblynx.cameraics.ui.RotateLayout>
+    </com.android.cameraics.ui.RotateLayout>
 </FrameLayout>

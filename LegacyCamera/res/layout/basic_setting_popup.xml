@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.moblynx.cameraics.ui.BasicSettingPopup style="@style/SettingPopupWindow"
+<com.android.cameraics.ui.BasicSettingPopup style="@style/SettingPopupWindow"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:orientation="vertical" android:background="@color/popup_background" android:layout_width="@dimen/setting_popup_window_width" android:layout_height="wrap_content">
         <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/popup_title_frame_min_height">
@@ -10,4 +10,4 @@
             <ListView android:id="@id/settingList" android:choiceMode="singleChoice" style="@style/SettingItemList" />
         </FrameLayout>
     </LinearLayout>
-</com.moblynx.cameraics.ui.BasicSettingPopup>
+</com.android.cameraics.ui.BasicSettingPopup>

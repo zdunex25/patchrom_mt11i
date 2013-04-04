@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.moblynx.cameraics.ui.ControlPanelLayout android:id="@id/control_panel" android:background="@drawable/bg_camera_pattern" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="260.0dip"
+<com.android.cameraics.ui.ControlPanelLayout android:id="@id/control_panel" android:background="@drawable/bg_camera_pattern" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minWidth="260.0dip"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:camera="http://schemas.android.com/apk/res/com.moblynx.cameraicsplus">
+  xmlns:camera="http://schemas.android.com/apk/res/com.android.camera">
     <include layout="@layout/review_thumbnail" />
     <include layout="@layout/review_control" />
-    <com.moblynx.cameraics.ui.IndicatorControlWheelContainer android:id="@id/indicator_control" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
-        <com.moblynx.cameraics.ShutterButton android:id="@id/shutter_button" android:background="@drawable/btn_shutter" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" />
-        <com.moblynx.cameraics.ui.IndicatorControlWheel android:id="@id/indicator_control_wheel" android:layout_width="fill_parent" android:layout_height="fill_parent">
-            <com.moblynx.cameraics.ui.ZoomControlWheel android:id="@id/zoom_control" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-        </com.moblynx.cameraics.ui.IndicatorControlWheel>
-    </com.moblynx.cameraics.ui.IndicatorControlWheelContainer>
+    <com.android.cameraics.ui.IndicatorControlWheelContainer android:id="@id/indicator_control" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <com.android.cameraics.ShutterButton android:id="@id/shutter_button" android:background="@drawable/btn_shutter" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" />
+        <com.android.cameraics.ui.IndicatorControlWheel android:id="@id/indicator_control_wheel" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.android.cameraics.ui.ZoomControlWheel android:id="@id/zoom_control" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </com.android.cameraics.ui.IndicatorControlWheel>
+    </com.android.cameraics.ui.IndicatorControlWheelContainer>
     <include layout="@layout/mode_picker" />
-</com.moblynx.cameraics.ui.ControlPanelLayout>
+</com.android.cameraics.ui.ControlPanelLayout>

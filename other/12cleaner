@@ -1,9 +1,5 @@
 #!/system/bin/sh
-#
-# Copyright (c) 2011 Leonard Luangga
 
-
-#remove cache, tmp, and unused files
 rm -f /cache/*.apk
 rm -f /cache/*.tmp
 rm -f /data/dalvik-cache/*.apk
@@ -23,4 +19,3 @@ if [ -d /data/system/appusagestats ]
 then
   chmod 400 /data/system/appusagestats
 fi
-

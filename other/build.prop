@@ -37,6 +37,9 @@ ro.config.alarm_alert=GoodMorning.ogg
 ro.config.sms_received_sound=FadeIn.ogg
 ro.config.sms_delivered_sound=MessageComplete.ogg
 
+# Miui version
+ro.miui.ui.version.name=V5
+
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
@@ -92,7 +95,7 @@ ro.media.enc.hprof.vid.fps=25
 ro.telephony.call_ring.delay=0
 ring.delay=0
 ro.config.nocheckin=1
-sys.keep_app_1=com.miui.home
+persist.sys.purgeable_assets=1
 net.rmnet0.dns1=8.8.8.8
 net.rmnet0.dns2=8.8.4.4
 net.ppp0.dns1=8.8.8.8
