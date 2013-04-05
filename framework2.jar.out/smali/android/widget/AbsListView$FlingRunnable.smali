@@ -84,7 +84,8 @@
     .prologue
     iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
 
-    invoke-virtual {v0}, Landroid/widget/AbsListView;->getScrollY()I
+    #getter for: Landroid/widget/AbsListView;->mPaddingBottom:I
+    invoke-static {v0}, Landroid/widget/AbsListView;->access$2100(Landroid/widget/AbsListView;)I
 
     move-result v0
 
@@ -101,35 +102,6 @@
     goto :goto_0
 .end method
 
-.method private scaleOverScrollDeltaY(II)I
-    .locals 2
-    .parameter "deltaY"
-    .parameter "scrollY"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    move v0, p1
-
-    .local v0, retval:I
-    iget-object v1, p0, Landroid/widget/AbsListView$FlingRunnable;->mScroller:Landroid/widget/OverScroller;
-
-    invoke-virtual {v1}, Landroid/widget/OverScroller;->checkSpringBackState()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v1, p1, p2}, Landroid/widget/AbsListView$Injector;->scaleOverScrollDeltaY(Landroid/widget/AbsListView;II)I
-
-    move-result v0
-
-    :cond_0
-    return v0
-.end method
 
 # virtual methods
 .method edgeReached(I)V
@@ -355,18 +327,6 @@
 
     .line 4137
     return-void
-.end method
-
-.method protected getScroller()Landroid/widget/OverScroller;
-    .locals 1
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->mScroller:Landroid/widget/OverScroller;
-
-    return-object v0
 .end method
 
 .method public run()V
@@ -630,23 +590,7 @@
 
     sub-int v2, v20, v2
 
-    neg-int v2, v2
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
-
-    invoke-virtual {v5}, Landroid/widget/AbsListView;->getScrollY()I
-
-    move-result v5
-
-    invoke-static {v3, v2, v5}, Landroid/widget/AbsListView$Injector;->scaleOverScrollDeltaY(Landroid/widget/AbsListView;II)I
-
-    move-result v4
+    neg-int v4, v2
 
     .line 4203
     .local v4, overshoot:I
@@ -890,13 +834,7 @@
 
     .line 4239
     .local v19, currY:I
-    sub-int v2, v19, v9
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2, v9}, Landroid/widget/AbsListView$FlingRunnable;->scaleOverScrollDeltaY(II)I
-
-    move-result v7
+    sub-int v7, v19, v9
 
     .line 4240
     .local v7, deltaY:I
@@ -1034,7 +972,7 @@
     .end local v9           #scrollY:I
     .end local v19           #currY:I
     :cond_11
-    invoke-direct/range {p0 .. p0}, Landroid/widget/AbsListView$FlingRunnable;->endFling2()V
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/AbsListView$FlingRunnable;->endFling()V
 
     goto/16 :goto_0
 
