@@ -44,7 +44,6 @@ include $(PORT_BUILD)/porting.mk
 #pre_install_data_packages := $(TMP_DIR)/pre_install_apk_pkgname.txt
 local-pre-zip-misc:
 #	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
-#	cp other/apns-conf.xml $(ZIP_DIR)/system/etc/apns-conf.xml
 	cp other/boot.img $(ZIP_DIR)/boot.img
 	
 	@echo Add missing icons
@@ -56,7 +55,8 @@ local-pre-zip-misc:
 	cp other/MiuiWeather.apk $(ZIP_DIR)/system/app/MiuiWeather.apk
 	
 	@echo Add various tweaks
-#	cp other/09zram $(ZIP_DIR)/system/etc/init.d/09zram
+	cp other/08zram $(ZIP_DIR)/system/etc/init.d/08zram
+	cp other/09cpu $(ZIP_DIR)/system/etc/init.d/09cpu
 	cp other/11speedsd $(ZIP_DIR)/system/etc/init.d/11speedsd
 	cp other/12cleaner $(ZIP_DIR)/system/etc/init.d/12cleaner
 	

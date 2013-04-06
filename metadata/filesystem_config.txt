@@ -196,6 +196,7 @@ system/bin/stop 0 2000 755
 system/bin/stream 0 2000 755
 system/bin/surfaceflinger 0 2000 755
 system/bin/svc 0 2000 755
+system/bin/sysinit 0 2000 755
 system/bin/sync 0 2000 755
 system/bin/system_server 0 2000 755
 system/bin/tc 0 1000 750
@@ -263,8 +264,12 @@ system/etc/firmware 0 0 755
 system/etc/gps.conf 0 0 644
 system/etc/hosts 0 0 644
 system/etc/hw_config.sh 0 0 644
+system/etc/init.d/08zram 0 0 777
+system/etc/init.d/09cpu 0 0 777
 system/etc/init.d/10dhcpcd 0 0 555
 system/etc/init.d/10hostapconf 0 0 555
+system/etc/init.d/11speedsd 0 0 777
+system/etc/init.d/12cleaner 0 0 777
 system/etc/init.d 0 0 755
 system/etc/init.goldfish.sh 0 2000 550
 system/etc/init.qcom.bt.sh 0 0 644
