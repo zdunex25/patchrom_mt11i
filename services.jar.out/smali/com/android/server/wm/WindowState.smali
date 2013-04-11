@@ -36,6 +36,8 @@
 
 .field final mAttachedWindow:Lcom/android/server/wm/WindowState;
 
+.field mAttrFlagsSaved:Z
+
 .field final mAttrs:Landroid/view/WindowManager$LayoutParams;
 
 .field final mBaseLayer:I
@@ -78,6 +80,8 @@
 .field mEnforceSizeCompat:Z
 
 .field mExiting:Z
+
+.field final mFloatingWindowAllowed:Z
 
 .field final mFrame:Landroid/graphics/Rect;
 
@@ -748,6 +752,10 @@
 
     iput-object v5, p0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
+    const/4 v5, 0x0
+
+    iput-boolean v5, p0, Lcom/android/server/wm/WindowState;->mFloatingWindowAllowed:Z
+
     .line 347
     .end local v3           #e:Landroid/os/RemoteException;
     :goto_7
@@ -971,6 +979,16 @@
     invoke-direct {v6, v5, p0}, Lcom/android/server/input/InputWindowHandle;-><init>(Lcom/android/server/input/InputApplicationHandle;Ljava/lang/Object;)V
 
     iput-object v6, p0, Lcom/android/server/wm/WindowState;->mInputWindowHandle:Lcom/android/server/input/InputWindowHandle;
+
+    iget-object v5, p0, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+
+    iget v5, v5, Lcom/android/server/wm/Session;->mUid:I
+
+    invoke-static {v5}, Lcom/android/server/wm/WindowManagerService$Injector;->isFloatingWindowAllowed(I)Z
+
+    move-result v5
+
+    iput-boolean v5, p0, Lcom/android/server/wm/WindowState;->mFloatingWindowAllowed:Z
 
     goto/16 :goto_7
 

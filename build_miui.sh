@@ -10,9 +10,18 @@ cd temp
 cat 'Mms/AndroidManifest.xml' | sed -e "s/android:screenOrientation=\"portrait\" //g" \
 				| sed -e "s/ android:screenOrientation=\"portrait\"//g" > '../Mms/AndroidManifest.xml'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Settings.apk'
+cat 'Settings/res/xml/sound_settings.xml' | sed -e "s/android.musicfx/miui.player/g" \
+				| sed -e "s/ControlPanelPicker/ui.EqualizerActivity/g" > '../Settings/res/xml/sound_settings.xml'
 cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/MenuInflater;)V/MenuInflater;)V \
     return-void/' > '../Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali'
+'../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/LBESEC_MIUI.apk'
+grep -v '<action android:name="android.intent.action.MAIN" />' 'LBESEC_MIUI/AndroidManifest.xml' >> 'LBESEC_MIUI/AndroidManifest2.xml'
+grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'LBESEC_MIUI/AndroidManifest2.xml' > 'LBESEC_MIUI/AndroidManifest.xml'
+rm -f 'LBESEC_MIUI/AndroidManifest2.xml'
+'../../tools/apktool' --quiet b -f 'LBESEC_MIUI' '../other/unsigned-LBESEC_MIUI.apk'
 cd ..
+java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "other/unsigned-LBESEC_MIUI.apk" "other/LBESEC_MIUI.apk"
+rm -f "other/unsigned-LBESEC_MIUI.apk"
 rm -r "temp"
 make fullota
 unzip out/fullota.zip -d out/temp
@@ -33,7 +42,7 @@ x=`date +%Y`
 y=`date +.%-m.%-d`
 z=${x: -1:1}
 version=$z$y
-time=`date +%_a%_3d%_4b%_9X%_4Z%_5Y`
+time=`date +%_a%_3d%_4b%_9X%_5Z%_5Y`
 utc=`date +%s`
 cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
 				| sed -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$utc/g" \
@@ -43,6 +52,8 @@ echo "" >> 'out/temp/system/build2.prop'
 cp 'out/temp/system/build2.prop' 'out/temp/system/build.prop'
 rm -f 'out/temp/system/build2.prop'
 
+mv -f 'other/LBESEC_MIUI.apk' 'out/temp/system/app/LBESEC_MIUI.apk'
+rm -f 'out/temp/system/etc/weather_city.db'
 cd 'out/temp'
 rm -r 'META-INF/CERT.RSA'
 rm -r 'META-INF/CERT.SF'
@@ -52,6 +63,7 @@ cd ../..
 . ../build/envsetup.sh
 cd mt11i
 rm -f 'Mms/AndroidManifest.xml'
+rm -f 'Settings/res/xml/sound_settings.xml'
 rm -f 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali'
 make clean
 echo Signing rom

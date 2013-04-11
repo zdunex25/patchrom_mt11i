@@ -3,7 +3,7 @@ a=`date +%Y`
 b=`date +.%-m.%-d`
 c=${a: -1:1}
 version=$c$b
-time=`date +%_a%_3d%_4b%_9X%_4Z%_5Y`
+time=`date +%_a%_3d%_4b%_9X%_5Z%_5Y`
 utc=`date +%s`
 cat 'other/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
 			| sed -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$utc/g" \
@@ -22,4 +22,4 @@ java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsi
 rm -r "unsigned-patch-v5-neo-$version.zip"
 echo MD5sum is
 md5sum -b "miuixperia-v5-neov-$version.zip"
-read -p "Done, miuixperia-v5-neov-$version.zip and patch have been created in root of mt11i directory, copy to sd and flash. Press ENTER to close this window!"
+echo Done, miuixperia-v5-neov-$version.zip and patch have been created in root of mt11i directory, copy to sd and flash it!

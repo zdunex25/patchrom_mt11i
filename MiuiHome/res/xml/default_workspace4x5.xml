@@ -152,6 +152,13 @@
         launcher:x="0"
         launcher:y="0" />
 <favorite
+        launcher:packageName="com.miui.bugreport"
+        launcher:className="com.miui.bugreport.ui.TypeSelectionActivity"
+        launcher:retained="true"
+        launcher:container="1"
+        launcher:x="0"
+        launcher:y="0" />
+<favorite
         launcher:packageName="com.android.settings"
         launcher:className="com.android.settings.VirusScanActivity"
         launcher:container="2"
