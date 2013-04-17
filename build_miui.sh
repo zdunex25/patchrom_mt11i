@@ -14,6 +14,9 @@ cat 'Settings/res/xml/sound_settings.xml' | sed -e "s/android.musicfx/miui.playe
 				| sed -e "s/ControlPanelPicker/ui.EqualizerActivity/g" > '../Settings/res/xml/sound_settings.xml'
 cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/MenuInflater;)V/MenuInflater;)V \
     return-void/' > '../Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali'
+'../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/BugReport.apk'
+grep -v '<action android:name="android.intent.action.MAIN" />' 'BugReport/AndroidManifest.xml' >> 'BugReport/AndroidManifest2.xml'
+grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'BugReport/AndroidManifest2.xml' >> '../BugReport/AndroidManifest.xml'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/LBESEC_MIUI.apk'
 grep -v '<action android:name="android.intent.action.MAIN" />' 'LBESEC_MIUI/AndroidManifest.xml' >> 'LBESEC_MIUI/AndroidManifest2.xml'
 grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'LBESEC_MIUI/AndroidManifest2.xml' > 'LBESEC_MIUI/AndroidManifest.xml'
@@ -65,6 +68,7 @@ cd mt11i
 rm -f 'Mms/AndroidManifest.xml'
 rm -f 'Settings/res/xml/sound_settings.xml'
 rm -f 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali'
+rm -f 'BugReport/AndroidManifest.xml'
 make clean
 echo Signing rom
 java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-neov-$version.zip" "miuixperia-v5-neov-$version.zip"

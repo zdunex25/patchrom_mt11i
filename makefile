@@ -16,7 +16,7 @@ local-modified-jars :=
 # All apks from MIUI
 local-miui-removed-apps := MediaProvider Stk SuperMarket Updater Weather WeatherProvider
 
-local-miui-modified-apps := MiuiHome Phone ThemeManager Mms Settings Music
+local-miui-modified-apps := MiuiHome Phone ThemeManager Mms Settings Music BugReport
 
 # Config density for co-developers to use the aaps with HDPI or XHDPI resource,
 # Default configrations are HDPI for ics branch and XHDPI for jellybean branch

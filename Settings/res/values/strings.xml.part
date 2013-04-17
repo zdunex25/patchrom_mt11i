@@ -2,4 +2,7 @@
 <resources>
     <string name="total_size">420MB (Total)</string>
     <string name="musicfx_title">Music equalizer</string>
+    <string name="header_category_xperia">XPERIA</string>
+    <string name="dsp_settings">DSP effects</string>
+    <string name="carrier_settings">Carrier name</string>
 </resources>
