@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ../..
-#export PATH=$PATH:/home/$USER/android-sdk-linux/tools:/home/$USER/android-sdk-linux/platform-tools
+export PATH=$PATH:/home/$USER/android-sdk-linux/tools:/home/$USER/android-sdk-linux/platform-tools
 cd patchromv5
 . build/envsetup.sh
 cd mt11i
