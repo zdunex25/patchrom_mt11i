@@ -8,6 +8,7 @@ system/app/Browser.apk 0 0 644
 system/app/Calculator.apk 0 0 644
 system/app/Calendar.apk 0 0 644
 system/app/CalendarProvider.apk 0 0 644
+system/app/Camera.apk 0 0 644
 system/app/CertInstaller.apk 0 0 644
 system/app/Contacts.apk 0 0 644
 system/app/ContactsProvider.apk 0 0 644
@@ -28,7 +29,6 @@ system/app/HTMLViewer.apk 0 0 644
 system/app/InputDevices.apk 0 0 644
 system/app/KeyChain.apk 0 0 644
 system/app/Launcher2.apk 0 0 644
-system/app/LegacyCamera.apk 0 0 644
 system/app/LiveWallpapers.apk 0 0 644
 system/app/LiveWallpapersPicker.apk 0 0 644
 system/app/MagicSmokeWallpapers.apk 0 0 644

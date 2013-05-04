@@ -9,7 +9,7 @@ local-zip-file     := stockrom.zip
 local-out-zip-file := MIUI_MT11i.zip
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := LegacyCamera Fmapplication MiuiCarrier
+local-modified-apps := Camera Fmapplication MiuiCarrier
 
 local-modified-jars :=
 
