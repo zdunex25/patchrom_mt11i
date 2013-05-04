@@ -121,6 +121,9 @@ rm -f 'out/temp/system/build2.prop'
 
 mv -f 'other/LBESEC_MIUI.apk' 'out/temp/system/app/LBESEC_MIUI.apk'
 rm -f 'out/temp/system/etc/weather_city.db'
+mkdir -p out/temp/system/usr/device/hallon
+cp other/extras/device/hallon/* out/temp/system/usr/device/hallon
+cp other/extras/device/hallon.sh out/temp/system/bin/hallon.sh
 #cp other/extras/sound/app/*.apk out/temp/system/app
 #cp other/extras/sound/etc/permissions/*.xml out/temp/system/etc/permissions
 #cp -f other/extras/sound/etc/*.conf out/temp/system/etc
@@ -169,7 +172,7 @@ cd 'out/temp'
 rm -r 'META-INF/CERT.RSA'
 rm -r 'META-INF/CERT.SF'
 rm -r 'META-INF/MANIFEST.MF'
-zip -q -r "../../unsigned-miuixperia-v5-neov-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
+zip -q -r "../../unsigned-miuixperia-v5-mt11i-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
 cd ../..
 . ../build/envsetup.sh
 cd mt11i
@@ -193,6 +196,8 @@ rm -rf 'Settings/smali'
 rm -rf 'XiaomiServiceFramework'
 make clean
 echo Signing rom
-java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-neov-$version.zip" "miuixperia-v5-neov-$version.zip"
-rm -r "unsigned-miuixperia-v5-neov-$version.zip"
-exec ./other/neo_patch.sh
+java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-mt11i-$version.zip" "miuixperia-v5-mt11i-$version.zip"
+rm -r "unsigned-miuixperia-v5-mt11i-$version.zip"
+echo MD5sum is
+md5sum -b "miuixperia-v5-mt11i-$version.zip"
+read -p "Done, miuixperia-v5-mt11i-$version.zip and patch have been created in root of mt11i directory, copy to sd and flash it!"
