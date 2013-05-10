@@ -43,9 +43,9 @@ cat 'Settings/res/xml/sound_settings.xml' | sed -e "s/android.musicfx/miui.playe
 				| sed -e "s/ControlPanelPicker/ui.EqualizerActivity/g" > '../Settings/res/xml/sound_settings.xml'
 cat 'Settings/res/xml/device_info_settings.xml' | sed -e 's/android:key=\"kernel_version\" \/>/android:key=\"kernel_version\" \/>\
 	<miui.preference.ValuePreference android:title=\"@string\/build_author\" android:key=\"build_author\" \/>/' > '../Settings/res/xml/device_info_settings.xml'
-cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/MenuInflater;)V/MenuInflater;)V \
-    return-void/' > 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings2.smali'
-cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings2.smali' | sed -e 's/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V\
+#cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/MenuInflater;)V/MenuInflater;)V \
+#    return-void/' > 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings2.smali'
+cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V\
 \
     .line 116\
     const-string v22, \"build_author\"\
@@ -121,10 +121,11 @@ rm -f 'out/temp/system/build2.prop'
 
 mv -f 'other/LBESEC_MIUI.apk' 'out/temp/system/app/LBESEC_MIUI.apk'
 rm -f 'out/temp/system/etc/weather_city.db'
-mkdir -p out/temp/system/usr/device/hallon
-cp -r other/extras/hallon out/temp/system/usr/extras/hallon
+mkdir -p out/temp/system/usr/extras
+cp -r other/extras/hallon out/temp/system/usr/extras
 cp other/extras/hallon.sh out/temp/system/bin/hallon.sh
-cp -r other/extras/user_manual_haida out/temp/system/etc/user_manual_haida
+cp -r other/extras/user_manual out/temp/system/etc/user_manual_haida
+cp -r other/extras/user_manual out/temp/system/etc/user_manual_hallon
 #cp other/extras/sound/app/*.apk out/temp/system/app
 #cp other/extras/sound/etc/permissions/*.xml out/temp/system/etc/permissions
 #cp -f other/extras/sound/etc/*.conf out/temp/system/etc
@@ -151,22 +152,22 @@ for DIR in out/temp/system/app/; do
 done;
 
 
-for DIR in out/temp/system/framework/; do
-	cd $DIR;
-	for APK in *.apk; do
-		ZIPCHECK=`../../../../other/zipalign -c -v 4 $APK | grep FAILED | wc -l`;
-		if [ $ZIPCHECK == "1" ]; then
-			echo "Now aligning: $DIR/$APK" >> ../../../../zipalign_framework.log;
-			mkdir ../framework_done
-			../../../../other/zipalign -v -f 4 $APK ../framework_done/$APK;
-			cp -f -p ../framework_done/$APK $APK;
-			rm -rf ../framework_done
-		else
-			echo "Already aligned: $DIR/$APK" >> ../../../../zipalign_framework.log;
-		fi;
-	done;
-	cd ../../../..
-done;
+#for DIR in out/temp/system/framework/; do
+#	cd $DIR;
+#	for APK in *.apk; do
+#		ZIPCHECK=`../../../../other/zipalign -c -v 4 $APK | grep FAILED | wc -l`;
+#		if [ $ZIPCHECK == "1" ]; then
+#			echo "Now aligning: $DIR/$APK" >> ../../../../zipalign_framework.log;
+#			mkdir ../framework_done
+#			../../../../other/zipalign -v -f 4 $APK ../framework_done/$APK;
+#			cp -f -p ../framework_done/$APK $APK;
+#			rm -rf ../framework_done
+#		else
+#			echo "Already aligned: $DIR/$APK" >> ../../../../zipalign_framework.log;
+#		fi;
+#	done;
+#	cd ../../../..
+#done;
 
 
 cd 'out/temp'

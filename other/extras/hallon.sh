@@ -1,6 +1,7 @@
 #!/system/bin/sh
 
 echo Installing hallon libs
+mount -o rw,remount /system
 cp -f /system/usr/extras/hallon/*.so /system/lib
 chmod 644 /system/lib/libcald_hal.so
 chmod 644 /system/lib/libcald_pal.so
@@ -14,4 +15,8 @@ cat /system/build.prop | sed -e "s/MT11/MT15/g" \
 cp -f /system/build2.prop /system/build.prop
 rm -f /system/build2.prop
 chmod 644 /system/build.prop
-echo Done, reboot your phone!
+echo Done, enjoy!
+mount -o ro,remount /system
+echo Press ENTER to reboot.
+read
+reboot

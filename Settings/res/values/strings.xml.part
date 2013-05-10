@@ -3,4 +3,6 @@
     <string name="total_size">420MB (Total)</string>
     <string name="musicfx_title">Music equalizer</string>
     <string name="build_author">Build author</string>
+    <string name="camera_key_action_title">Camera button</string>
+    <string name="camera_key_action_setting_title">Camera button</string>
 </resources>

@@ -35,6 +35,7 @@ system/app/MagicSmokeWallpapers.apk 0 0 644
 system/app/MediaProvider.apk 0 0 644
 system/app/Mms.apk 0 0 644
 system/app/MiuiCarrier.apk 0 0 644
+system/app/MiuiUpdater.apk 0 0 644
 system/app/NoiseField.apk 0 0 644
 system/app/PackageInstaller.apk 0 0 644
 system/app/PhaseBeam.apk 0 0 644

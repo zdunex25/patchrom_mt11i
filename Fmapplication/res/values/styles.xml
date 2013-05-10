@@ -8,7 +8,7 @@
         <item name="android:shadowDy">1.0</item>
         <item name="android:shadowRadius">1.0</item>
     </style>
-    <style name="fmapp_style" parent="@*android:style/Theme.Holo.Light" />
+    <style name="fmapp_style" parent="@android:style/Theme.Holo.Light" />
     <style name="StatusBarButton">
         <item name="android:layout_gravity">right|center</item>
         <item name="android:background">?android:listChoiceBackgroundIndicator</item>

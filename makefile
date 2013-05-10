@@ -9,7 +9,7 @@ local-zip-file     := stockrom.zip
 local-out-zip-file := MIUI_MT11i.zip
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := Camera Fmapplication MiuiCarrier
+local-modified-apps := Camera Fmapplication MiuiCarrier MiuiUpdater
 
 local-modified-jars :=
 
@@ -52,7 +52,7 @@ local-pre-zip-misc:
 #	cp -f other/extras/lock_wallpaper $(ZIP_DIR)/system/media/theme/default/lock_wallpaper
 	
 	@echo Add various apps
-	cp other/MiuiUpdater.apk $(ZIP_DIR)/system/app/MiuiUpdater.apk
+#	cp other/MiuiUpdater.apk $(ZIP_DIR)/system/app/MiuiUpdater.apk
 	cp other/MiuiWeather.apk $(ZIP_DIR)/system/app/MiuiWeather.apk
 	cp other/MusicFX.apk $(ZIP_DIR)/system/app/MusicFX.apk
 	
