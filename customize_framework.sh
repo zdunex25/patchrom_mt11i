@@ -33,4 +33,5 @@ then
     done
 
 	# mv "$BUILD_OUT/$SEP_FRAME/smali/miui/"  "$BUILD_OUT/framework2/smali/miui"
+	sed -i -e 's/http:\/\/www.miui.com\/res\/doc\/manual.html?lang=%s&miphone=%s/file:\/\/\/system\/etc\/user_manual_%s\/%s\/index.html/' $BUILD_OUT/framework2/smali/com/miui/internal/app/MiuiLicenseActivity.smali
 fi

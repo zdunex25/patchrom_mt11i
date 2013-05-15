@@ -5,4 +5,5 @@
     <string name="build_author">Build author</string>
     <string name="camera_key_action_title">Camera button</string>
     <string name="camera_key_action_setting_title">Camera button</string>
+    <string name="osb_settings">On screen buttons</string>
 </resources>

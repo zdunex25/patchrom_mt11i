@@ -39,6 +39,7 @@ cat 'Mms/smali/com/android/mms/ui/MessageEditableActivityBase.smali' | sed -e 's
 \
     invoke-static {v0, v1}, Landroid\/telephony\/SmsMessage;->calculateLength(Ljava\/lang\/CharSequence;Z)\[I/' > '../Mms/smali/com/android/mms/ui/MessageEditableActivityBase.smali'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Settings.apk'
+cat 'Settings/res/xml/settings_headers.xml' | sed -e "s/android:id=\"@id\/manufacturer_settings\"/android:icon=\"@drawable\/ic_osb_settings\" android:id=\"@id\/manufacturer_settings\" android:title=\"@string\/osb_settings\"/g" > '../Settings/res/xml/settings_headers.xml'
 cat 'Settings/res/xml/sound_settings.xml' | sed -e "s/android.musicfx/miui.player/g" \
 				| sed -e "s/ControlPanelPicker/ui.EqualizerActivity/g" > '../Settings/res/xml/sound_settings.xml'
 cat 'Settings/res/xml/device_info_settings.xml' | sed -e 's/android:key=\"kernel_version\" \/>/android:key=\"kernel_version\" \/>\
@@ -77,15 +78,16 @@ grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'BugRepor
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/XiaomiServiceFramework.apk'
 grep -v '<action android:name="android.intent.action.MAIN" />' 'XiaomiServiceFramework/AndroidManifest.xml' >> 'XiaomiServiceFramework/AndroidManifest2.xml'
 grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'XiaomiServiceFramework/AndroidManifest2.xml' >> '../XiaomiServiceFramework/AndroidManifest.xml'
-#cat 'XiaomiServiceFramework/res/xml/micloud_settings_preference.xml' | sed -e "s/<PreferenceScreen android:title=\"@string\/mili_center\" android:key=\"miliCenterSettings\" \/>/<\!--PreferenceScreen android:title=\"@string\/mili_center\" android:key=\"miliCenterSettings\" \/-->/g" > '../XiaomiServiceFramework/res/xml/micloud_settings_preference.xml'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/LBESEC_MIUI.apk'
 grep -v '<action android:name="android.intent.action.MAIN" />' 'LBESEC_MIUI/AndroidManifest.xml' >> 'LBESEC_MIUI/AndroidManifest2.xml'
 grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'LBESEC_MIUI/AndroidManifest2.xml' > 'LBESEC_MIUI/AndroidManifest.xml'
 rm -f 'LBESEC_MIUI/AndroidManifest2.xml'
 '../../tools/apktool' --quiet b -f 'LBESEC_MIUI' '../other/unsigned-LBESEC_MIUI.apk'
 cd ..
-java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "other/unsigned-LBESEC_MIUI.apk" "other/LBESEC_MIUI.apk"
+java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "other/unsigned-LBESEC_MIUI.apk" "other/signed-LBESEC_MIUI.apk"
+'other/zipalign' -f 4 "other/signed-LBESEC_MIUI.apk" "other/LBESEC_MIUI.apk"
 rm -f "other/unsigned-LBESEC_MIUI.apk"
+rm -f "other/signed-LBESEC_MIUI.apk"
 rm -r "temp"
 make fullota
 unzip -q out/fullota.zip -d out/temp
@@ -106,7 +108,7 @@ x=`date +%Y`
 y=`date +.%-m.%-d`
 z=${x: -1:1}
 version=$z$y
-time=`date +%_a%_3d%_4b%_9X%_5Z%_5Y`
+time=`date +%_a%_3d%_4b%_12X%_4Z%_5Y`
 utc=`date +%s`
 ota=`date +%Y%m%d-%H%M`
 cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
@@ -115,7 +117,7 @@ cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=
 				| sed -e "s/updater\.time=.*/updater\.time=$ota/g" \
 				| sed -e "s/updater\.ver=.*/updater\.ver=$version/g" \
 				| sed -e "s/ro\.product\.mod_device=.*/ro\.product\.mod_device=mt11i/g" > 'out/temp/system/build2.prop'
-echo "" >> 'out/temp/system/build2.prop'
+#echo "" >> 'out/temp/system/build2.prop'
 cp 'out/temp/system/build2.prop' 'out/temp/system/build.prop'
 rm -f 'out/temp/system/build2.prop'
 
@@ -126,13 +128,6 @@ cp -r other/extras/hallon out/temp/system/usr/extras
 cp other/extras/hallon.sh out/temp/system/bin/hallon.sh
 cp -r other/extras/user_manual out/temp/system/etc/user_manual_haida
 cp -r other/extras/user_manual out/temp/system/etc/user_manual_hallon
-#cp other/extras/sound/app/*.apk out/temp/system/app
-#cp other/extras/sound/etc/permissions/*.xml out/temp/system/etc/permissions
-#cp -f other/extras/sound/etc/*.conf out/temp/system/etc
-#cp other/extras/sound/framework/*.jar out/temp/system/framework
-#cp -f other/extras/sound/lib/soundfx/*.so out/temp/system/lib/soundfx
-#cp -f other/extras/sound/lib/*.so out/temp/system/lib
-
 
 for DIR in out/temp/system/app/; do
 	cd $DIR;
@@ -151,25 +146,6 @@ for DIR in out/temp/system/app/; do
 	cd ../../../..
 done;
 
-
-#for DIR in out/temp/system/framework/; do
-#	cd $DIR;
-#	for APK in *.apk; do
-#		ZIPCHECK=`../../../../other/zipalign -c -v 4 $APK | grep FAILED | wc -l`;
-#		if [ $ZIPCHECK == "1" ]; then
-#			echo "Now aligning: $DIR/$APK" >> ../../../../zipalign_framework.log;
-#			mkdir ../framework_done
-#			../../../../other/zipalign -v -f 4 $APK ../framework_done/$APK;
-#			cp -f -p ../framework_done/$APK $APK;
-#			rm -rf ../framework_done
-#		else
-#			echo "Already aligned: $DIR/$APK" >> ../../../../zipalign_framework.log;
-#		fi;
-#	done;
-#	cd ../../../..
-#done;
-
-
 cd 'out/temp'
 rm -r 'META-INF/CERT.RSA'
 rm -r 'META-INF/CERT.SF'
@@ -179,16 +155,6 @@ cd ../..
 . ../build/envsetup.sh
 cd mt11i
 rm -f 'Mms/AndroidManifest.xml'
-rm -f 'Mms/smali/com/android/mms/data/WorkingMessage.smali'
-rm -f 'Mms/smali/com/android/mms/transaction/SmsMessageSender.smali'
-rm -f 'Mms/smali/com/android/mms/ui/MessageUtils.smali'
-rm -f 'Mms/smali/com/android/mms/ui/MessageEditableActivityBase.smali'
-rm -f 'Settings/res/xml/device_info_settings.xml'
-rm -f 'Settings/res/xml/sound_settings.xml'
-rm -f 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali'
-rm -f 'BugReport/AndroidManifest.xml'
-rm -f 'XiaomiServiceFramework/AndroidManifest.xml'
-#rm -f 'XiaomiServiceFramework/res/xml/micloud_settings_preference.xml'
 rm -rf 'BugReport'
 rm -rf 'Mms/smali/com/android/mms/data'
 rm -rf 'Mms/smali/com/android/mms/transaction'
