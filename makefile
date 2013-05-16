@@ -14,7 +14,7 @@ local-modified-apps := Camera Fmapplication MiuiCarrier MiuiUpdater OSB
 local-modified-jars :=
 
 # All apks from MIUI
-local-miui-removed-apps := MediaProvider Stk SuperMarket Updater Weather WeatherProvider
+local-miui-removed-apps := MediaProvider SuperMarket Updater Weather WeatherProvider
 
 local-miui-modified-apps := MiuiHome Phone ThemeManager Mms Settings Music BugReport XiaomiServiceFramework
 

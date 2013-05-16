@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="notification_icon_size">64.0dip</dimen>
+    <dimen name="notification_icon_size">48.0dip</dimen>
     <dimen name="default_margin">6.0dip</dimen>
     <dimen name="small_font">18.0sp</dimen>
 </resources>
