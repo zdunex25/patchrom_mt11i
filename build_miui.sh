@@ -108,7 +108,7 @@ x=`date +%Y`
 y=`date +.%-m.%-d`
 z=${x: -1:1}
 version=$z$y
-time=`date +%_a%_3d%_4b%_12X%_4Z%_5Y`
+time=`date +%c`
 utc=`date +%s`
 ota=`date +%Y%m%d-%H%M`
 cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
