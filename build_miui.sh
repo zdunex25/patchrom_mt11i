@@ -117,7 +117,6 @@ cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=
 				| sed -e "s/updater\.time=.*/updater\.time=$ota/g" \
 				| sed -e "s/updater\.ver=.*/updater\.ver=$version/g" \
 				| sed -e "s/ro\.product\.mod_device=.*/ro\.product\.mod_device=mt11i/g" > 'out/temp/system/build2.prop'
-#echo "" >> 'out/temp/system/build2.prop'
 cp 'out/temp/system/build2.prop' 'out/temp/system/build.prop'
 rm -f 'out/temp/system/build2.prop'
 
@@ -151,6 +150,80 @@ rm -r 'META-INF/CERT.RSA'
 rm -r 'META-INF/CERT.SF'
 rm -r 'META-INF/MANIFEST.MF'
 zip -q -r "../../unsigned-miuixperia-v5-neov-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
+cp -f ../../other/updater-script META-INF/com/google/android/updater-script
+cp -f ../../other/busybox busybox
+cp -f ../../other/prop-ota prop-ota
+mv -f system/build.prop build-ota.prop 
+rm -r system/app/AntHalService.apk
+rm -r system/app/antradioservice.apk
+rm -r system/app/antstatenotifer.apk
+rm -r system/app/ApplicationsProvider.apk
+rm -r system/app/BackupRestoreConfirmation.apk
+rm -r system/app/Camera.apk
+rm -r system/app/CertInstaller.apk
+rm -r system/app/ChromeBookmarksSyncAdapter.apk
+rm -r system/app/DefaultContainerService.apk
+rm -r system/app/DrmProvider.apk
+rm -r system/app/DSPManager.apk
+rm -r system/app/FmRxService.apk
+rm -r system/app/GoogleBackupTransport.apk
+rm -r system/app/GoogleCalendarSyncAdapter.apk
+rm -r system/app/GoogleContactsSyncAdapter.apk
+rm -r system/app/GoogleLoginService.apk
+rm -r system/app/GooglePartnerSetup.apk
+rm -r system/app/GoogleServicesFramework.apk
+rm -r system/app/HTMLViewer.apk
+rm -r system/app/InputDevices.apk
+rm -r system/app/KeyChain.apk
+rm -r system/app/LiveWallpapers.apk
+rm -r system/app/LiveWallpapersPicker.apk
+rm -r system/app/MusicFX.apk
+rm -r system/app/SharedStorageBackup.apk
+rm -r system/app/textinput-tng.apk
+rm -r system/app/UserDictionaryProvider.apk
+rm -r system/app/VisualizationWallpapers.apk
+rm -r system/app/WAPPushManager.apk
+rm -rf system/bin
+cp -rf ../../../miui/HDPI/system/bin system
+rm -rf system/etc
+cp -rf ../../../miui/HDPI/system/etc system
+rm -rf system/etc/license
+rm -rf system/fonts
+rm -f system/framework/am.jar
+rm -f system/framework/android.test.runner.jar
+rm -f system/framework/apache-xml.jar
+rm -f system/framework/bmgr.jar
+rm -f system/framework/bouncycastle.jar
+rm -f system/framework/bu.jar
+rm -f system/framework/com.android.future.usb.accessory.jar
+rm -f system/framework/com.android.location.provider.jar
+rm -f system/framework/com.dsi.ant.antradio_library.jar
+rm -f system/framework/com.sonyericsson.suquashi.jar
+rm -f system/framework/content.jar
+rm -f system/framework/core.jar
+rm -f system/framework/core-junit.jar
+rm -f system/framework/ext.jar
+rm -f system/framework/fmreceiverif.jar
+rm -f system/framework/ime.jar
+rm -f system/framework/input.jar
+rm -f system/framework/javax.obex.jar
+rm -f system/framework/monkey.jar
+rm -f system/framework/pm.jar
+rm -f system/framework/requestsync.jar
+rm -f system/framework/svc.jar
+rm -f system/framework/uiautomator.jar
+rm -rf system/lib
+cp -rf ../../../miui/HDPI/system/lib system
+rm -rf system/media/audio
+rm -f system/media/*.emd
+rm -f system/media/*.zip
+rm -rf system/media/theme/miui_mod_icons
+rm -f system/media/theme/simple_lockscreen.mtz
+rm -rf system/semc
+rm -rf system/usr
+rm -rf system/xbin
+cp -rf ../../../miui/HDPI/system/xbin system
+zip -q -r "../../unsigned-miuixperia-v5-neov-ota-to-$version.zip" 'META-INF' 'system' 'build-ota.prop' 'busybox' 'prop-ota'
 cd ../..
 . ../build/envsetup.sh
 cd mt11i
@@ -163,9 +236,12 @@ rm -rf 'Settings/res/xml'
 rm -rf 'Settings/smali'
 rm -rf 'XiaomiServiceFramework'
 make clean
-echo Signing rom
+echo Signing rom and ota
 java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-neov-$version.zip" "miuixperia-v5-neov-$version.zip"
 rm -r "unsigned-miuixperia-v5-neov-$version.zip"
-echo MD5sum is
+java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-neov-ota-to-$version.zip" "miuixperia-v5-neov-ota-to-$version.zip"
+rm -r "unsigned-miuixperia-v5-neov-ota-to-$version.zip"
+echo MD5sum are
 md5sum -b "miuixperia-v5-neov-$version.zip"
-read -p "Done, miuixperia-v5-neov-$version.zip and patch have been created in root of mt11i directory, copy to sd and flash it!"
+md5sum -b "miuixperia-v5-neov-ota-to-$version.zip"
+read -p "Done, miuixperia-v5-neov-$version.zip and OTA have been created in root of mt11i directory, copy to sd and flash it!"

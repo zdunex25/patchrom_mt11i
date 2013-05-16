@@ -1,0 +1,8 @@
+#!/tmp/busybox sh
+cp -f /system/build.prop /tmp/build.prop
+chmod 755 /tmp/build.prop
+grep -Ev '# Updater|updater.id=.*|updater.time=.*|updater.ver=.*|ro.build.version.incremental=.*' /tmp/build.prop >> /tmp/build-new.prop
+echo "# OTA" >> /tmp/build-new.prop
+cat /tmp/build-ota.prop | grep -Ei 'updater.id=.*|updater.time=.*|updater.ver=.*|ro.build.version.incremental=.*' >> /tmp/build-new.prop
+mv -f /tmp/build-new.prop /system/build.prop
+chmod 644 /system/build.prop
