@@ -49,6 +49,8 @@ updater.ver=eng.20130203.002703
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
+ro.kernel.android.checkjni=0
+dalvik.vm.checkjni=false
 keyguard.no_require_sim=true
 ro.com.android.dataroaming=false
 ro.com.android.dateformat=MM-dd-yyyy
@@ -99,9 +101,12 @@ ro.media.enc.jpeg.quality=100
 ro.media.enc.hprof.vid.bps=8000000
 ro.media.enc.hprof.vid.fps=25
 ro.telephony.call_ring.delay=0
-ring.delay=0
+ro.ril.disable.power.collapse=0
+ro.ril.fast.dormancy.rule=0
 ro.config.nocheckin=1
 persist.sys.purgeable_assets=1
+ring.delay=0
+pm.sleep_mode=1
 net.rmnet0.dns1=8.8.8.8
 net.rmnet0.dns2=8.8.4.4
 net.ppp0.dns1=8.8.8.8
