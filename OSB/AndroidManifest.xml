@@ -6,7 +6,7 @@
         <activity android:label="@string/info2" android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-				<action android:name="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
+		<action android:name="com.android.settings.OSB" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

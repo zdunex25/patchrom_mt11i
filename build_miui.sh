@@ -39,7 +39,15 @@ cat 'Mms/smali/com/android/mms/ui/MessageEditableActivityBase.smali' | sed -e 's
 \
     invoke-static {v0, v1}, Landroid\/telephony\/SmsMessage;->calculateLength(Ljava\/lang\/CharSequence;Z)\[I/' > '../Mms/smali/com/android/mms/ui/MessageEditableActivityBase.smali'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Settings.apk'
-cat 'Settings/res/xml/settings_headers.xml' | sed -e "s/android:id=\"@id\/manufacturer_settings\"/android:icon=\"@drawable\/ic_osb_settings\" android:id=\"@id\/manufacturer_settings\" android:title=\"@string\/osb_settings\"/g" > '../Settings/res/xml/settings_headers.xml'
+cat 'Settings/res/xml/settings_headers.xml' | sed -e "s/<header android:id=\"@id\/manufacturer_settings\">/<header android:title=\"@string\/header_category_xperia\" \/>/g" \
+					| sed -e 's/    <intent android:action=\"com.android.settings.MANUFACTURER_APPLICATION_SETTING\" \/>/<header android:icon=\"@drawable\/ic_ringer_volume_settings\" android:title=\"@string\/dsp_settings\">\
+        <intent android:action="com.android.settings.DSP\" \/>\
+    <\/header>\
+    <header android:icon=\"@drawable\/ic_mobile_network_settings\" android:title=\"@string\/carrier_settings\">\
+        <intent android:action="com.android.settings.CARRIER\" \/>\
+    <\/header>\
+    <header android:icon=\"@drawable\/ic_osb_settings\" android:title=\"@string\/osb_settings\">\
+        <intent android:action="com.android.settings.OSB\" \/>/' > '../Settings/res/xml/settings_headers.xml'
 cat 'Settings/res/xml/sound_settings.xml' | sed -e "s/android.musicfx/miui.player/g" \
 				| sed -e "s/ControlPanelPicker/ui.EqualizerActivity/g" > '../Settings/res/xml/sound_settings.xml'
 cat 'Settings/res/xml/device_info_settings.xml' | sed -e 's/android:key=\"kernel_version\" \/>/android:key=\"kernel_version\" \/>\
@@ -91,6 +99,7 @@ rm -f "other/signed-LBESEC_MIUI.apk"
 rm -r "temp"
 make fullota
 unzip -q out/fullota.zip -d out/temp
+echo -e "\nPreparing flashable zips.."
 
 a="assert(getprop(\"ro.product.device\") == \"haida\" ||"
 b="ui_print(\" \")\;"
@@ -241,7 +250,8 @@ java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsi
 rm -r "unsigned-miuixperia-v5-neov-$version.zip"
 java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-neov-ota-to-$version.zip" "miuixperia-v5-neov-ota-to-$version.zip"
 rm -r "unsigned-miuixperia-v5-neov-ota-to-$version.zip"
-echo MD5sum are
+echo -e "MD5 sums are\n"
 md5sum -b "miuixperia-v5-neov-$version.zip"
 md5sum -b "miuixperia-v5-neov-ota-to-$version.zip"
+echo -e "\n"
 read -p "Done, miuixperia-v5-neov-$version.zip and OTA have been created in root of mt11i directory, copy to sd and flash it!"
