@@ -1,8 +1,14 @@
 #!/tmp/busybox sh
+version=`3.5.25`
+time=`sob, 25 maj 2013, 18:26:19`
+utc=`1369499179`
+ota=`20130525-1826`
 cp -f /system/build.prop /tmp/build.prop
 chmod 755 /tmp/build.prop
-grep -Ev '# Updater|updater.id=.*|updater.time=.*|updater.ver=.*|ro.build.version.incremental=.*' /tmp/build.prop >> /tmp/build-new.prop
-echo "# OTA" >> /tmp/build-new.prop
-cat /tmp/build-ota.prop | grep -Ei 'updater.id=.*|updater.time=.*|updater.ver=.*|ro.build.version.incremental=.*' >> /tmp/build-new.prop
+cat /tmp/build.prop | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
+				| sed -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$utc/g" \
+				| sed -e "s/ro\.build\.version\.incremental=.*/ro\.build\.version\.incremental=$version/g" \
+				| sed -e "s/updater\.time=.*/updater\.time=$ota/g" \
+				| sed -e "s/updater\.ver=.*/updater\.ver=$version/g" > /tmp/build-new.prop
 mv -f /tmp/build-new.prop /system/build.prop
 chmod 644 /system/build.prop

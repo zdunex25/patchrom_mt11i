@@ -128,6 +128,10 @@ cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=
 				| sed -e "s/ro\.product\.mod_device=.*/ro\.product\.mod_device=mt11i/g" > 'out/temp/system/build2.prop'
 cp 'out/temp/system/build2.prop' 'out/temp/system/build.prop'
 rm -f 'out/temp/system/build2.prop'
+sed -i -e "s/miversion=.*/version=\`$version\`/" 'other/prop-ota'
+sed -i -e "s/mitime=.*/time=\`$time\`/" 'other/prop-ota'
+sed -i -e "s/miutc=.*/utc=\`$utc\`/" 'other/prop-ota'
+sed -i -e "s/miota=.*/ota=\`$ota\`/" 'other/prop-ota'
 
 mv -f 'other/LBESEC_MIUI.apk' 'out/temp/system/app/LBESEC_MIUI.apk'
 rm -f 'out/temp/system/etc/weather_city.db'
@@ -162,7 +166,7 @@ zip -q -r "../../unsigned-miuixperia-v5-neov-$version.zip" 'boot.img' 'data' 'ME
 cp -f ../../other/updater-script META-INF/com/google/android/updater-script
 cp -f ../../other/busybox busybox
 cp -f ../../other/prop-ota prop-ota
-mv -f system/build.prop build-ota.prop 
+rm -f system/build.prop
 rm -r system/app/AntHalService.apk
 rm -r system/app/antradioservice.apk
 rm -r system/app/antstatenotifer.apk
@@ -187,7 +191,9 @@ rm -r system/app/KeyChain.apk
 rm -r system/app/LiveWallpapers.apk
 rm -r system/app/LiveWallpapersPicker.apk
 rm -r system/app/MusicFX.apk
+rm -r system/app/OSB.apk
 rm -r system/app/SharedStorageBackup.apk
+rm -r system/app/SPN.apk
 rm -r system/app/textinput-tng.apk
 rm -r system/app/UserDictionaryProvider.apk
 rm -r system/app/VisualizationWallpapers.apk
@@ -253,5 +259,4 @@ rm -r "unsigned-miuixperia-v5-neov-ota-to-$version.zip"
 echo -e "MD5 sums are\n"
 md5sum -b "miuixperia-v5-neov-$version.zip"
 md5sum -b "miuixperia-v5-neov-ota-to-$version.zip"
-echo -e "\n"
 read -p "Done, miuixperia-v5-neov-$version.zip and OTA have been created in root of mt11i directory, copy to sd and flash it!"
