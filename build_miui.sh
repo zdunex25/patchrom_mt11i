@@ -190,6 +190,7 @@ rm -r system/app/InputDevices.apk
 rm -r system/app/KeyChain.apk
 rm -r system/app/LiveWallpapers.apk
 rm -r system/app/LiveWallpapersPicker.apk
+rm -r system/app/MiuiWeather.apk
 rm -r system/app/MusicFX.apk
 rm -r system/app/OSB.apk
 rm -r system/app/SharedStorageBackup.apk
@@ -203,6 +204,7 @@ cp -rf ../../../miui/HDPI/system/bin system
 rm -rf system/etc
 cp -rf ../../../miui/HDPI/system/etc system
 rm -rf system/etc/license
+rm -f system/etc/weather_city.db
 rm -rf system/fonts
 rm -f system/framework/am.jar
 rm -f system/framework/android.test.runner.jar
@@ -230,6 +232,8 @@ rm -f system/framework/uiautomator.jar
 rm -rf system/lib
 cp -rf ../../../miui/HDPI/system/lib system
 rm -rf system/media/audio
+rm -rf system/media/lockscreen
+rm -rf system/media/wallpaper
 rm -f system/media/*.emd
 rm -f system/media/*.zip
 rm -rf system/media/theme/miui_mod_icons

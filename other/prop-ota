@@ -1,8 +1,8 @@
 #!/tmp/busybox sh
-miversion=1
-mitime=2
-miutc=3
-miota=4
+miversion=`3.5.29`
+mitime=`śro, 29 maj 2013, 12:10:28`
+miutc=`1369822228`
+miota=`20130529-1210`
 cp -f /system/build.prop /tmp/build.prop
 chmod 755 /tmp/build.prop
 cat /tmp/build.prop | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$mitime/g" \

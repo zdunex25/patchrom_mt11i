@@ -42,7 +42,7 @@ ro.config.sms_delivered_sound=MessageComplete.ogg
 ro.miui.ui.version.name=V5
 
 # Updater
-updater.id=miui-v5-z25
+updater.id=miuixperia-v5
 updater.time=20130203-0027
 updater.ver=eng.20130203.002703
 
