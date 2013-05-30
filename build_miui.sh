@@ -164,7 +164,6 @@ rm -r 'META-INF/CERT.SF'
 rm -r 'META-INF/MANIFEST.MF'
 zip -q -r "../../unsigned-miuixperia-v5-neov-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
 cp -f ../../other/updater-script META-INF/com/google/android/updater-script
-cp -f ../../other/busybox busybox
 cp -f ../../other/prop-ota prop-ota
 rm -f system/build.prop
 rm -r system/app/AntHalService.apk

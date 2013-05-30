@@ -1,14 +1,14 @@
-#!/tmp/busybox sh
-miversion=`3.5.29`
-mitime=`śro, 29 maj 2013, 12:10:28`
-miutc=`1369822228`
-miota=`20130529-1210`
+#!/system/bin/sh
+miversion=1
+mitime=2
+miutc=3
+miota=4
 cp -f /system/build.prop /tmp/build.prop
 chmod 755 /tmp/build.prop
-cat /tmp/build.prop | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$mitime/g" \
-				| sed -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$miutc/g" \
-				| sed -e "s/ro\.build\.version\.incremental=.*/ro\.build\.version\.incremental=$miversion/g" \
-				| sed -e "s/updater\.time=.*/updater\.time=$miota/g" \
-				| sed -e "s/updater\.ver=.*/updater\.ver=$miversion/g" > /tmp/build-new.prop
-mv -f /tmp/build-new.prop /system/build.prop
+sed -i -e "s/ro\.build\.date=.*/ro\.build\.date=$mitime/" /tmp/build.prop
+sed -i -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$miutc/" /tmp/build.prop
+sed -i -e "s/ro\.build\.version\.incremental=.*/ro\.build\.version\.incremental=$miversion/" /tmp/build.prop
+sed -i -e "s/updater\.time=.*/updater\.time=$miota/" /tmp/build.prop
+sed -i -e "s/updater\.ver=.*/updater\.ver=$miversion/" /tmp/build.prop
+mv -f /tmp/build.prop /system/build.prop
 chmod 644 /system/build.prop
