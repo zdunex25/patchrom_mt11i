@@ -215,6 +215,8 @@ rm -f system/framework/com.android.future.usb.accessory.jar
 rm -f system/framework/com.android.location.provider.jar
 rm -f system/framework/com.dsi.ant.antradio_library.jar
 rm -f system/framework/com.sonyericsson.suquashi.jar
+rm -f system/framework/com.sonyericsson.uxp.jar
+rm -f system/framework/com.sonyericsson.uxpres.jar
 rm -f system/framework/content.jar
 rm -f system/framework/core.jar
 rm -f system/framework/core-junit.jar
@@ -241,7 +243,7 @@ rm -rf system/semc
 rm -rf system/usr
 rm -rf system/xbin
 cp -rf ../../../miui/HDPI/system/xbin system
-zip -q -r "../../unsigned-miuixperia-v5-neov-ota-to-$version.zip" 'META-INF' 'system' 'build-ota.prop' 'busybox' 'prop-ota'
+zip -q -r "../../unsigned-miuixperia-v5-neov-ota-to-$version.zip" 'META-INF' 'system' 'busybox' 'prop-ota'
 cd ../..
 . ../build/envsetup.sh
 cd mt11i
