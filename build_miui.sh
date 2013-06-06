@@ -128,10 +128,10 @@ cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=
 				| sed -e "s/ro\.product\.mod_device=.*/ro\.product\.mod_device=mt11i/g" > 'out/temp/system/build2.prop'
 cp 'out/temp/system/build2.prop' 'out/temp/system/build.prop'
 rm -f 'out/temp/system/build2.prop'
-sed -i -e "s/miversion=.*/miversion=\`$version\`/" 'other/prop-ota'
-sed -i -e "s/mitime=.*/mitime=\`$time\`/" 'other/prop-ota'
-sed -i -e "s/miutc=.*/miutc=\`$utc\`/" 'other/prop-ota'
-sed -i -e "s/miota=.*/miota=\`$ota\`/" 'other/prop-ota'
+sed -i -e "s/miversion=.*/miversion=\'$version\'/" 'other/prop-ota'
+sed -i -e "s/mitime=.*/mitime=\'$time\'/" 'other/prop-ota'
+sed -i -e "s/miutc=.*/miutc=\'$utc\'/" 'other/prop-ota'
+sed -i -e "s/miota=.*/miota=\'$ota\'/" 'other/prop-ota'
 
 mv -f 'other/LBESEC_MIUI.apk' 'out/temp/system/app/LBESEC_MIUI.apk'
 rm -f 'out/temp/system/etc/weather_city.db'
@@ -163,41 +163,52 @@ rm -r 'META-INF/CERT.RSA'
 rm -r 'META-INF/CERT.SF'
 rm -r 'META-INF/MANIFEST.MF'
 zip -q -r "../../unsigned-miuixperia-v5-neov-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
+cp -rf ../../other/extras/anzu/* system
+mv -f system/boot.img boot.img
+rm -f system/bin/hallon.sh
+rm -rf system/etc/user_manual_hallon
+rm -rf system/etc/user_manual_haida
+rm -rf system/usr/extras
+sed -i -e "s/Neo V/Arc S/" system/build.prop
+sed -i -e "s/haida/anzu/" system/build.prop
+sed -i -e "s/MT11/LT18/" system/build.prop
+sed -i -e "s/mt11i/lt18i/" system/build.prop
+zip -q -r "../../unsigned-miuixperia-v5-arcs-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
 cp -f ../../other/updater-script META-INF/com/google/android/updater-script
 cp -f ../../other/prop-ota prop-ota
 rm -f system/build.prop
-rm -r system/app/AntHalService.apk
-rm -r system/app/antradioservice.apk
-rm -r system/app/antstatenotifer.apk
-rm -r system/app/ApplicationsProvider.apk
-rm -r system/app/BackupRestoreConfirmation.apk
-rm -r system/app/Camera.apk
-rm -r system/app/CertInstaller.apk
-rm -r system/app/ChromeBookmarksSyncAdapter.apk
-rm -r system/app/DefaultContainerService.apk
-rm -r system/app/DrmProvider.apk
-rm -r system/app/DSPManager.apk
-rm -r system/app/FmRxService.apk
-rm -r system/app/GoogleBackupTransport.apk
-rm -r system/app/GoogleCalendarSyncAdapter.apk
-rm -r system/app/GoogleContactsSyncAdapter.apk
-rm -r system/app/GoogleLoginService.apk
-rm -r system/app/GooglePartnerSetup.apk
-rm -r system/app/GoogleServicesFramework.apk
-rm -r system/app/HTMLViewer.apk
-rm -r system/app/InputDevices.apk
-rm -r system/app/KeyChain.apk
-rm -r system/app/LiveWallpapers.apk
-rm -r system/app/LiveWallpapersPicker.apk
-rm -r system/app/MiuiWeather.apk
-rm -r system/app/MusicFX.apk
-rm -r system/app/OSB.apk
-rm -r system/app/SharedStorageBackup.apk
-rm -r system/app/SPN.apk
-rm -r system/app/textinput-tng.apk
-rm -r system/app/UserDictionaryProvider.apk
-rm -r system/app/VisualizationWallpapers.apk
-rm -r system/app/WAPPushManager.apk
+rm -f system/app/AntHalService.apk
+rm -f system/app/antradioservice.apk
+rm -f system/app/antstatenotifer.apk
+rm -f system/app/ApplicationsProvider.apk
+rm -f system/app/BackupRestoreConfirmation.apk
+rm -f system/app/Camera.apk
+rm -f system/app/CertInstaller.apk
+rm -f system/app/ChromeBookmarksSyncAdapter.apk
+rm -f system/app/DefaultContainerService.apk
+rm -f system/app/DrmProvider.apk
+rm -f system/app/DSPManager.apk
+rm -f system/app/FmRxService.apk
+rm -f system/app/GoogleBackupTransport.apk
+rm -f system/app/GoogleCalendarSyncAdapter.apk
+rm -f system/app/GoogleContactsSyncAdapter.apk
+rm -f system/app/GoogleLoginService.apk
+rm -f system/app/GooglePartnerSetup.apk
+rm -f system/app/GoogleServicesFramework.apk
+rm -f system/app/HTMLViewer.apk
+rm -f system/app/InputDevices.apk
+rm -f system/app/KeyChain.apk
+rm -f system/app/LiveWallpapers.apk
+rm -f system/app/LiveWallpapersPicker.apk
+rm -f system/app/MiuiWeather.apk
+rm -f system/app/MusicFX.apk
+rm -f system/app/OSB.apk
+rm -f system/app/SharedStorageBackup.apk
+rm -f system/app/SPN.apk
+rm -f system/app/textinput-tng.apk
+rm -f system/app/UserDictionaryProvider.apk
+rm -f system/app/VisualizationWallpapers.apk
+rm -f system/app/WAPPushManager.apk
 rm -rf system/bin
 cp -rf ../../../miui/HDPI/system/bin system
 rm -rf system/etc
@@ -243,7 +254,7 @@ rm -rf system/semc
 rm -rf system/usr
 rm -rf system/xbin
 cp -rf ../../../miui/HDPI/system/xbin system
-zip -q -r "../../unsigned-miuixperia-v5-neov-ota-to-$version.zip" 'META-INF' 'system' 'busybox' 'prop-ota'
+zip -q -r "../../unsigned-miuixperia-v5-ota-to-$version.zip" 'META-INF' 'system' 'prop-ota'
 cd ../..
 . ../build/envsetup.sh
 cd mt11i
@@ -259,9 +270,12 @@ make clean
 echo Signing rom and ota
 java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-neov-$version.zip" "miuixperia-v5-neov-$version.zip"
 rm -r "unsigned-miuixperia-v5-neov-$version.zip"
-java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-neov-ota-to-$version.zip" "miuixperia-v5-neov-ota-to-$version.zip"
-rm -r "unsigned-miuixperia-v5-neov-ota-to-$version.zip"
+java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-arcs-$version.zip" "miuixperia-v5-arcs-$version.zip"
+rm -r "unsigned-miuixperia-v5-arcs-$version.zip"
+java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-ota-to-$version.zip" "miuixperia-v5-ota-to-$version.zip"
+rm -r "unsigned-miuixperia-v5-ota-to-$version.zip"
 echo -e "MD5 sums are\n"
 md5sum -b "miuixperia-v5-neov-$version.zip"
-md5sum -b "miuixperia-v5-neov-ota-to-$version.zip"
-read -p "Done, miuixperia-v5-neov-$version.zip and OTA have been created in root of mt11i directory, copy to sd and flash it!"
+md5sum -b "miuixperia-v5-arcs-$version.zip"
+md5sum -b "miuixperia-v5-ota-to-$version.zip"
+read -p "Done, miuixperia-v5-neov/arcs-$version.zip and OTA have been created in root of mt11i directory, copy to sd and flash it!"

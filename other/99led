@@ -1,0 +1,4 @@
+#!/system/bin/sh
+
+echo 450 > /sys/class/leds/button-backlight/brightness
+echo 450 > /sys/class/leds/button-backlight/max_current
