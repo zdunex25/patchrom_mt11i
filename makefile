@@ -61,6 +61,7 @@ local-pre-zip-misc:
 	cp other/09cpu $(ZIP_DIR)/system/etc/init.d/09cpu
 	cp other/11speedsd $(ZIP_DIR)/system/etc/init.d/11speedsd
 	cp other/12cleaner $(ZIP_DIR)/system/etc/init.d/12cleaner
+	cp other/99led $(ZIP_DIR)/system/etc/init.d/99led
 	
 	@echo DalvikVM Build 28 Qualcomm Optimized
 	cp -f other/dalvikvm $(ZIP_DIR)/system/bin/dalvikvm
