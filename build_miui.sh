@@ -274,6 +274,8 @@ java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsi
 rm -r "unsigned-miuixperia-v5-arcs-$version.zip"
 java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-ota-to-$version.zip" "miuixperia-v5-ota-to-$version.zip"
 rm -r "unsigned-miuixperia-v5-ota-to-$version.zip"
+echo -e "OTA values are\n"
+grep 'miota=' other/prop-ota
 echo -e "MD5 sums are\n"
 md5sum -b "miuixperia-v5-neov-$version.zip"
 md5sum -b "miuixperia-v5-arcs-$version.zip"
