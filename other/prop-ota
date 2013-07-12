@@ -1,8 +1,8 @@
 #!/system/bin/sh
-miversion='3.7.11'
-mitime='czw, 11 lip 2013, 12:41:17'
-miutc='1373539277'
-miota='20130711-1241'
+miversion=1
+mitime=2
+miutc=3
+miota=4
 cp -f /system/build.prop /tmp/build.prop
 chmod 755 /tmp/build.prop
 sed -i -e "s/ro\.build\.date=.*/ro\.build\.date=$mitime/" /tmp/build.prop
