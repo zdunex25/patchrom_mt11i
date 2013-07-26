@@ -40,11 +40,8 @@ cat 'Mms/smali/com/android/mms/ui/MessageEditableActivityBase.smali' | sed -e 's
     invoke-static {v0, v1}, Landroid\/telephony\/SmsMessage;->calculateLength(Ljava\/lang\/CharSequence;Z)\[I/' > '../Mms/smali/com/android/mms/ui/MessageEditableActivityBase.smali'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Settings.apk'
 cat 'Settings/res/xml/settings_headers.xml' | sed -e "s/<header android:id=\"@id\/manufacturer_settings\">/<header android:title=\"@string\/header_category_xperia\" \/>/g" \
-					| sed -e 's/    <intent android:action=\"com.android.settings.MANUFACTURER_APPLICATION_SETTING\" \/>/<header android:icon=\"@drawable\/ic_ringer_volume_settings\" android:title=\"@string\/dsp_settings\">\
-        <intent android:action="com.android.settings.DSP\" \/>\
-    <\/header>\
-    <header android:icon=\"@drawable\/ic_mobile_network_settings\" android:title=\"@string\/carrier_settings\">\
-        <intent android:action="com.android.settings.CARRIER\" \/>\
+					| sed -e 's/    <intent android:action=\"com.android.settings.MANUFACTURER_APPLICATION_SETTING\" \/>/<header android:icon=\"@drawable\/ic_ringer_volume_settings\" android:title=\"@string\/viper_settings\">\
+        <intent android:action="com.android.settings.VIPER\" \/>\
     <\/header>\
     <header android:icon=\"@drawable\/ic_osb_settings\" android:title=\"@string\/osb_settings\">\
         <intent android:action="com.android.settings.OSB\" \/>/' > '../Settings/res/xml/settings_headers.xml'
@@ -138,8 +135,6 @@ rm -f 'out/temp/system/etc/weather_city.db'
 mkdir -p out/temp/system/usr/extras
 cp -r other/extras/hallon out/temp/system/usr/extras
 cp other/extras/hallon.sh out/temp/system/bin/hallon.sh
-cp -r other/extras/user_manual out/temp/system/etc/user_manual_haida
-cp -r other/extras/user_manual out/temp/system/etc/user_manual_hallon
 
 for DIR in out/temp/system/app/; do
 	cd $DIR;
@@ -204,7 +199,7 @@ rm -f system/app/MiuiWeather.apk
 rm -f system/app/MusicFX.apk
 rm -f system/app/OSB.apk
 rm -f system/app/SharedStorageBackup.apk
-rm -f system/app/SPN.apk
+#rm -f system/app/SPN.apk
 rm -f system/app/textinput-tng.apk
 rm -f system/app/UserDictionaryProvider.apk
 rm -f system/app/VisualizationWallpapers.apk
