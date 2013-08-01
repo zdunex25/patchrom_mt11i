@@ -428,7 +428,7 @@
 
     .line 382
     .local v2, failedAttemptsBeforeWipe:I
-    const/16 v0, 0xf
+    const/16 v0, 0x8
 
     .line 385
     .local v0, failedAttemptWarning:I
@@ -562,7 +562,7 @@
     .line 408
     .restart local v4       #showTimeout:Z
     :cond_7
-    const/16 v8, 0x14
+    const/16 v8, 0x9
 
     if-lt v1, v8, :cond_5
 
