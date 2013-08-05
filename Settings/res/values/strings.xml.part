@@ -6,6 +6,6 @@
     <string name="camera_key_action_title">Camera button</string>
     <string name="camera_key_action_setting_title">Camera button</string>
     <string name="header_category_xperia">XPERIA</string>
-    <string name="viper_settings">ViPER FX</string>
+    <string name="viper_settings">Viper FX</string>
     <string name="osb_settings">On screen buttons</string>
 </resources>

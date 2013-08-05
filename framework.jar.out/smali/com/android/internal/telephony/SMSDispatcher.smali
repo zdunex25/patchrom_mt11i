@@ -1082,6 +1082,7 @@
 
     if-eqz v1, :cond_miui_0
 
+    :goto_0
     return-void
 
     :cond_miui_0
@@ -1123,6 +1124,7 @@
 
     if-eqz v2, :cond_miui_0
 
+    :goto_0
     return-void
 
     :cond_miui_0

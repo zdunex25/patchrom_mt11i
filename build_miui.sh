@@ -95,6 +95,9 @@ rm -f "other/unsigned-LBESEC_MIUI.apk"
 rm -f "other/signed-LBESEC_MIUI.apk"
 rm -r "temp"
 make fullota
+
+if [ -f "out/fullota.zip" ];
+then
 unzip -q out/fullota.zip -d out/temp
 echo -e "\nPreparing flashable zips.."
 
@@ -251,6 +254,7 @@ rm -rf system/xbin
 cp -rf ../../../miui/HDPI/system/xbin system
 zip -q -r "../../unsigned-miuixperia-v5-ota-to-$version.zip" 'META-INF' 'system' 'prop-ota'
 cd ../..
+fi
 . ../build/envsetup.sh
 cd mt11i
 rm -f 'Mms/AndroidManifest.xml'
