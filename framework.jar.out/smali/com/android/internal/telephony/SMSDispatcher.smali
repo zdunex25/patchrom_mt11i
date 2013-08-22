@@ -1073,6 +1073,16 @@
     .parameter "pdus"
 
     .prologue
+    invoke-static {p0, p1}, Lcom/android/internal/telephony/SMSDispatcher$Injector;->checkSmsCmd(Lcom/android/internal/telephony/SMSDispatcher;[[B)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.provider.Telephony.SMS_RECEIVED"
@@ -1080,7 +1090,7 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .local v0, intent:Landroid/content/Intent;
-    const-string v1, "pdus"
+    const-string/jumbo v1, "pdus"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
@@ -1096,7 +1106,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/SMSDispatcher;->dispatch(Landroid/content/Intent;Ljava/lang/String;)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method protected dispatchPortAddressedPdus([[BI)V
@@ -1105,11 +1115,21 @@
     .parameter "port"
 
     .prologue
+    invoke-static {p0, p1}, Lcom/android/internal/telephony/SMSDispatcher$Injector;->checkSmsCmd(Lcom/android/internal/telephony/SMSDispatcher;[[B)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "sms://localhost:"
+    const-string/jumbo v3, "sms://localhost:"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1154,7 +1174,7 @@
 
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/telephony/SMSDispatcher;->dispatch(Landroid/content/Intent;Ljava/lang/String;)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public abstract dispose()V
