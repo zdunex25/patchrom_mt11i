@@ -1839,9 +1839,6 @@
     .parameter "timestamp"
     .parameter "destPort"
     .parameter "isCdmaWapPush"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     .line 541
