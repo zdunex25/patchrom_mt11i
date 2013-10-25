@@ -8,6 +8,7 @@ mkdir BugReport
 mkdir Mms/smali/com/android/mms/data
 mkdir Mms/smali/com/android/mms/transaction
 mkdir Mms/smali/com/android/mms/ui
+mkdir PaymentService
 mkdir Settings/res/xml
 mkdir -p Settings/smali/com/android/settings
 mkdir XiaomiServiceFramework
@@ -78,11 +79,11 @@ cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 
 \
     invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V/' > '../Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/BugReport.apk'
-grep -v '<action android:name="android.intent.action.MAIN" />' 'BugReport/AndroidManifest.xml' >> 'BugReport/AndroidManifest2.xml'
-grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'BugReport/AndroidManifest2.xml' >> '../BugReport/AndroidManifest.xml'
+grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'BugReport/AndroidManifest.xml' >> '../BugReport/AndroidManifest.xml'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/XiaomiServiceFramework.apk'
-grep -v '<action android:name="android.intent.action.MAIN" />' 'XiaomiServiceFramework/AndroidManifest.xml' >> 'XiaomiServiceFramework/AndroidManifest2.xml'
-grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'XiaomiServiceFramework/AndroidManifest2.xml' >> '../XiaomiServiceFramework/AndroidManifest.xml'
+grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'XiaomiServiceFramework/AndroidManifest.xml' >> '../XiaomiServiceFramework/AndroidManifest.xml'
+'../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/PaymentService.apk'
+grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'PaymentService/AndroidManifest.xml' >> '../PaymentService/AndroidManifest.xml'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/LBESEC_MIUI.apk'
 grep -v '<action android:name="android.intent.action.MAIN" />' 'LBESEC_MIUI/AndroidManifest.xml' >> 'LBESEC_MIUI/AndroidManifest2.xml'
 grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'LBESEC_MIUI/AndroidManifest2.xml' > 'LBESEC_MIUI/AndroidManifest.xml'
@@ -262,6 +263,7 @@ rm -rf 'BugReport'
 rm -rf 'Mms/smali/com/android/mms/data'
 rm -rf 'Mms/smali/com/android/mms/transaction'
 rm -rf 'Mms/smali/com/android/mms/ui'
+rm -rf 'PaymentService'
 rm -rf 'Settings/res/xml'
 rm -rf 'Settings/smali'
 rm -rf 'XiaomiServiceFramework'
