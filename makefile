@@ -45,6 +45,7 @@ include $(PORT_BUILD)/porting.mk
 local-pre-zip-misc:
 #	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
 	cp other/boot.img $(ZIP_DIR)/boot.img
+	cp other/system_fonts.xml $(ZIP_DIR)/system/etc/system_fonts.xml
 	
 	@echo Add missing icons
 	cp -f other/icons $(ZIP_DIR)/system/media/theme/default/icons
