@@ -2,3 +2,12 @@
 
 echo 450 > /sys/class/leds/button-backlight/brightness
 echo 450 > /sys/class/leds/button-backlight/max_current
+
+
+LOG_FILE=/data/local/fstrim.log
+  if [ -e $LOG_FILE ]; then
+    	rm $LOG_FILE;
+    fi;
+su fstrim -v /cache | tee -a $LOG_FILE;
+su fstrim -v /data | tee -a $LOG_FILE;
+su fstrim -v /system | tee -a $LOG_FILE;
