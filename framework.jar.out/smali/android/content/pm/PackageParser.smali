@@ -10226,7 +10226,7 @@
 .end method
 
 .method private static parsePackageLite(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;I[Ljava/lang/String;)Landroid/content/pm/PackageParser$PackageLite;
-    .locals 12
+    .locals 14
     .parameter "res"
     .parameter "parser"
     .parameter "attrs"
@@ -10467,7 +10467,7 @@
     :cond_miui_1
     const/4 v9, 0x2
 
-    if-lt v13, v9, :cond_a
+    if-lt v10, v9, :cond_a
 
     .end local v0           #attr:Ljava/lang/String;
     :cond_7
