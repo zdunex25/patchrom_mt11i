@@ -1,0 +1,746 @@
+From e2a83e2f6e0bad6d492f2ad1b039f79115af38cc Mon Sep 17 00:00:00 2001
+From: mochangming <mochangming@xiaomi.com>
+Date: Wed, 6 Nov 2013 22:14:53 +0800
+Subject: [PATCH] Uses Miui simphonebook services
+
+Ref-Id: I984e5e89b77f70bbdc95e52b7ce5cbc14206777e
+Change-Id: I8fbddbb9acc6402a5c3ddfae6dc428b4ea3b2918
+---
+ .../com/android/internal/telephony/AdnRecord.smali |   13 +++
+ .../internal/telephony/AdnRecordCache.smali        |   85 +-------------
+ .../telephony/IIccPhoneBook$Stub$Proxy.smali       |  116 --------------------
+ .../internal/telephony/IIccPhoneBook$Stub.smali    |   41 -------
+ .../android/internal/telephony/IIccPhoneBook.smali |   16 ---
+ .../telephony/IccPhoneBookInterfaceManager.smali   |   26 -----
+ .../IccPhoneBookInterfaceManagerProxy.smali        |   21 +---
+ .../android/internal/telephony/PhoneProxy.smali    |    4 +-
+ .../internal/telephony/cdma/CDMAPhone.smali        |   18 +--
+ .../internal/telephony/cdma/RuimRecords.smali      |    4 +-
+ .../android/internal/telephony/gsm/GSMPhone.smali  |   18 +--
+ .../internal/telephony/gsm/SIMRecords.smali        |    4 +-
+ 12 files changed, 45 insertions(+), 321 deletions(-)
+
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/AdnRecord.smali b/framework.jar.out/smali/com/android/internal/telephony/AdnRecord.smali
+index 0818989..6de6e28 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/AdnRecord.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/AdnRecord.smali
+@@ -225,6 +225,19 @@
+     return-void
+ .end method
+ 
++.method static callStringCompareNullEqualsEmpty(Ljava/lang/String;Ljava/lang/String;)Z
++    .locals 1
++    .parameter "s1"
++    .parameter "s2"
++
++    .prologue
++    invoke-static {p0, p1}, Lcom/android/internal/telephony/AdnRecord;->stringCompareNullEqualsEmpty(Ljava/lang/String;Ljava/lang/String;)Z
++
++    move-result v0
++
++    return v0
++.end method
++
+ .method private parseRecord([B)V
+     .locals 6
+     .parameter "record"
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/AdnRecordCache.smali b/framework.jar.out/smali/com/android/internal/telephony/AdnRecordCache.smali
+index 3bef2b8..a2a543d 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/AdnRecordCache.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/AdnRecordCache.smali
+@@ -39,12 +39,6 @@
+     .end annotation
+ .end field
+ 
+-.field private mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+-    .annotation build Landroid/annotation/MiuiHook;
+-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+-    .end annotation
+-.end field
+-
+ .field private mFh:Lcom/android/internal/telephony/IccFileHandler;
+ 
+ .field private mUsimPhoneBookManager:Lcom/android/internal/telephony/gsm/UsimPhoneBookManager;
+@@ -65,9 +59,6 @@
+ .method public constructor <init>(Lcom/android/internal/telephony/IccFileHandler;)V
+     .locals 2
+     .parameter "fh"
+-    .annotation build Landroid/annotation/MiuiHook;
+-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-    .end annotation
+ 
+     .prologue
+     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+@@ -100,12 +91,6 @@
+ 
+     iput-object v0, p0, Lcom/android/internal/telephony/AdnRecordCache;->mUsimPhoneBookManager:Lcom/android/internal/telephony/gsm/UsimPhoneBookManager;
+ 
+-    new-instance v0, Lcom/android/internal/telephony/AdnCacheManager;
+-
+-    invoke-direct {v0, p0}, Lcom/android/internal/telephony/AdnCacheManager;-><init>(Lcom/android/internal/telephony/AdnRecordCache;)V
+-
+-    iput-object v0, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+-
+     return-void
+ .end method
+ 
+@@ -334,38 +319,6 @@
+     .end sparse-switch
+ .end method
+ 
+-.method public getAdnCapacity()I
+-    .locals 1
+-    .annotation build Landroid/annotation/MiuiHook;
+-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-    .end annotation
+-
+-    .prologue
+-    iget-object v0, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+-
+-    invoke-virtual {v0}, Lcom/android/internal/telephony/AdnCacheManager;->getAdnCapacity()I
+-
+-    move-result v0
+-
+-    return v0
+-.end method
+-
+-.method public getFreeAdn()I
+-    .locals 1
+-    .annotation build Landroid/annotation/MiuiHook;
+-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-    .end annotation
+-
+-    .prologue
+-    iget-object v0, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+-
+-    invoke-virtual {v0}, Lcom/android/internal/telephony/AdnCacheManager;->getFreeAdn()I
+-
+-    move-result v0
+-
+-    return v0
+-.end method
+-
+ .method public getRecordsIfLoaded(I)Ljava/util/ArrayList;
+     .locals 1
+     .parameter "efid"
+@@ -394,9 +347,6 @@
+ .method public handleMessage(Landroid/os/Message;)V
+     .locals 8
+     .parameter "msg"
+-    .annotation build Landroid/annotation/MiuiHook;
+-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-    .end annotation
+ 
+     .prologue
+     iget v6, p1, Landroid/os/Message;->what:I
+@@ -432,9 +382,13 @@
+ 
+     if-nez v6, :cond_0
+ 
+-    iget-object v6, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
++    iget-object v7, p0, Lcom/android/internal/telephony/AdnRecordCache;->adnLikeFiles:Landroid/util/SparseArray;
+ 
+-    invoke-virtual {v6, v2, v1}, Lcom/android/internal/telephony/AdnCacheManager;->handleLoadAllAdnLike(ILandroid/os/AsyncResult;)V
++    iget-object v6, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
++
++    check-cast v6, Ljava/util/ArrayList;
++
++    invoke-virtual {v7, v2, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+ 
+     :cond_0
+     invoke-direct {p0, v5, v1}, Lcom/android/internal/telephony/AdnRecordCache;->notifyWaiters(Ljava/util/ArrayList;Landroid/os/AsyncResult;)V
+@@ -521,9 +475,6 @@
+     .parameter "efid"
+     .parameter "extensionEf"
+     .parameter "response"
+-    .annotation build Landroid/annotation/MiuiHook;
+-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-    .end annotation
+ 
+     .prologue
+     const/16 v2, 0x4f30
+@@ -542,10 +493,6 @@
+ 
+     if-eqz p3, :cond_0
+ 
+-    iget-object v2, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+-
+-    invoke-virtual {v2, p1, v0}, Lcom/android/internal/telephony/AdnCacheManager;->handleAllAdnLikeLoaded(ILjava/util/ArrayList;)V
+-
+     invoke-static {p3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
+ 
+     move-result-object v2
+@@ -654,9 +601,6 @@
+ 
+ .method public reset()V
+     .locals 1
+-    .annotation build Landroid/annotation/MiuiHook;
+-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-    .end annotation
+ 
+     .prologue
+     iget-object v0, p0, Lcom/android/internal/telephony/AdnRecordCache;->adnLikeFiles:Landroid/util/SparseArray;
+@@ -671,10 +615,6 @@
+ 
+     invoke-direct {p0}, Lcom/android/internal/telephony/AdnRecordCache;->clearUserWriters()V
+ 
+-    iget-object v0, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+-
+-    invoke-virtual {v0}, Lcom/android/internal/telephony/AdnCacheManager;->reset()V
+-
+     return-void
+ .end method
+ 
+@@ -788,9 +728,6 @@
+     .parameter "newAdn"
+     .parameter "pin2"
+     .parameter "response"
+-    .annotation build Landroid/annotation/MiuiHook;
+-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-    .end annotation
+ 
+     .prologue
+     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/AdnRecordCache;->extensionEfForEf(I)I
+@@ -933,10 +870,6 @@
+ 
+     invoke-direct {p0, v0, v1}, Lcom/android/internal/telephony/AdnRecordCache;->sendErrorResponse(Landroid/os/Message;Ljava/lang/String;)V
+ 
+-    iget-object v1, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+-
+-    invoke-virtual {v1, p1}, Lcom/android/internal/telephony/AdnCacheManager;->handleNonExistentAdnRecord(I)V
+-
+     goto :goto_0
+ 
+     :cond_4
+@@ -978,12 +911,6 @@
+ 
+     .end local v9           #foundAdn:Lcom/android/internal/telephony/AdnRecord;
+     :cond_6
+-    iget-object v1, p0, Lcom/android/internal/telephony/AdnRecordCache;->mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+-
+-    move-object/from16 v0, p3
+-
+-    invoke-virtual {v1, p1, p2, v0}, Lcom/android/internal/telephony/AdnCacheManager;->handleUpdateAdnRecord(ILcom/android/internal/telephony/AdnRecord;Lcom/android/internal/telephony/AdnRecord;)V
+-
+     iget-object v1, p0, Lcom/android/internal/telephony/AdnRecordCache;->userWriteResponse:Landroid/util/SparseArray;
+ 
+     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook$Stub$Proxy.smali b/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook$Stub$Proxy.smali
+index 41d9fe3..ccc5224 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook$Stub$Proxy.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook$Stub$Proxy.smali
+@@ -45,64 +45,6 @@
+     return-object v0
+ .end method
+ 
+-.method public getAdnCapacity()I
+-    .locals 6
+-    .annotation system Ldalvik/annotation/Throws;
+-        value = {
+-            Landroid/os/RemoteException;
+-        }
+-    .end annotation
+-
+-    .prologue
+-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+-
+-    move-result-object v0
+-
+-    .local v0, _data:Landroid/os/Parcel;
+-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+-
+-    move-result-object v1
+-
+-    .local v1, _reply:Landroid/os/Parcel;
+-    :try_start_0
+-    const-string v3, "com.android.internal.telephony.IIccPhoneBook"
+-
+-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+-
+-    iget-object v3, p0, Lcom/android/internal/telephony/IIccPhoneBook$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+-
+-    const/4 v4, 0x6
+-
+-    const/4 v5, 0x0
+-
+-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+-
+-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+-
+-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+-    :try_end_0
+-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+-
+-    move-result v2
+-
+-    .local v2, _result:I
+-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+-
+-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+-
+-    return v2
+-
+-    .end local v2           #_result:I
+-    :catchall_0
+-    move-exception v3
+-
+-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+-
+-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+-
+-    throw v3
+-.end method
+-
+ .method public getAdnRecordsInEf(I)Ljava/util/List;
+     .locals 6
+     .parameter "efid"
+@@ -237,64 +179,6 @@
+     throw v3
+ .end method
+ 
+-.method public getFreeAdn()I
+-    .locals 6
+-    .annotation system Ldalvik/annotation/Throws;
+-        value = {
+-            Landroid/os/RemoteException;
+-        }
+-    .end annotation
+-
+-    .prologue
+-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+-
+-    move-result-object v0
+-
+-    .local v0, _data:Landroid/os/Parcel;
+-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+-
+-    move-result-object v1
+-
+-    .local v1, _reply:Landroid/os/Parcel;
+-    :try_start_0
+-    const-string v3, "com.android.internal.telephony.IIccPhoneBook"
+-
+-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+-
+-    iget-object v3, p0, Lcom/android/internal/telephony/IIccPhoneBook$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+-
+-    const/4 v4, 0x5
+-
+-    const/4 v5, 0x0
+-
+-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+-
+-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+-
+-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+-    :try_end_0
+-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+-
+-    move-result v2
+-
+-    .local v2, _result:I
+-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+-
+-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+-
+-    return v2
+-
+-    .end local v2           #_result:I
+-    :catchall_0
+-    move-exception v3
+-
+-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+-
+-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+-
+-    throw v3
+-.end method
+-
+ .method public getInterfaceDescriptor()Ljava/lang/String;
+     .locals 1
+ 
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook$Stub.smali b/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook$Stub.smali
+index 5af44dc..31f811f 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook$Stub.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook$Stub.smali
+@@ -26,14 +26,10 @@
+ # static fields
+ .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.telephony.IIccPhoneBook"
+ 
+-.field static final TRANSACTION_getAdnCapacity:I = 0x6
+-
+ .field static final TRANSACTION_getAdnRecordsInEf:I = 0x1
+ 
+ .field static final TRANSACTION_getAdnRecordsSize:I = 0x4
+ 
+-.field static final TRANSACTION_getFreeAdn:I = 0x5
+-
+ .field static final TRANSACTION_updateAdnRecordsInEfByIndex:I = 0x3
+ 
+ .field static final TRANSACTION_updateAdnRecordsInEfBySearch:I = 0x2
+@@ -297,41 +293,6 @@
+ 
+     goto/16 :goto_0
+ 
+-    .end local v1           #_arg0:I
+-    .end local v7           #_result:[I
+-    :sswitch_5
+-    const-string v0, "com.android.internal.telephony.IIccPhoneBook"
+-
+-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+-
+-    invoke-virtual {p0}, Lcom/android/internal/telephony/IIccPhoneBook$Stub;->getFreeAdn()I
+-
+-    move-result v7
+-
+-    .local v7, _result:I
+-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+-
+-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
+-
+-    goto/16 :goto_0
+-
+-    .end local v7           #_result:I
+-    :sswitch_6
+-    const-string v0, "com.android.internal.telephony.IIccPhoneBook"
+-
+-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+-
+-    invoke-virtual {p0}, Lcom/android/internal/telephony/IIccPhoneBook$Stub;->getAdnCapacity()I
+-
+-    move-result v7
+-
+-    .restart local v7       #_result:I
+-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+-
+-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
+-
+-    goto/16 :goto_0
+-
+     nop
+ 
+     :sswitch_data_0
+@@ -340,8 +301,6 @@
+         0x2 -> :sswitch_2
+         0x3 -> :sswitch_3
+         0x4 -> :sswitch_4
+-        0x5 -> :sswitch_5
+-        0x6 -> :sswitch_6
+         0x5f4e5446 -> :sswitch_0
+     .end sparse-switch
+ .end method
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook.smali b/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook.smali
+index c32ccd9..4780f8e 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook.smali
+@@ -15,14 +15,6 @@
+ 
+ 
+ # virtual methods
+-.method public abstract getAdnCapacity()I
+-    .annotation system Ldalvik/annotation/Throws;
+-        value = {
+-            Landroid/os/RemoteException;
+-        }
+-    .end annotation
+-.end method
+-
+ .method public abstract getAdnRecordsInEf(I)Ljava/util/List;
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+@@ -49,14 +41,6 @@
+     .end annotation
+ .end method
+ 
+-.method public abstract getFreeAdn()I
+-    .annotation system Ldalvik/annotation/Throws;
+-        value = {
+-            Landroid/os/RemoteException;
+-        }
+-    .end annotation
+-.end method
+-
+ .method public abstract updateAdnRecordsInEfByIndex(ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)Z
+     .annotation system Ldalvik/annotation/Throws;
+         value = {
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali b/framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali
+index ba44917..25f7cab 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali
+@@ -140,19 +140,6 @@
+     return-void
+ .end method
+ 
+-.method public getAdnCapacity()I
+-    .locals 1
+-
+-    .prologue
+-    iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->adnCache:Lcom/android/internal/telephony/AdnRecordCache;
+-
+-    invoke-virtual {v0}, Lcom/android/internal/telephony/AdnRecordCache;->getAdnCapacity()I
+-
+-    move-result v0
+-
+-    return v0
+-.end method
+-
+ .method public getAdnRecordsInEf(I)Ljava/util/List;
+     .locals 5
+     .parameter "efid"
+@@ -273,19 +260,6 @@
+ .method public abstract getAdnRecordsSize(I)[I
+ .end method
+ 
+-.method public getFreeAdn()I
+-    .locals 1
+-
+-    .prologue
+-    iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->adnCache:Lcom/android/internal/telephony/AdnRecordCache;
+-
+-    invoke-virtual {v0}, Lcom/android/internal/telephony/AdnRecordCache;->getFreeAdn()I
+-
+-    move-result v0
+-
+-    return v0
+-.end method
+-
+ .method protected abstract logd(Ljava/lang/String;)V
+ .end method
+ 
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManagerProxy.smali b/framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManagerProxy.smali
+index e55e252..d1e342e 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManagerProxy.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManagerProxy.smali
+@@ -35,19 +35,6 @@
+ 
+ 
+ # virtual methods
+-.method public getAdnCapacity()I
+-    .locals 1
+-
+-    .prologue
+-    iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;->mIccPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+-
+-    invoke-virtual {v0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->getAdnCapacity()I
+-
+-    move-result v0
+-
+-    return v0
+-.end method
+-
+ .method public getAdnRecordsInEf(I)Ljava/util/List;
+     .locals 1
+     .parameter "efid"
+@@ -96,17 +83,13 @@
+     return-object v0
+ .end method
+ 
+-.method public getFreeAdn()I
++.method getIccPhoneBookInterfaceManager()Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+     .locals 1
+ 
+     .prologue
+     iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;->mIccPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+-    invoke-virtual {v0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->getFreeAdn()I
+-
+-    move-result v0
+-
+-    return v0
++    return-object v0
+ .end method
+ 
+ .method public setmIccPhoneBookInterfaceManager(Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;)V
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/PhoneProxy.smali b/framework.jar.out/smali/com/android/internal/telephony/PhoneProxy.smali
+index 0f14b51..fd23569 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/PhoneProxy.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/PhoneProxy.smali
+@@ -83,13 +83,13 @@
+ 
+     iput-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mIccSmsInterfaceManagerProxy:Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;
+ 
+-    new-instance v0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;
++    new-instance v0, Lcom/android/internal/telephony/MiuiIccPhoneBookInterfaceManagerProxy;
+ 
+     invoke-interface {p1}, Lcom/android/internal/telephony/Phone;->getIccPhoneBookInterfaceManager()Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+     move-result-object v1
+ 
+-    invoke-direct {v0, v1}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;-><init>(Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;)V
++    invoke-direct {v0, v1}, Lcom/android/internal/telephony/MiuiIccPhoneBookInterfaceManagerProxy;-><init>(Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;)V
+ 
+     iput-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mIccPhoneBookInterfaceManagerProxy:Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;
+ 
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/cdma/CDMAPhone.smali b/framework.jar.out/smali/com/android/internal/telephony/cdma/CDMAPhone.smali
+index 5651c2d..123fce9 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/cdma/CDMAPhone.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/cdma/CDMAPhone.smali
+@@ -101,7 +101,7 @@
+ 
+ .field mPostDialHandler:Landroid/os/Registrant;
+ 
+-.field mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;
++.field mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+ .field mRuimSmsInterfaceManager:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
+ 
+@@ -1321,9 +1321,9 @@
+ 
+     invoke-virtual {v0}, Lcom/android/internal/telephony/SMSDispatcher;->dispose()V
+ 
+-    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;
++    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+-    invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->dispose()V
++    invoke-virtual {v0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->dispose()V
+ 
+     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimSmsInterfaceManager:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
+ 
+@@ -1484,7 +1484,7 @@
+ 
+     move-result-object v0
+ 
+-    iget-object v1, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;
++    iget-object v1, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+@@ -2411,7 +2411,7 @@
+     .locals 1
+ 
+     .prologue
+-    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;
++    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+     return-object v0
+ .end method
+@@ -3321,11 +3321,11 @@
+ 
+     iput-object v4, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mDataConnectionTracker:Lcom/android/internal/telephony/DataConnectionTracker;
+ 
+-    new-instance v4, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;
++    new-instance v4, Lcom/android/internal/telephony/cdma/MiuiRuimPhoneBookInterfaceManager;
+ 
+-    invoke-direct {v4, p0}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;-><init>(Lcom/android/internal/telephony/cdma/CDMAPhone;)V
++    invoke-direct {v4, p0}, Lcom/android/internal/telephony/cdma/MiuiRuimPhoneBookInterfaceManager;-><init>(Lcom/android/internal/telephony/cdma/CDMAPhone;)V
+ 
+-    iput-object v4, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;
++    iput-object v4, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+     new-instance v4, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
+ 
+@@ -4018,7 +4018,7 @@
+ 
+     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->log(Ljava/lang/String;)V
+ 
+-    iput-object v1, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;
++    iput-object v1, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+     iput-object v1, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mRuimSmsInterfaceManager:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
+ 
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/cdma/RuimRecords.smali b/framework.jar.out/smali/com/android/internal/telephony/cdma/RuimRecords.smali
+index d4ba796..0130a95 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/cdma/RuimRecords.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/cdma/RuimRecords.smali
+@@ -61,11 +61,11 @@
+ 
+     iput-boolean v2, p0, Lcom/android/internal/telephony/cdma/RuimRecords;->m_ota_commited:Z
+ 
+-    new-instance v0, Lcom/android/internal/telephony/AdnRecordCache;
++    new-instance v0, Lcom/android/internal/telephony/MiuiAdnRecordCache;
+ 
+     iget-object v1, p0, Lcom/android/internal/telephony/cdma/RuimRecords;->mFh:Lcom/android/internal/telephony/IccFileHandler;
+ 
+-    invoke-direct {v0, v1}, Lcom/android/internal/telephony/AdnRecordCache;-><init>(Lcom/android/internal/telephony/IccFileHandler;)V
++    invoke-direct {v0, v1}, Lcom/android/internal/telephony/MiuiAdnRecordCache;-><init>(Lcom/android/internal/telephony/IccFileHandler;)V
+ 
+     iput-object v0, p0, Lcom/android/internal/telephony/cdma/RuimRecords;->adnCache:Lcom/android/internal/telephony/AdnRecordCache;
+ 
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/gsm/GSMPhone.smali b/framework.jar.out/smali/com/android/internal/telephony/gsm/GSMPhone.smali
+index 2d34bbd..b2169d9 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/gsm/GSMPhone.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/gsm/GSMPhone.smali
+@@ -53,7 +53,7 @@
+ 
+ .field mSST:Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;
+ 
+-.field mSimPhoneBookIntManager:Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;
++.field mSimPhoneBookIntManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+ .field mSimSmsIntManager:Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;
+ 
+@@ -175,11 +175,11 @@
+ 
+     if-nez p4, :cond_1
+ 
+-    new-instance v0, Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;
++    new-instance v0, Lcom/android/internal/telephony/gsm/MiuiSimPhoneBookInterfaceManager;
+ 
+-    invoke-direct {v0, p0}, Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;-><init>(Lcom/android/internal/telephony/gsm/GSMPhone;)V
++    invoke-direct {v0, p0}, Lcom/android/internal/telephony/gsm/MiuiSimPhoneBookInterfaceManager;-><init>(Lcom/android/internal/telephony/gsm/GSMPhone;)V
+ 
+-    iput-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;
++    iput-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+     new-instance v0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;
+ 
+@@ -1663,9 +1663,9 @@
+ 
+     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->dispose()V
+ 
+-    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;
++    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+-    invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;->dispose()V
++    invoke-virtual {v0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->dispose()V
+ 
+     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimSmsIntManager:Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;
+ 
+@@ -1778,7 +1778,7 @@
+ 
+     move-result-object v0
+ 
+-    iget-object v1, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;
++    iget-object v1, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+ 
+@@ -2306,7 +2306,7 @@
+     .locals 1
+ 
+     .prologue
+-    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;
++    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+     return-object v0
+ .end method
+@@ -3607,7 +3607,7 @@
+ 
+     iput-object v2, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimulatedRadioControl:Lcom/android/internal/telephony/test/SimulatedRadioControl;
+ 
+-    iput-object v2, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;
++    iput-object v2, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimPhoneBookIntManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+ 
+     iput-object v2, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mSimSmsIntManager:Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;
+ 
+diff --git a/framework.jar.out/smali/com/android/internal/telephony/gsm/SIMRecords.smali b/framework.jar.out/smali/com/android/internal/telephony/gsm/SIMRecords.smali
+index 8797be4..f57f279 100644
+--- a/framework.jar.out/smali/com/android/internal/telephony/gsm/SIMRecords.smali
++++ b/framework.jar.out/smali/com/android/internal/telephony/gsm/SIMRecords.smali
+@@ -922,11 +922,11 @@
+ 
+     iput-object v2, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->pnnHomeName:Ljava/lang/String;
+ 
+-    new-instance v0, Lcom/android/internal/telephony/AdnRecordCache;
++    new-instance v0, Lcom/android/internal/telephony/MiuiAdnRecordCache;
+ 
+     iget-object v1, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->mFh:Lcom/android/internal/telephony/IccFileHandler;
+ 
+-    invoke-direct {v0, v1}, Lcom/android/internal/telephony/AdnRecordCache;-><init>(Lcom/android/internal/telephony/IccFileHandler;)V
++    invoke-direct {v0, v1}, Lcom/android/internal/telephony/MiuiAdnRecordCache;-><init>(Lcom/android/internal/telephony/IccFileHandler;)V
+ 
+     iput-object v0, p0, Lcom/android/internal/telephony/gsm/SIMRecords;->adnCache:Lcom/android/internal/telephony/AdnRecordCache;
+ 
+-- 
+1.7.9.5
+
