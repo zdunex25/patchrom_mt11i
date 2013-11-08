@@ -10226,7 +10226,7 @@
 .end method
 
 .method private static parsePackageLite(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;I[Ljava/lang/String;)Landroid/content/pm/PackageParser$PackageLite;
-    .locals 14
+    .locals 12
     .parameter "res"
     .parameter "parser"
     .parameter "attrs"
@@ -10406,12 +10406,12 @@
 
     .line 843
     .local v2, installLocation:I
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
-    .local v11, versionCode:I
-    const/4 v10, 0x0
+    .local v12, versionCode:I
+    const/4 v13, 0x0
 
-    .local v10, numFound:I
+    .local v13, numFound:I
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -10437,13 +10437,14 @@
 
     if-eqz v9, :cond_miui_0
 
+    .line 846
     const/4 v9, -0x1
 
     invoke-interface {p2, v1, v9}, Landroid/util/AttributeSet;->getAttributeIntValue(II)I
 
     move-result v2
 
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v13, v13, 0x1
 
     goto :cond_miui_1
 
@@ -10460,15 +10461,16 @@
 
     invoke-interface {p2, v1, v9}, Landroid/util/AttributeSet;->getAttributeIntValue(II)I
 
-    move-result v11
+    move-result v12
 
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v13, v13, 0x1
 
     :cond_miui_1
     const/4 v9, 0x2
 
-    if-lt v10, v9, :cond_a
+    if-lt v13, v9, :cond_a
 
+    .line 853
     .end local v0           #attr:Ljava/lang/String;
     :cond_7
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
@@ -10569,7 +10571,7 @@
 
     move-result-object v10
 
-    invoke-direct {v9, v10, v11, v2, v8}, Landroid/content/pm/PackageParser$PackageLite;-><init>(Ljava/lang/String;IILjava/util/List;)V
+    invoke-direct {v9, v12, v10, v2, v8}, Landroid/content/pm/PackageParser$PackageLite;-><init>(Ljava/lang/String;IILjava/util/List;)V
 
     goto/16 :goto_0
 .end method
