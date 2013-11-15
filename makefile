@@ -55,7 +55,6 @@ local-pre-zip-misc:
 	@echo Add various apps
 #	cp other/MiuiUpdater.apk $(ZIP_DIR)/system/app/MiuiUpdater.apk
 	cp other/MiuiWeather.apk $(ZIP_DIR)/system/app/MiuiWeather.apk
-	cp other/MusicFX.apk $(ZIP_DIR)/system/app/MusicFX.apk
 	
 	@echo Add various tweaks
 	cp other/08zram $(ZIP_DIR)/system/etc/init.d/08zram
