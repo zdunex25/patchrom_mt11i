@@ -5,9 +5,6 @@ cd patchromv5
 . build/envsetup.sh
 cd mt11i
 mkdir BugReport
-mkdir Mms/smali/com/android/mms/data
-mkdir Mms/smali/com/android/mms/transaction
-mkdir Mms/smali/com/android/mms/ui
 mkdir PaymentService
 mkdir Settings/res/xml
 mkdir -p Settings/smali/com/android/settings
@@ -17,35 +14,10 @@ cd temp
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Mms.apk'
 cat 'Mms/AndroidManifest.xml' | sed -e "s/android:screenOrientation=\"portrait\" //g" \
 				| sed -e "s/ android:screenOrientation=\"portrait\"//g" > '../Mms/AndroidManifest.xml'
-cat 'Mms/smali/com/android/mms/data/WorkingMessage.smali' | sed -e 's/invoke-static {v3, v2}, Landroid\/telephony\/SmsMessage;->calculateLength(Ljava\/lang\/CharSequence;Z)\[I/invoke-static {v3}, Lcom\/android\/mms\/theos0o\/GsmEncoding;->seqToGSM(Ljava\/lang\/CharSequence;)Ljava\/lang\/String;\
-\
-    move-result-object v3\
-\
-    invoke-static {v3, v2}, Landroid\/telephony\/SmsMessage;->calculateLength(Ljava\/lang\/CharSequence;Z)\[I/' > '../Mms/smali/com/android/mms/data/WorkingMessage.smali'
-cat 'Mms/smali/com/android/mms/transaction/SmsMessageSender.smali' | sed -e 's/iput-object p3, p0, Lcom\/android\/mms\/transaction\/SmsMessageSender;->mMessageText:Ljava\/lang\/String;/iput-object p3, p0, Lcom\/android\/mms\/transaction\/SmsMessageSender;->mMessageText:Ljava\/lang\/String;\
-\
-    invoke-static {p3}, Lcom\/android\/mms\/theos0o\/GsmEncoding;->textToGSM(Ljava\/lang\/String;)Ljava\/lang\/String;\
-\
-    move-result-object v2\
-\
-    iput-object v2, p0, Lcom\/android\/mms\/transaction\/SmsMessageSender;->mMessageText:Ljava\/lang\/String;/' > '../Mms/smali/com/android/mms/transaction/SmsMessageSender.smali'
-cat 'Mms/smali/com/android/mms/ui/MessageUtils.smali' | sed -e 's/invoke-static {p0, v3}, Landroid\/telephony\/SmsMessage;->calculateLength(Ljava\/lang\/CharSequence;Z)\[I/invoke-static {p0}, Lcom\/android\/mms\/theos0o\/GsmEncoding;->seqToGSM(Ljava\/lang\/CharSequence;)Ljava\/lang\/String;\
-\
-    move-result-object v2\
-\
-    invoke-static {v2, v3}, Landroid\/telephony\/SmsMessage;->calculateLength(Ljava\/lang\/CharSequence;Z)\[I/' > '../Mms/smali/com/android/mms/ui/MessageUtils.smali'
-cat 'Mms/smali/com/android/mms/ui/MessageEditableActivityBase.smali' | sed -e 's/invoke-static {v0, v1}, Landroid\/telephony\/SmsMessage;->calculateLength(Ljava\/lang\/CharSequence;Z)\[I/invoke-static {v0}, Lcom\/android\/mms\/theos0o\/GsmEncoding;->seqToGSM(Ljava\/lang\/CharSequence;)Ljava\/lang\/String;\
-\
-    move-result-object v0\
-\
-    invoke-static {v0, v1}, Landroid\/telephony\/SmsMessage;->calculateLength(Ljava\/lang\/CharSequence;Z)\[I/' > '../Mms/smali/com/android/mms/ui/MessageEditableActivityBase.smali'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Settings.apk'
 cat 'Settings/res/xml/settings_headers.xml' | sed -e "s/<header android:id=\"@id\/manufacturer_settings\">/<header android:title=\"@string\/header_category_xperia\" \/>/g" \
 					| sed -e 's/    <intent android:action=\"com.android.settings.MANUFACTURER_APPLICATION_SETTING\" \/>/<header android:icon=\"@drawable\/ic_ringer_volume_settings\" android:title=\"@string\/viper_settings\">\
-        <intent android:action="com.android.settings.VIPER\" \/>\
-    <\/header>\
-    <header android:icon=\"@drawable\/ic_osb_settings\" android:title=\"@string\/osb_settings\">\
-        <intent android:action="com.android.settings.OSB\" \/>/' > '../Settings/res/xml/settings_headers.xml'
+        <intent android:action="com.android.settings.VIPER\" \/>/' > '../Settings/res/xml/settings_headers.xml'
 cat 'Settings/res/xml/device_info_settings.xml' | sed -e 's/android:key=\"kernel_version\" \/>/android:key=\"kernel_version\" \/>\
 	<miui.preference.ValuePreference android:title=\"@string\/build_author\" android:key=\"build_author\" \/>/' > '../Settings/res/xml/device_info_settings.xml'
 #cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/MenuInflater;)V/MenuInflater;)V \
@@ -138,23 +110,6 @@ mkdir -p out/temp/system/usr/extras
 cp -r other/extras/hallon out/temp/system/usr/extras
 cp other/extras/hallon.sh out/temp/system/bin/hallon.sh
 
-for DIR in out/temp/system/app/; do
-	cd $DIR;
-	for APK in *.apk; do
-		ZIPCHECK=`../../../../other/zipalign -c -v 4 $APK | grep FAILED | wc -l`;
-		if [ $ZIPCHECK == "1" ]; then
-			echo "Now aligning: $DIR/$APK" >> ../../../../zipalign_app.log;
-			mkdir ../app_done
-			../../../../other/zipalign -v -f 4 $APK ../app_done/$APK;
-			cp -f -p ../app_done/$APK $APK;
-			rm -rf ../app_done
-		else
-			echo "Already aligned: $DIR/$APK" >> ../../../../zipalign_app.log;
-		fi;
-	done;
-	cd ../../../..
-done;
-
 cd 'out/temp'
 rm -r 'META-INF/CERT.RSA'
 rm -r 'META-INF/CERT.SF'
@@ -184,7 +139,6 @@ rm -f system/app/CertInstaller.apk
 rm -f system/app/ChromeBookmarksSyncAdapter.apk
 rm -f system/app/DefaultContainerService.apk
 rm -f system/app/DrmProvider.apk
-rm -f system/app/DSPManager.apk
 rm -f system/app/FmRxService.apk
 rm -f system/app/GoogleBackupTransport.apk
 rm -f system/app/GoogleCalendarSyncAdapter.apk
@@ -198,16 +152,12 @@ rm -f system/app/KeyChain.apk
 rm -f system/app/LiveWallpapers.apk
 rm -f system/app/LiveWallpapersPicker.apk
 rm -f system/app/MiuiWeather.apk
-rm -f system/app/MusicFX.apk
-rm -f system/app/OSB.apk
 rm -f system/app/SharedStorageBackup.apk
-#rm -f system/app/SPN.apk
 rm -f system/app/textinput-tng.apk
 rm -f system/app/UserDictionaryProvider.apk
 rm -f system/app/VisualizationWallpapers.apk
 rm -f system/app/WAPPushManager.apk
 rm -rf system/bin
-cp -rf ../../../miui/HDPI/system/bin system
 rm -rf system/etc
 cp -rf ../../../miui/HDPI/system/etc system
 rm -rf system/etc/license
@@ -250,7 +200,6 @@ rm -f system/media/theme/simple_lockscreen.mtz
 rm -rf system/semc
 rm -rf system/usr
 rm -rf system/xbin
-cp -rf ../../../miui/HDPI/system/xbin system
 zip -q -r "../../unsigned-miuixperia-v5-ota-to-$version.zip" 'META-INF' 'system' 'prop-ota'
 cd ../..
 fi
@@ -258,9 +207,6 @@ fi
 cd mt11i
 rm -f 'Mms/AndroidManifest.xml'
 rm -rf 'BugReport'
-rm -rf 'Mms/smali/com/android/mms/data'
-rm -rf 'Mms/smali/com/android/mms/transaction'
-rm -rf 'Mms/smali/com/android/mms/ui'
 rm -rf 'PaymentService'
 rm -rf 'Settings/res/xml'
 rm -rf 'Settings/smali'
