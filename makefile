@@ -9,12 +9,12 @@ local-zip-file     := stockrom.zip
 local-out-zip-file := MIUI_MT11i.zip
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := Camera Fmapplication MiuiUpdater VFX
+local-modified-apps := Camera Fmapplication VFX
 
 local-modified-jars :=
 
 # All apks from MIUI
-local-miui-removed-apps := MediaProvider SuperMarket Updater Weather WeatherProvider
+local-miui-removed-apps := MediaProvider MiuiVideo SuperMarket Updater VoiceAssist
 
 local-miui-modified-apps := MiuiHome Phone ThemeManager Mms Settings Music BugReport XiaomiServiceFramework
 

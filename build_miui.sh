@@ -20,9 +20,9 @@ cat 'Settings/res/xml/settings_headers.xml' | sed -e "s/<header android:id=\"@id
         <intent android:action="com.android.settings.VIPER\" \/>/' > '../Settings/res/xml/settings_headers.xml'
 cat 'Settings/res/xml/device_info_settings.xml' | sed -e 's/android:key=\"kernel_version\" \/>/android:key=\"kernel_version\" \/>\
 	<miui.preference.ValuePreference android:title=\"@string\/build_author\" android:key=\"build_author\" \/>/' > '../Settings/res/xml/device_info_settings.xml'
-#cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/MenuInflater;)V/MenuInflater;)V \
-#    return-void/' > 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings2.smali'
-cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V\
+cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 's/MenuInflater;)V/MenuInflater;)V \
+    return-void/' > 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings2.smali'
+cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings2.smali' | sed -e 's/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V\
 \
     .line 116\
     const-string v22, \"build_author\"\
@@ -90,22 +90,14 @@ z=${x: -1:1}
 version=$z$y
 time=`date +%c`
 utc=`date +%s`
-ota=`date +%Y%m%d-%H%M`
 cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
 				| sed -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$utc/g" \
 				| sed -e "s/ro\.build\.version\.incremental=.*/ro\.build\.version\.incremental=$version/g" \
-				| sed -e "s/updater\.time=.*/updater\.time=$ota/g" \
-				| sed -e "s/updater\.ver=.*/updater\.ver=$version/g" \
 				| sed -e "s/ro\.product\.mod_device=.*/ro\.product\.mod_device=mt11i/g" > 'out/temp/system/build2.prop'
 cp 'out/temp/system/build2.prop' 'out/temp/system/build.prop'
 rm -f 'out/temp/system/build2.prop'
-sed -i -e "s/miversion=.*/miversion=\'$version\'/" 'other/prop-ota'
-sed -i -e "s/mitime=.*/mitime=\'$time\'/" 'other/prop-ota'
-sed -i -e "s/miutc=.*/miutc=\'$utc\'/" 'other/prop-ota'
-sed -i -e "s/miota=.*/miota=\'$ota\'/" 'other/prop-ota'
 
 mv -f 'other/LBESEC_MIUI.apk' 'out/temp/system/app/LBESEC_MIUI.apk'
-rm -f 'out/temp/system/etc/weather_city.db'
 mkdir -p out/temp/system/usr/extras
 cp -r other/extras/hallon out/temp/system/usr/extras
 cp other/extras/hallon.sh out/temp/system/bin/hallon.sh
@@ -126,81 +118,6 @@ sed -i -e "s/haida/anzu/" system/build.prop
 sed -i -e "s/MT11/LT18/" system/build.prop
 sed -i -e "s/mt11i/lt18i/" system/build.prop
 zip -q -r "../../unsigned-miuixperia-v5-arcs-$version.zip" 'boot.img' 'data' 'META-INF' 'system'
-cp -f ../../other/updater-script META-INF/com/google/android/updater-script
-cp -f ../../other/prop-ota prop-ota
-rm -f system/build.prop
-rm -f system/app/AntHalService.apk
-rm -f system/app/antradioservice.apk
-rm -f system/app/antstatenotifer.apk
-rm -f system/app/ApplicationsProvider.apk
-rm -f system/app/BackupRestoreConfirmation.apk
-rm -f system/app/Camera.apk
-rm -f system/app/CertInstaller.apk
-rm -f system/app/ChromeBookmarksSyncAdapter.apk
-rm -f system/app/DefaultContainerService.apk
-rm -f system/app/DrmProvider.apk
-rm -f system/app/FmRxService.apk
-rm -f system/app/GoogleBackupTransport.apk
-rm -f system/app/GoogleCalendarSyncAdapter.apk
-rm -f system/app/GoogleContactsSyncAdapter.apk
-rm -f system/app/GoogleLoginService.apk
-rm -f system/app/GooglePartnerSetup.apk
-rm -f system/app/GoogleServicesFramework.apk
-rm -f system/app/HTMLViewer.apk
-rm -f system/app/InputDevices.apk
-rm -f system/app/KeyChain.apk
-rm -f system/app/LiveWallpapers.apk
-rm -f system/app/LiveWallpapersPicker.apk
-rm -f system/app/MiuiWeather.apk
-rm -f system/app/SharedStorageBackup.apk
-rm -f system/app/textinput-tng.apk
-rm -f system/app/UserDictionaryProvider.apk
-rm -f system/app/VisualizationWallpapers.apk
-rm -f system/app/WAPPushManager.apk
-rm -rf system/bin
-rm -rf system/etc
-cp -rf ../../../miui/HDPI/system/etc system
-rm -rf system/etc/license
-rm -f system/etc/weather_city.db
-rm -rf system/fonts
-rm -f system/framework/am.jar
-rm -f system/framework/android.test.runner.jar
-rm -f system/framework/apache-xml.jar
-rm -f system/framework/bmgr.jar
-rm -f system/framework/bouncycastle.jar
-rm -f system/framework/bu.jar
-rm -f system/framework/com.android.future.usb.accessory.jar
-rm -f system/framework/com.android.location.provider.jar
-rm -f system/framework/com.dsi.ant.antradio_library.jar
-rm -f system/framework/com.sonyericsson.suquashi.jar
-rm -f system/framework/com.sonyericsson.uxp.jar
-rm -f system/framework/com.sonyericsson.uxpres.jar
-rm -f system/framework/content.jar
-rm -f system/framework/core.jar
-rm -f system/framework/core-junit.jar
-rm -f system/framework/ext.jar
-rm -f system/framework/fmreceiverif.jar
-rm -f system/framework/ime.jar
-rm -f system/framework/input.jar
-rm -f system/framework/javax.obex.jar
-rm -f system/framework/monkey.jar
-rm -f system/framework/pm.jar
-rm -f system/framework/requestsync.jar
-rm -f system/framework/svc.jar
-rm -f system/framework/uiautomator.jar
-rm -rf system/lib
-cp -rf ../../../miui/HDPI/system/lib system
-rm -rf system/media/audio
-rm -rf system/media/lockscreen
-rm -rf system/media/wallpaper
-rm -f system/media/*.emd
-rm -f system/media/*.zip
-rm -rf system/media/theme/miui_mod_icons
-rm -f system/media/theme/simple_lockscreen.mtz
-rm -rf system/semc
-rm -rf system/usr
-rm -rf system/xbin
-zip -q -r "../../unsigned-miuixperia-v5-ota-to-$version.zip" 'META-INF' 'system' 'prop-ota'
 cd ../..
 fi
 . ../build/envsetup.sh
@@ -217,12 +134,8 @@ java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsi
 rm -r "unsigned-miuixperia-v5-neov-$version.zip"
 java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-arcs-$version.zip" "miuixperia-v5-arcs-$version.zip"
 rm -r "unsigned-miuixperia-v5-arcs-$version.zip"
-java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-ota-to-$version.zip" "miuixperia-v5-ota-to-$version.zip"
-rm -r "unsigned-miuixperia-v5-ota-to-$version.zip"
-echo -e "OTA values are\n"
-grep 'miota=' other/prop-ota
+
 echo -e "MD5 sums are\n"
 md5sum -b "miuixperia-v5-neov-$version.zip"
 md5sum -b "miuixperia-v5-arcs-$version.zip"
-md5sum -b "miuixperia-v5-ota-to-$version.zip"
 read -p "Done, miuixperia-v5-neov/arcs-$version.zip and OTA have been created in root of mt11i directory, copy to sd and flash it!"

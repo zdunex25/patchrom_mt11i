@@ -41,11 +41,6 @@ ro.config.sms_delivered_sound=MessageComplete.ogg
 # Miui version
 ro.miui.ui.version.name=V5
 
-# Updater
-updater.id=miuixperia-v5
-updater.time=20130203-0027
-updater.ver=eng.20130203.002703
-
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
