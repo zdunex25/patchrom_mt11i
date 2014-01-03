@@ -25,6 +25,7 @@ if [ $1 = "MiuiHome" ];then
 fi
 
 if [ $1 = "Music" ];then
+	sed -i 's#@string/app_class#com.miui.player.Application#g' out/$1/AndroidManifest.xml
 	$XMLMERGYTOOL $1/res/values $2/res/values
 fi
 
