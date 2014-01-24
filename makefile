@@ -14,7 +14,7 @@ local-modified-apps := Camera Fmapplication VFX
 local-modified-jars :=
 
 # All apks from MIUI
-local-miui-removed-apps := MediaProvider MiuiVideo SuperMarket Updater VoiceAssist
+local-miui-removed-apps := MediaProvider MiuiVideo SuperMarket Updater VoiceAssist GameCenter GameCenterSDKService
 
 local-miui-modified-apps := MiuiHome Phone ThemeManager Mms Settings Music BugReport XiaomiServiceFramework
 
