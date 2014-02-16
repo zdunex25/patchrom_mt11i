@@ -11,9 +11,6 @@ mkdir -p Settings/smali/com/android/settings
 mkdir XiaomiServiceFramework
 mkdir temp
 cd temp
-'../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Mms.apk'
-cat 'Mms/AndroidManifest.xml' | sed -e "s/android:screenOrientation=\"portrait\" //g" \
-				| sed -e "s/ android:screenOrientation=\"portrait\"//g" > '../Mms/AndroidManifest.xml'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Settings.apk'
 cat 'Settings/res/xml/settings_headers.xml' | sed -e "s/<header android:id=\"@id\/manufacturer_settings\">/<header android:title=\"@string\/header_category_xperia\" \/>/g" \
 					| sed -e 's/    <intent android:action=\"com.android.settings.MANUFACTURER_APPLICATION_SETTING\" \/>/<header android:icon=\"@drawable\/ic_ringer_volume_settings\" android:title=\"@string\/viper_settings\">\
@@ -48,12 +45,6 @@ cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings2.smali' | sed -e
     move-object\/from16 v2, v23\
 \
     invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V/' > '../Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali'
-'../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/BugReport.apk'
-grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'BugReport/AndroidManifest.xml' >> '../BugReport/AndroidManifest.xml'
-'../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/XiaomiServiceFramework.apk'
-grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'XiaomiServiceFramework/AndroidManifest.xml' >> '../XiaomiServiceFramework/AndroidManifest.xml'
-'../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/PaymentService.apk'
-grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'PaymentService/AndroidManifest.xml' >> '../PaymentService/AndroidManifest.xml'
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/LBESEC_MIUI.apk'
 grep -v '<action android:name="android.intent.action.MAIN" />' 'LBESEC_MIUI/AndroidManifest.xml' >> 'LBESEC_MIUI/AndroidManifest2.xml'
 grep -v '<category android:name="android.intent.category.LAUNCHER" />' 'LBESEC_MIUI/AndroidManifest2.xml' > 'LBESEC_MIUI/AndroidManifest.xml'
