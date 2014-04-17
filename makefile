@@ -14,7 +14,7 @@ local-modified-apps := Camera Fmapplication VFX
 local-modified-jars :=
 
 # All apks from MIUI
-local-miui-removed-apps := MediaProvider MiuiVideo SuperMarket Updater VoiceAssist GameCenter GameCenterSDKService
+local-miui-removed-apps := MediaProvider SuperMarket Updater VoiceAssist GameCenter GameCenterSDKService
 
 local-miui-modified-apps := MiuiHome Phone ThemeManager Mms Settings Music BugReport XiaomiServiceFramework
 
@@ -43,7 +43,8 @@ include $(PORT_BUILD)/porting.mk
 #updater := $(ZIP_DIR)/META-INF/com/google/android/updater-script
 #pre_install_data_packages := $(TMP_DIR)/pre_install_apk_pkgname.txt
 local-pre-zip-misc:
-#	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
+	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
+	cp other/apns-conf.xml $(ZIP_DIR)/system/etc/apns-conf.xml
 	cp other/boot.img $(ZIP_DIR)/boot.img
 	cp other/system_fonts.xml $(ZIP_DIR)/system/etc/system_fonts.xml
 	
@@ -54,7 +55,7 @@ local-pre-zip-misc:
 	
 	@echo Add various apps
 #	cp other/MiuiUpdater.apk $(ZIP_DIR)/system/app/MiuiUpdater.apk
-	cp other/MiuiWeather.apk $(ZIP_DIR)/system/app/MiuiWeather.apk
+#	cp other/MiuiWeather.apk $(ZIP_DIR)/system/app/MiuiWeather.apk
 	
 	@echo Add various tweaks
 	cp other/08zram $(ZIP_DIR)/system/etc/init.d/08zram
