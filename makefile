@@ -16,7 +16,11 @@ local-modified-jars :=
 # All apks from MIUI
 local-miui-removed-apps := MediaProvider SuperMarket Updater VoiceAssist GameCenter GameCenterSDKService
 
-local-miui-modified-apps := MiuiHome Phone ThemeManager Mms Settings Music BugReport XiaomiServiceFramework
+local-miui-modified-apps := AntiSpam Backup Browser BugReport Calculator Calendar CalendarProvider CloudService Contacts \
+			ContactsProvider DeskClock DownloadProvider DownloadProviderUi FileExplorer MiuiCompass \
+			MiuiGallery MiuiHome MiuiSystemUI MiuiVideo MiWallpaper Mms Music NetworkAssistant2 Notes PackageInstaller Phone \
+			PaymentService Provision QuickSearchBox Settings SoundRecorder TelephonyProvider ThemeManager VpnDialogs \
+			Weather WeatherProvider XiaomiServiceFramework YellowPage
 
 # Config density for co-developers to use the aaps with HDPI or XHDPI resource,
 # Default configrations are HDPI for ics branch and XHDPI for jellybean branch
@@ -24,7 +28,7 @@ local-density := HDPI
 
 # All apps need to be removed from original ZIP file
 local-remove-apps   := SystemUI Gallery2 Launcher2 VideoEditor PicoTts VoiceDialer \
-		HoloSpiralWallpaper MagicSmokeWallpapers PhaseBeam Galaxy4 NoiseField \
+		HoloSpiralWallpaper MagicSmokeWallpapers PhaseBeam Galaxy4 NoiseField Exchange2 \
 		#antstatenotifer FmRxService antradioservice Fmapplication
 
 # To include the local targets before and after zip the final ZIP file, 
@@ -54,6 +58,8 @@ local-pre-zip-misc:
 #	cp -f other/extras/lock_wallpaper $(ZIP_DIR)/system/media/theme/default/lock_wallpaper
 	
 	@echo Add various apps
+	cp other/Email.apk $(ZIP_DIR)/system/app/Email.apk
+	cp other/XiaomiAuthenticator.apk $(ZIP_DIR)/system/app/XiaomiAuthenticator.apk
 #	cp other/MiuiUpdater.apk $(ZIP_DIR)/system/app/MiuiUpdater.apk
 #	cp other/MiuiWeather.apk $(ZIP_DIR)/system/app/MiuiWeather.apk
 	
@@ -79,7 +85,7 @@ local-pre-zip-misc:
 	cp -f other/bootanimation.zip $(ZIP_DIR)/system/media/bootanimation.zip
 	
 	@echo Remove usless stuff
-	rm -rf $(ZIP_DIR)/data/media/preinstall_apps/*.apk
+	rm -rf $(ZIP_DIR)/data/miui/apps/*.apk
 	rm -rf $(ZIP_DIR)/system/media/video/*.mp4
 	rm -rf $(ZIP_DIR)/system/tts/lang_pico/*.bin
 

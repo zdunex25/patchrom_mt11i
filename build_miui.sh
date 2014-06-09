@@ -2,14 +2,11 @@
 cd ../..
 export PATH=$PATH:/home/$USER/android-sdk-linux/tools:/home/$USER/android-sdk-linux/platform-tools
 cd patchromv5
-. build/envsetup.sh
+. build/envsetup.sh -p mt11i
 cd mt11i
-mkdir BugReport
-mkdir PaymentService
+mkdir AntiSpam Backup BugReport Calculator Calendar CalendarProvider CloudService Contacts ContactsProvider DeskClock DownloadProvider DownloadProviderUi Email FileExplorer MiuiCompass MiuiGallery MiuiVideo MiWallpaper NetworkAssistant2 Notes PackageInstaller PaymentService Provision QuickSearchBox SoundRecorder TelephonyProvider Transfer VpnDialogs Weather WeatherProvider XiaomiServiceFramework YellowPage temp
 mkdir Settings/res/xml
 mkdir -p Settings/smali/com/android/settings
-mkdir XiaomiServiceFramework
-mkdir temp
 cd temp
 '../../tools/apktool' --quiet d -f '../../miui/HDPI/system/app/Settings.apk'
 cat 'Settings/res/xml/settings_headers.xml' | sed -e "s/<header android:id=\"@id\/manufacturer_settings\">/<header android:title=\"@string\/header_category_xperia\" \/>/g" \
@@ -21,7 +18,6 @@ cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings.smali' | sed -e 
     return-void/' > 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings2.smali'
 cat 'Settings/smali/com/android/settings/MiuiDeviceInfoSettings2.smali' | sed -e 's/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V/invoke-direct {v0, v1, v2}, Lcom\/android\/settings\/MiuiDeviceInfoSettings;->setStringSummary(Ljava\/lang\/String;Ljava\/lang\/String;)V\
 \
-    .line 116\
     const-string v22, \"build_author\"\
 \
     new-instance v23, Ljava\/lang\/StringBuilder;\
@@ -63,35 +59,36 @@ then
 unzip -q out/fullota.zip -d out/temp
 echo -e "\nPreparing flashable zips.."
 
-a="assert(getprop(\"ro.product.device\") == \"haida\" ||"
-b="ui_print(\" \")\;"
-c="       getprop(\"ro.build.product\") == \"haida\" || getprop(\"ro.product.device\") == \"MT11i\" || getprop(\"ro.build.product\") == \"MT11i\");"
-d="ui_print(\"MIUI XPERIA by Z25\")\;"
-e="ui_print(\"Update Boot image...\")\;"
-f="ui_print(\"Finishing installation...\")\;"
-cat 'out/temp/META-INF/com/google/android/updater-script' | sed -e "s/$a/$b/g" \
-							| sed -e "s/$c/$d/g" \
-							| sed -e "s/$e/$f/g" > 'out/temp/META-INF/com/google/android/updater-script2'
-cp 'out/temp/META-INF/com/google/android/updater-script2' 'out/temp/META-INF/com/google/android/updater-script'
-rm -f 'out/temp/META-INF/com/google/android/updater-script2'
-
 x=`date +%Y`
 y=`date +.%-m.%-d`
 z=${x: -1:1}
 version=$z$y
 time=`date +%c`
 utc=`date +%s`
-cat 'out/temp/system/build.prop' | sed -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" \
-				| sed -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$utc/g" \
-				| sed -e "s/ro\.build\.version\.incremental=.*/ro\.build\.version\.incremental=$version/g" \
-				| sed -e "s/ro\.product\.mod_device=.*/ro\.product\.mod_device=mt11i/g" > 'out/temp/system/build2.prop'
-cp 'out/temp/system/build2.prop' 'out/temp/system/build.prop'
-rm -f 'out/temp/system/build2.prop'
+
+cp -f other/updater-script-rom out/temp/META-INF/com/google/android/updater-script
+
+sed -i -e "s/ro\.build\.date=.*/ro\.build\.date=$time/g" out/temp/system/build.prop
+sed -i -e "s/ro\.build\.date\.utc=.*/ro\.build\.date\.utc=$utc/g" out/temp/system/build.prop
+sed -i -e "s/ro\.build\.version\.incremental=.*/ro\.build\.version\.incremental=$version/g" out/temp/system/build.prop
+sed -i -e "s/ro\.product\.mod_device=.*/ro\.product\.mod_device=mt11i_z25/g" out/temp/system/build.prop
 
 mv -f 'other/LBESEC_MIUI.apk' 'out/temp/system/app/LBESEC_MIUI.apk'
 mkdir -p out/temp/system/usr/extras
 cp -r other/extras/hallon out/temp/system/usr/extras
 cp other/extras/hallon.sh out/temp/system/bin/hallon.sh
+cp -f -r other/extras/data/* out/temp/system/media/theme/.data
+cp -f ../miuipolska/Polish/extras/system/etc/* out/temp/system/etc
+
+mv out/temp/system/media/theme/default/alarmscreen out/temp/system/media/theme/default/alarmscreen.zip
+mv out/temp/system/media/theme/default/lockscreen out/temp/system/media/theme/default/lockscreen.zip
+cd ../miuipolska/Polish/extras/alarmscreen
+zip ../../../../mt11i/out/temp/system/media/theme/default/alarmscreen.zip -q strings/strings_pl.xml
+cd ../lockscreen
+zip ../../../../mt11i/out/temp/system/media/theme/default/lockscreen.zip -q advance/strings/strings_pl.xml
+cd ../../../../mt11i
+mv out/temp/system/media/theme/default/alarmscreen.zip out/temp/system/media/theme/default/alarmscreen
+mv out/temp/system/media/theme/default/lockscreen.zip out/temp/system/media/theme/default/lockscreen
 
 cd 'out/temp'
 rm -r 'META-INF/CERT.RSA'
@@ -113,12 +110,9 @@ cd ../..
 fi
 . ../build/envsetup.sh
 cd mt11i
-rm -f 'Mms/AndroidManifest.xml'
-rm -rf 'BugReport'
-rm -rf 'PaymentService'
 rm -rf 'Settings/res/xml'
 rm -rf 'Settings/smali'
-rm -rf 'XiaomiServiceFramework'
+rmdir AntiSpam Backup BugReport Calculator Calendar CalendarProvider CloudService Contacts ContactsProvider DeskClock DownloadProvider DownloadProviderUi Email FileExplorer MiuiCompass MiuiGallery MiuiVideo MiWallpaper NetworkAssistant2 Notes PackageInstaller PaymentService Provision QuickSearchBox SoundRecorder TelephonyProvider Transfer VpnDialogs Weather WeatherProvider XiaomiServiceFramework YellowPage
 make clean
 echo Signing rom and ota
 java -jar 'other/signapk.jar' 'other/testkey.x509.pem' 'other/testkey.pk8' "unsigned-miuixperia-v5-neov-$version.zip" "miuixperia-v5-neov-$version.zip"
@@ -129,4 +123,7 @@ rm -r "unsigned-miuixperia-v5-arcs-$version.zip"
 echo -e "MD5 sums are\n"
 md5sum -b "miuixperia-v5-neov-$version.zip"
 md5sum -b "miuixperia-v5-arcs-$version.zip"
-read -p "Done, miuixperia-v5-neov/arcs-$version.zip and OTA have been created in root of mt11i directory, copy to sd and flash it!"
+
+grep -v 'aapt: warning: string*' 'miui_log.log' >> 'miui_log_xperia.log'
+rm miui_log.log
+read -p "Done, miuixperia-v5-neov/arcs-$version.zip have been created in root of mt11i directory, copy to sd and flash it!"

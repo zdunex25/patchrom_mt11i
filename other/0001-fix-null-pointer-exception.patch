@@ -1,0 +1,62 @@
+From 051608b130fbf6908c3cc62a366af34e1cb34401 Mon Sep 17 00:00:00 2001
+From: mochangming <mochangming@xiaomi.com>
+Date: Fri, 18 Apr 2014 11:17:30 +0800
+Subject: [PATCH 1/7] fix null pointer exception
+
+MIUI-24836
+
+Change-Id: I845ae367bc159e099f435e7dea108981705b712b
+Signed-off-by: mochangming <mochangming@xiaomi.com>
+---
+ .../android/webkit/HTML5VideoFullScreen$3.smali    |    9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/framework.jar.out/smali/android/webkit/HTML5VideoFullScreen$3.smali b/framework.jar.out/smali/android/webkit/HTML5VideoFullScreen$3.smali
+index f6f06f1..976a423 100644
+--- a/framework.jar.out/smali/android/webkit/HTML5VideoFullScreen$3.smali
++++ b/framework.jar.out/smali/android/webkit/HTML5VideoFullScreen$3.smali
+@@ -46,12 +46,17 @@
+ 
+     iget-object v0, v0, Landroid/webkit/HTML5VideoFullScreen;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
+ 
++    if-eqz v0, :cond_miui_0
++
+     invoke-virtual {v0}, Landroid/webkit/HTML5VideoViewProxy;->dispatchOnStopFullScreen()V
+ 
++    :cond_miui_0
+     invoke-static {}, Landroid/webkit/HTML5VideoFullScreen;->access$800()Landroid/widget/FrameLayout;
+ 
+     move-result-object v0
+ 
++    if-eqz v0, :cond_miui_1
++
+     iget-object v1, p0, Landroid/webkit/HTML5VideoFullScreen$3;->this$0:Landroid/webkit/HTML5VideoFullScreen;
+ 
+     #calls: Landroid/webkit/HTML5VideoFullScreen;->getSurfaceView()Landroid/view/SurfaceView;
+@@ -61,6 +66,7 @@
+ 
+     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
+ 
++    :cond_miui_1
+     invoke-static {}, Landroid/webkit/HTML5VideoFullScreen;->access$900()Landroid/view/View;
+ 
+     move-result-object v0
+@@ -86,6 +92,8 @@
+ 
+     iget-object v0, v0, Landroid/webkit/HTML5VideoFullScreen;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
+ 
++    if-eqz v0, :cond_miui_2
++
+     invoke-virtual {v0}, Landroid/webkit/HTML5VideoViewProxy;->getWebView()Landroid/webkit/WebViewClassic;
+ 
+     move-result-object v0
+@@ -109,5 +117,6 @@
+ 
+     sput v0, Landroid/webkit/HTML5VideoView;->mCurrentState:I
+ 
++    :cond_miui_2
+     return-void
+ .end method
+-- 
+1.7.9.5
+

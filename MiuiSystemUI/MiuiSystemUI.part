@@ -1,0 +1,23 @@
+
+--- a/MiuiSystemUI/res/values/public.xml
++++ b/MiuiSystemUI/res/values/public.xml
+@@ -436,6 +436,7 @@
+     <public type="layout" name="task_item_view" id="0x7f030032" />
+     <public type="layout" name="task_manager" id="0x7f030033" />
+     <public type="layout" name="torch_main" id="0x7f030034" />
++    <public type="layout" name="status_bar_simple_blank" id="0x7f030035" />
+     <public type="layout" name="status_bar_search_panel" id="0x7f03001d" />
+     <public type="anim" name="notification_final_disappear" id="0x7f040000" />
+     <public type="anim" name="priority_alert_enter" id="0x7f040001" />
+
+--- a/MiuiSystemUI/res/layout/status_bar_expanded.xml
++++ b/MiuiSystemUI/res/layout/status_bar_expanded.xml
+@@ -2,7 +2,7 @@
+ <com.android.systemui.statusbar.phone.TrackingView android:id="@id/notification_panel" android:focusable="true" android:descendantFocusability="afterDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent"
+   xmlns:android="http://schemas.android.com/apk/res/android">
+     <LinearLayout android:orientation="vertical" android:id="@id/expanded_fixed" android:layout_width="fill_parent" android:layout_height="fill_parent">
+-        <include layout="@layout/status_bar_simple" />
++        <include layout="@layout/status_bar_simple_blank" />
+         <LinearLayout android:orientation="vertical" android:id="@id/expanded_fixed_backgroud" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+             <include layout="@layout/status_bar_expanded_header" />
+             <com.android.systemui.statusbar.phone.ExpandedView android:id="@id/expanded_contents" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
